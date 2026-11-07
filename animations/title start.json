@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "playmusic", "none" ], [ "playsound", "collectable9" ], [ "triggeranimation", "fade in" ], [ "sleep", "1" ], [ "setnumber", "world number", "=", "1" ], [ "setnumber", "course number", "=", "0" ], [ "triggeranimation", "world map load" ] ],
+    "conditions": [ ],
+    "triggers": [ [ "animationtrigger", "title start" ] ]
+}

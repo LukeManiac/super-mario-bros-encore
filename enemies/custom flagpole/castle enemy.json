@@ -1,0 +1,32 @@
+{
+    "quadcount":18,
+    "drawback":true,
+    "spawnonload":true,
+    "spawnoffsety":-1,
+
+    "width":0,
+    "height":0,
+
+    "nospritesets":true,
+    "resistseverything":true,
+    "dontstopmario":true,
+
+    "static":true,
+    "active":false,
+
+    "quadno":1,
+
+    "rightclick":[
+        ["text","type:"],
+		["dropdown",[[],[["quadno",2]],[["quadno",3]],[["quadno",4]],[["quadno",5]],[["quadno",6]],[["quadno",7]],[["quadno",8]],[["quadno",9]],[["quadno",10]],[["quadno",11]],[["quadno",12]],[["quadno",13]],[["quadno",14]],[["quadno",15]],[["quadno",16]],[["quadno",17]],[["quadno",18]]],11,["overworld","underground","castle","underwater","ghost house","desert","jungle","snow","volcano","autumn","beach","mountain","space","garden","pipeland","airship","bonus","sky"]],
+		["checkbox",[[],[["spawnoffsety",5],["customscissor",[-2,-5,5,5]]]],"big?"]
+    ],
+	"rightclickdefaults":["overworld","false"],
+	"rightclicktypes":["string","bool"],
+	"casesensitive":true,
+
+    "offsetX":0,
+    "offsetY":16,
+    "quadcenterX":72,
+    "quadcenterY":168
+}

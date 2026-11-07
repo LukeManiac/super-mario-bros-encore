@@ -1,0 +1,22 @@
+base=reskinned koopa troopa red
+{
+	"description":"place on empty tile - blue koopa troopa, faster in movement (both regular and shell)",
+	"animationstart":19,
+    "animationspeed":0.1,
+	"smallanimationstart":23,
+	"smallquad":23,
+	"smallspeed":15,
+	"wigglequad":27,
+	"wiggledelay":0.1,
+	"resettime":6,
+	"wiggletime":1,
+	"truffleshufflespeed":4,
+	"truffleshuffleacceleration":16,
+
+	"deathproperties":{
+        "animationtype":"frames",
+        "animationframes":4,
+        "animationstart":23,
+        "animationspeed":0.1
+	}
+}

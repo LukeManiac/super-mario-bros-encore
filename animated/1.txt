@@ -1,0 +1,4 @@
+collision=true
+coinblock=true
+breakable=hard
+delay=29.41176471

@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "disableanimation" ], [ "addtime", "-1" ], [ "addpoints", "50" ], [ "enableanimation" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "whennumber", "time scroll", "=", "1" ] ]
+}

@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "animationoutput", "okay let's do this", "on" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "whennumber", "title set", "=", "1" ] ]
+}

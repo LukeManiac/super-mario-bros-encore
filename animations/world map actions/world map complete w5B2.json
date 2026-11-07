@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "disableanimation" ], [ "animationoutput", "w52complete", "on" ], [ "enableanimation" ] ],
+    "conditions": [ ],
+    "triggers": [ [ "whennumber", "w52complete", "=", "1" ] ]
+}

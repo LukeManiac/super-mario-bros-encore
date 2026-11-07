@@ -1,0 +1,90 @@
+{
+	"hidden":true,
+
+	"width":0,
+	"height":0,
+
+	"active":true,
+	"static":true,
+
+	"category":1,
+	"mask":[true,true,true,true,true,true,true,true,true,true,true],
+
+	"xrelativetocamera":12,
+	"yrelativetocamera":0,
+
+	"text":"",
+	"outline":true,
+	"centered":true,
+	"showtext":false,
+
+	"spawnsenemy":"clonedraw",
+	"spawnenemydelays":[99e99],
+	"spawnsetparameters":[["drawback",true]],
+	"spawnsetparametersbeforespawn":true,
+
+	"timer":0,
+	"activetimer":0,
+	"decreasenow":false,
+	"endy":0.9375,
+	"customtimer":[
+		[0,["set","starty"],["property","yrelativetocamera"]],
+		[0,["subtract","starty"],2.5625],
+		[0,["set","yrelativetocamera"],["property","starty"]],
+
+		[0,"spawnenemy"],
+		[0,["set","quadgroup"],["property","spawnedenemies"]],
+		[0,"setframe",1],
+		[0,["set","spawnsenemy"],["property","quad"]],
+		[0,["set","spawnenemy"],["property","addoutput"]],
+		[0,"spawnenemy"],
+
+		[0,["set","customtimertimer"],0],
+		[0,["set","showtext"],true],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["add","activetimer"],["property","customtimertimer"]],
+
+		[0,["if","decreasenow","~=",true],["add","currentcustomtimerstage"],5],
+			[0,["subtract","timer"],["property","customtimertimer"]],
+
+			[0,["if","yrelativetocamera",">",["property","starty"]],["add","currentcustomtimerstage"],2],
+				[0,["set","instantdelete"],true],
+				[0,["set","currentcustomtimerstage"],99e99],
+
+			[0,["add","currentcustomtimerstage"],1],
+
+		[0,["add","timer"],["property","customtimertimer"]],
+
+		[0,["max","timer"],0],
+		[0,["min","timer"],1],
+
+		[0,["set","invtimer"],1],
+		[0,["subtract","invtimer"],["property","timer"]],
+
+		[0,["set","invtimer_cube"],["property","invtimer"]],
+		[0,["pow","invtimer_cube"],3],
+
+		[0,["set","result"],1],
+		[0,["subtract","result"],["property","invtimer_cube"]],
+
+		[0,["set","diff"],["property","endy"]],
+		[0,["subtract","diff"],["property","starty"]],
+
+		[0,["set","scaleddiff"],["property","diff"]],
+		[0,["multiply","scaleddiff"],["property","result"]],
+
+		[0,["set","yrelativetocamera"],["property","starty"]],
+		[0,["add","yrelativetocamera"],["property","scaleddiff"]],
+
+		[0,["set","downmark"],["property","activeduration"]],
+		[0,["subtract","downmark"],1],
+
+		[0,["if","activetimer",">=",["property","downmark"],"and","decreasenow","==",false],["set","decreasenow"],true],
+
+		[0,["set","currentcustomtimerstage"],["property","loopline"]]
+	],
+	"dontloopcustomtimer":true
+}

@@ -1,0 +1,16 @@
+base=reskinned koopa troopa
+{
+	"description":"place on empty tile - red koopa troopa, turns around as it hits a cliff",
+    "animationstart":10,
+    "smallanimationstart":14,
+    "smallquad":14,
+    "wigglequad":18,
+    "turnaroundoncliff":true,
+
+    "deathproperties":{
+        "animationtype":"frames",
+        "animationframes":4,
+        "animationstart":14,
+        "animationspeed":0.1
+	}
+}

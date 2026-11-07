@@ -1,0 +1,27 @@
+base=nil
+{
+    "instantdelete":false,
+    "customtimer":[
+        [0,["if","afterdialog","notexists","","or","afterdialog","==",["property","npcid"]],["add","currentcustomtimerstage"],2],
+
+        [0,["set","npcid"],["property","afterdialog"]],
+        [0,"spawnenemy"],
+
+        [0,["set","playsound"],["property","triggeranimation"]],
+        [0,["if","animtriggeronfinish","exists",""],"playsound",["property","animtriggeronfinish"]],
+
+        [0,["if","nodeathtransform","==",true],["set","transformenemyanimationondeath"]],
+        [0,["set","lifetimer"],0]
+    ],
+    "dontloopcustomtimer":true,
+
+    "transforms":true,
+    "transformsinto":"nil",
+    "transformtrigger":"lifetime",
+    "transformenemyanimationondeath":"dialogend p",
+    "treattransformasdeath":true,
+
+    "spawnsenemy":"dialog spawner",
+    "spawnenemydelays":[99e99],
+    "spawnpassedparameters":["npcid","pnum"]
+}

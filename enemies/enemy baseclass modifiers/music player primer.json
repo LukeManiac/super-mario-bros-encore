@@ -1,0 +1,68 @@
+base=text drawing primer
+{
+	"description":"place above energy catcher, with a music changer linked to it - music player primer",
+	"varsets":[["musicclass","musicclass"],["musicplay","musicplay"],["musicreset","musicreset"],["musickill","musickill"],["music","music"]],
+
+	"music":"none",
+	"customtimer":[
+        [0,["set","drawable"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",["property","sarelease"],"notexists",""],["subtract","currentcustomtimerstage"],2],
+
+		[0,["if",["property","musicclass"],"notexists",""],["add","currentcustomtimerstage"],8],
+		[0,["if",["property","musicreset"],"notexists",""],["add","currentcustomtimerstage"],7],
+		[0,["if",["property","musickill"],"notexists",""],["add","currentcustomtimerstage"],6],
+		[0,["if",["property","musicplay"],"notexists",""],["add","currentcustomtimerstage"],5],
+		[0,["if",["property","music"],"notexists",""],["add","currentcustomtimerstage"],4],
+			[0,["set","blowrange"],[0.25,0.5,0,0]],
+			[0,["set","customtimertimer"],0],
+			[0,["set","lifetimer"],0],
+			[0,["set","customtimertimer"],0],
+
+		[0,"---------------------------------------Clone music player"],
+        [0,["set","playsound"],["property","spawnenemy"]],
+
+		[0,["set","globalcollide"],["property","addoutput"]],
+        [0,["set","customtimertimer"],0],
+		[0,["set","globalcollide"]],
+
+		[0,["if",["property","musicclass"],"exists",""],["add","currentcustomtimerstage"],10],
+			[0,["set","quadgroup"],["property","outtable"]],
+			[0,"setframe",1],
+			[0,["set","quadgroup"],["property","quad"]],
+
+			[0,"setframe",2],
+			[0,["set","quadgroup"],["property","quad"]],
+
+			[0,"setframe","outtable"],
+			[0,["set","quadgroup"],["property","quad"]],
+
+			[0,"setframe",1],
+			[0,["set","quadgroup"],["property","quad"]],
+
+			[0,"setframe",1],
+			[0,["set","musicclass"],["property","quad"]],
+
+		[0,["set","quadgroup"],["property","musicclass"]],
+
+		[0,"setframe","play"],
+		[0,["set","musicplay"],["property","quad"]],
+
+		[0,"setframe","stop"],
+		[0,["set","musicreset"],["property","quad"]],
+
+		[0,"setframe","cease"],
+		[0,["set","musickill"],["property","quad"]],
+
+        [0,["set","table"],["property","__baseclass"]],
+        [0,"playsound","multivarset"],
+
+        [0,["set","blowrange"],[0.25,0.5,0,0]],
+		[0,["set","customtimertimer"],0],
+
+        [0,["set","lifetimer"],0]
+	],
+
+	"animationtriggerondeath":"musicprep complete"
+}

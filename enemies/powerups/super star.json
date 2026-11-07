@@ -1,0 +1,15 @@
+base=powerup
+{
+	"description":"place anywhere - super star",
+    "hidden":false,
+
+	"mushroomifmariosmall":false,
+	"powerupbounces":true,
+	"powerupmovement":"truffleshuffle",
+	"starify":true,
+	"rainboweffect":true,
+	"rollanimation":true,
+	"inedible":true,
+
+	"transformenemyanimationondeath":"starreset"
+}

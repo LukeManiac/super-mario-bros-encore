@@ -1,0 +1,220 @@
+{
+    "hidden":true,
+    "drawable":false,
+    "static":true,
+    "active":true,
+    "resistseverything":true,
+    "dontstopmario":true,
+    "gravity":0,
+    "width":0.25,
+    "height":9,
+    "mask":[true,
+			true,false,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true],
+
+    "spawnpassedparameters":["playerobj","playernumber"],
+    "spawnpassedparametersbeforespawn":true,
+    "spawnsetparametersbeforespawn":true,
+
+    "heighttable":["oneup",8000,4000,2000,1000,800,400,200,100],
+    "gottheflag":false,
+    "notatcastletimer":0,
+    "v":{
+        "graphiccolor":[255,255,255],
+        "drawable":true
+    },
+
+    "outi":1,
+    "customtimer":[
+        [0,["set","drawable"]],
+        [0,["set","playsound"],["property","spawnenemy"]],
+        [0,["set","spawnenemy"],["property","sarelease"]],
+
+        [0,["set","passivecollide"],["property","addoutput"]],
+        [0,["set","quadgroup"],["property","spawner"]],
+
+        [0,"setframe","startx"],
+        [0,["set","spawnx"],["property","quad"]],
+        [0,["add","spawnx"],2],
+
+        [0,"setframe","starty"],
+        [0,["set","spawny"],["property","quad"]],
+
+        [0,"setframe","castlex"],
+        [0,["set","castleposx"],["property","quad"]],
+
+        [0,"setframe","castley"],
+        [0,["set","castleposy"],["property","quad"]],
+
+        [0,"setframe","startx"],
+        [0,["max","castleposx"],["property","quad"]],
+
+        [0,"setframe","starty"],
+        [0,["max","castleposy"],["property","quad"]],
+
+        [0,"setframe","notatcastleduration"],
+        [0,["set","notatcastleduration"],["property","quad"]],
+        [0,["max","notatcastleduration"],3],
+
+        [0,["if","castleposx","<=",["property","spawnx"]],["set","castleposx"],99e99],
+        [0,["if","castleposy","<=",["property","spawny"]],["set","castleposy"],99e99],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+        [0,["set","customtimertimer"],0],
+
+        [0,["set","quadgroup"],["property","outtable"]],
+        [0,"setframe",["property","outi"]],
+
+        [0,["if","quad","notexists",""],["add","currentcustomtimerstage"],29],
+            [0,["add","outi"],1],
+            [0,["set","quadgroup"],["property","quad"]],
+            [0,"setframe",1],
+
+            [0,["if","quad","~=","player"],["add","currentcustomtimerstage"],25],
+                [0,"setframe",2],
+                [0,["set","playerobj"],["property","quad"]],
+                [0,["set","quadgroup"],["property","quad"]],
+                [0,"setframe","finishedcourse"],
+
+                [0,["if","quad","==",true],["add","currentcustomtimerstage"],20],
+                    [0,"setframe","playernumber"],
+                    [0,["set","playernumber"],["property","quad"]],
+
+                    [0,"setframe","y"],
+                    [0,["set","heighty"],["property","quad"]],
+                    [0,["subtract","heighty"],["property","y"]],
+                    [0,"setframe","height"],
+
+                    [0,["add","heighty"],["property","quad"]],
+                    [0,["add","heighty"],0.25],
+
+                    [0,["round","heighty"]],
+                    [0,["max","heighty"],1],
+                    [0,["min","heighty"],9],
+
+                    [0,["set","customtimertimer"],0],
+                    [0,"playsound","flagside flip"],
+
+                    [0,["set","quadgroup"],["property","heighttable"]],
+                    [0,"setframe",["property","heighty"]],
+                    [0,["set","points"],["property","quad"]],
+
+                    [0,["set","spawnpassedparameters"],["points","playernumber"]],
+                    [0,["set","spawnsetparameters"],[
+                        ["spawnoffsetx",0.75],
+                        ["spawnoffsety",0],
+                        ["lifetime",1.5],
+                        ["nocamerastick",true],
+                        ["donotautovisible",true],
+                        ["drawback",true],
+                        ["outlined",true]
+                    ]],
+                    [0,"playsound","score note"],
+                    [0,["set","gottheflag"],true],
+
+        [0,["if","gottheflag","~=",true],["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,["set","playsoundstore"],["property","playsound"]],
+        [0,["set","playsound"]],
+        [0,["if","heighty","==",1],"playsound","oneup"],
+        [0,["set","playsound"],["property","playsoundstore"]],
+
+        [0,["set","spawnpassedparameters"],["table","index","value"]],
+        [0,["set","customtimertimer"],0],
+        [0,["set","customtimertimer"],0],
+        [0,["set","customtimertimer"],0],
+
+        [0,["set","quadgroup"],["property","spawnedenemies"]],
+        [0,"setframe",2],
+        [0,["set","obj"],["property","quad"]],
+        [0,["set","table"],["property","quad"]],
+
+        [0,["set","quadgroup"],["property","playerobj"]],
+        [0,"setframe","y"],
+        [0,["set","scorenotey"],["property","quad"]],
+
+        [0,"setframe","height"],
+        [0,["divide","quad"],2],
+        [0,["add","scorenotey"],["property","quad"]],
+
+        [0,["set","index"],"y"],
+        [0,["set","value"],["property","scorenotey"]],
+        [0,"playsound","varset"],
+
+        [0,"spawnenemy"],
+
+        [0,["set","playsound"],["property","triggeranimation"]],
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,["set","quadgroup"],["property","spawnedenemies"]],
+        [0,"setframe",1],
+        [0,["set","quadgroup"],["property","quad"]],
+
+        [0,["set","customtimertimer"],0],
+
+        [0,"setframe","completed"],
+        [0,["if","quad","~=",true],["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,["set","quadgroup"],["property","playerobj"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,"setframe","x"],
+        [0,["set","x"],["property","quad"]],
+
+        [0,"setframe","y"],
+        [0,["set","y"],["property","quad"]],
+
+        [0,"setframe","width"],
+        [0,["set","width"],["property","quad"]],
+
+        [0,"setframe","height"],
+        [0,["set","height"],["property","quad"]],
+
+        [0,["add","y"],["property","quad"]],
+
+        [0,["set","castlex"],["property","castleposx"]],
+        [0,["set","castley"],["property","castleposy"]],
+
+        [0,["set","centretilewidth"],1],
+        [0,["subtract","centretilewidth"],["property","width"]],
+        [0,["divide","centretilewidth"],2],
+
+        [0,["subtract","castlex"],["property","centretilewidth"]],
+        [0,["subtract","castlex"],["property","width"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["add","notatcastletimer"],["property","customtimertimer"]],
+
+        [0,["if","notatcastletimer","<",["property","notatcastleduration"]],["add","currentcustomtimerstage"],2],
+            [0,["set","castlex"],["property","x"]],
+            [0,["set","castley"],["property","y"]],
+
+        [0,["subtract","castley"],["property","height"]],
+
+        [0,["if","x","<",["property","castlex"],"or","y","<",["property","castley"]],["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,"playsound","timecount start"],
+
+        [0,["set","x"],["property","castlex"]],
+        [0,["set","y"],["property","castley"]],
+
+        [0,["set","obj"],["property","playerobj"]],
+        [0,["set","v"],{"drawable":false,"red":true,"animation":false,"speedx":0,"speedy":0}],
+        [0,"spawnenemy"],
+
+        [0,["set","teleportplayer"],["property","playernumber"]],
+        [0,["set","customtimertimer"],0],
+
+        [0,["set","teleportplayer"]],
+        [0,["set","customtimertimer"],0],
+
+        [0,["set","instantdelete"],true]
+    ],
+    "dontloopcustomtimer":true
+}

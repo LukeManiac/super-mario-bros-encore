@@ -1,0 +1,177 @@
+{
+    "quadcount":11,
+    "nospritesets":true,
+    "description":"place on empty tile - reskinned bobomb, right-click to set detonation time",
+
+    "animationtype":"frames",
+    "animationframes":8,
+    "animationstart":1,
+    "animationspeed":0.1,
+
+    "grabframe":9,
+    "deathframe":9,
+    "inhaleframe":9,
+
+	"stompable":true,
+	"killsonsides":true,
+	"killsonbottom":true,
+
+    "movement":"truffleshuffle",
+	"truffleshufflespeed":2,
+	"truffleshuffleacceleration":8,
+	
+	"width":0.75,
+	"height":0.75,
+	"static":false,
+	"active":true,
+	"category":5,
+	
+	"mask":[true,
+			false,false,false,false,true,
+			false,true,false,true,false,
+			false,false,false,false,false,
+			true,true,false,false,true,
+			false,true,true,false,false,
+			true,false,true,true,true,
+			false],
+				
+	"emancipatecheck":true,
+	"autodelete":true,
+	"dontspawnnearcheckpoint":true,
+
+    "transformsinto":"stomped",
+    "transformtrigger":"stomp",
+
+    "kickspeed":10,
+    "kickspeedy":-10,
+    "bounceforce":0,
+
+    "dt":0,
+    "litnow":false,
+    "litset":false,
+    "enemy":"explosion",
+    "customtimer":[
+        [0,["set","transform"],["property","addoutput"]],
+        [0,["set","transforms"],true],
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,["set","qgs"],["property","quadgroup"]],
+        [0,["set","qs"],["property","quad"]],
+
+        [0,["set","quadgroup"],["property","outtable"]],
+        [0,"setframe",1],
+        [0,["if","quad","exists",""],["set","litnow"],true],
+
+        [0,["set","quadgroup"],["property","qgs"]],
+        [0,["set","quad"],["property","qs"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["if","litnow","~=",true],["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,["set","transform"]],
+        [0,["set","transforms"]],
+
+        [0,["set","stompable"]],
+        [0,["set","killsonsides"]],
+        [0,["set","killsonbottom"]],
+        [0,["set","dontstopmario"],true],
+
+        [0,["set","freezable"],false],
+        [0,["set","resistseverything"],true],
+
+        [0,["set","animationframes"],2],
+        [0,["set","animationstart"],10],
+        [0,["set","animationspeed"],0.5],
+        [0,["set","animationtimer"],["property","customtimertimer"]],
+        [0,["set","quadi"],["property","animationstart"]],
+        [0,"setframe",["property","quadi"]],
+
+        [0,["set","animationdirection"],"left"],
+        [0,["set","dontmirror"],true],
+
+        [0,["set","movement"]],
+        [0,["set","speedx"],0],
+
+        [0,["set","friction"],12.5],
+        [0,["set","reflectsx"],true],
+
+        [0,["set","kickable"],true],
+        [0,["set","bounces"],true],
+
+        [0,["set","detonatemark"],["property","detonatetime"]],
+        [0,["subtract","detonatemark"],1],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+        [0,["add","dt"],["property","customtimertimer"]],
+
+        [0,["set","bounceforce"],["property","speedy"]],
+        [0,["divide","bounceforce"],2.5],
+
+        [0,["set","cox"],["property","x"]],
+        [0,["set","coy"],["property","y"]],
+
+        [0,["add","cox"],1],
+        [0,["add","coy"],1],
+
+        [0,["if","dt",">=",["property","detonatemark"]],["set","animationtype"]],
+
+        [0,["if","dt","<",["property","detonatetime"]],["add","currentcustomtimerstage"],7],
+            [0,["set","playsound"],["property","spawnonscreen"]],
+            [0,"playsound"],
+
+            [0,["set","drawable"]],
+            [0,["set","width"],0],
+            [0,["set","height"],0],
+
+            [0,["set","lifetimer"],0],
+            [0,["set","currentcustomtimerstage"],99e99],
+
+        [0,["set","customtimertimer"],0],
+        [0,["set","currentcustomtimerstage"],["property","loopline"]]
+    ],
+    "dontloopcustomtimer":true,
+
+    "rightclick":[
+        ["text","detonation time:"],
+        ["input","detonatetime",5]
+    ],
+    "rightclickdefaults":["4"],
+    "rightclicktypes":["num"],
+
+    "offsetX":6,
+    "offsetY":3,
+    "quadcenterX":10,
+    "quadcenterY":16,
+
+    "customtrigger":[
+        [["if","x","==","x"],["set","absspeedx"],["property","speedx"]],
+        [["if","x","==","x"],["abs","absspeedx"]],
+
+        [["if","x","==","x"],["set","killsenemies"]],
+        [["if","litnow","==",true,"and","absspeedx",">=",1.25],["set","killsenemies"],true]
+    ],
+
+    "spawnchildren":["enemy death helper"],
+    "spawnchildrenparent":true,
+    "deathproperties":{
+        "gravity":20,
+        "speedy":-2.5,
+        "enemy":"harmless explosion",
+        "newcustomtimer":[
+            [0,"setframe",["property","animationstart"]],
+
+            [1,["set","cox"],["property","x"]],
+            [0,["set","coy"],["property","y"]],
+
+            [0,["add","cox"],1],
+            [0,["add","coy"],1],
+
+            [0,["set","playsound"],["property","spawnonscreen"]],
+            [0,"playsound"],
+
+            [0,["set","lifetimer"],0]
+        ],
+        "dontloopcustomtimer":true
+	},
+    "offsetable":true
+}

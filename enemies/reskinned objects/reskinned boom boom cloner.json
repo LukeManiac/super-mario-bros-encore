@@ -1,0 +1,51 @@
+base=reskinned koopaling cloner
+{
+    "description":"place above koopaling - boom boom cloner, gives boom boom a custom graphic and death animation",
+    "transformpassedparameters":["boomboom"],
+    "v":{
+        "drawable":false,
+        "freezable":false,
+        "enemy":true,
+        "key":false,
+        "boss":false,
+        "animationdirection":"left",
+        "speedx":0,
+        "mask":[true,
+                false,false,false,false,true,
+                true,true,false,true,false,
+                false,false,false,false,false,
+                true,true,false,false,false,
+                false,true,true,false,false,
+                true,false,true,true,true,
+                false,true]
+    },
+    "customtimer":[
+        [0,["set","drawable"]],
+
+        [0,["set","passivecollide"],["property","addoutput"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+        [0,["set","customtimertimer"],0],
+
+        [0,["set","quadgroup"],["property","outtable"]],
+        [0,"setframe",1],
+
+        [0,["if","quad","notexists",""],["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,["set","quadgroup"],["property","quad"]],
+        [0,"setframe",2],
+        [0,["set","boomboom"],["property","quad"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["if",["property","sarelease"],"notexists",""],["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,["set","obj"],["property","quad"]],
+        [0,["set","spawnenemy"],["property","sarelease"]],
+        [0,"spawnenemy"],
+
+        [0,["set","customtimeraction"],["property","transform"]],
+        [0,"reskinned boom boom"]
+    ]
+}

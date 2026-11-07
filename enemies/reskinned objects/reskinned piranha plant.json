@@ -1,0 +1,18 @@
+base=plant
+{
+    "description":"place on pipe - piranha plant",
+    "quadcount":9,
+    "hidden":false,
+    "nospritesets":true,
+    "animationframes":3,
+    "animationspeed":0.1,
+    "offsetX":8,
+    "offsetY":1,
+    "quadcenterX":8,
+    "quadcenterY":16,
+    "spawnchildren":["enemy death helper"],
+    "spawnchildrenparent":true,
+    "deathproperties":{"animationtype":"frames"},
+    "pistonspeedx":2.3,
+    "offsetable":true
+}

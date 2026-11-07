@@ -1,0 +1,101 @@
+base=nil
+{
+	"spawnpassedparameters":["transformenemyanimationonspawn","playernumber","name"],
+	"spawnpassedparametersbeforespawn":true,
+	"spawntimer":0,
+	"spawnduration":0.04,
+	"instantdelete":false,
+	"transforms":true,
+	"transformsinto":"nil",
+	"transformtrigger":"animation",
+	"transformanimation":"starreset",
+	"transformenemyanimationonspawn":"startimerreset",
+	"graphiccolor":[255,255,255],
+	"v":{"starred":false,"startimer":11.999},
+	"customtimer":[
+		[0,["set","drawable"]],
+
+		[0,["set","playsound"],["property","spawnenemy"]],
+		[0,["set","spawnenemy"],["property","sarelease"]],
+
+		[0,["if","makesmariostarduration","notexists",""],["set","makesmariostarduration"],12],
+		[0,["set","starduration"],["property","makesmariostarduration"]],
+		[0,["set","makesmariostarduration"]],
+
+		[0,["concat","transformanimation"],["property","playernumber"]],
+		[0,["concat","transformenemyanimationonspawn"],["property","playernumber"]],
+		[0,"playsound","item silhouette"],
+
+		[0,["set","quadgroup"],["property","playerobj"]],
+
+		[0,"setframe","characterdata"],
+		[0,["set","quadgroup"],["property","quad"]],
+
+		[0,"setframe","spawnenemy"],
+
+		[0,["if","quad","~=","k master controller"],["add","currentcustomtimerstage"],2],
+			[0,["set","instantdelete"],true],
+			[0,["set","currentcustomtimerstage"],99e99],
+
+		[0,"playsound","rainbow effect"],
+
+		[0,["set","quadgroup"],["property","spawnedenemies"]],
+		[0,"setframe",2],
+		[0,["set","graphiccolor"],["property","quad"]],
+
+		[0,["set","obj"],["property","playerobj"]],
+		[0,["set","quadgroup"],["property","playerobj"]],
+
+		[0,["set","sticktoplayer"],["property","playernumber"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","spawnpassedparameters"],["playernumber"]],
+		[0,"playsound","star timer"],
+
+		[0,["set","spawnpassedparameters"],["graphiccolor","hitboxcolor","drawable"]],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+		[0,["set","customtimertimer"],0],
+
+		[0,"setframe","starred"],
+		[0,["set","starred"],["property","quad"]],
+
+		[0,"setframe","dead"],
+		[0,["set","isdead"],["property","quad"]],
+
+		[0,["if","starred","==",true,"and","isdead","==",false],["add","currentcustomtimerstage"],8],
+			[0,["set","customtimertimer"],0],
+			[0,["if","isdead","==",true],"spawnenemy"],
+
+			[0,["set","spawnpassedparameters"]],
+			[0,"playsound","starmusic handler master"],
+
+			[0,["set","customtimertimer"],0],
+			[0,"playsound","starmusic handler master"],
+
+			[0,["set","instantdelete"],true],
+			[0,["set","currentcustomtimerstage"],99e99],
+
+		[0,["random","spawnenemyoffsetx"],1.5],
+		[0,["subtract","spawnenemyoffsetx"],0.75],
+
+		[0,["random","spawnenemyoffsety"],1.5],
+		[0,["subtract","spawnenemyoffsety"],0.75],
+
+		[0,["add","spawntimer"],["property","customtimertimer"]],
+		[0,["set","hitboxcolor"],["property","graphiccolor"]],
+
+		[0,["if","spawntimer","<",["property","spawnduration"]],["add","currentcustomtimerstage"],5],
+			[0,["subtract","spawntimer"],["property","spawnduration"]],
+
+			[0,"setframe","drawable"],
+			[0,["set","drawable"],["property","quad"]],
+
+			[0,"playsound","star particle"],
+			[0,["set","drawable"]],
+
+		[0,["set","currentcustomtimerstage"],["property","loopline"]]
+	],
+	"dontloopcustomtimer":true
+}

@@ -1,0 +1,98 @@
+base=reskinned hammer
+{
+	"kills":false,
+	"killsenemiesafterportal":false,
+	"dontstopmario":true,
+	"resistseverything":true,
+	"gravity":60,
+	"category":13,
+	"hollow":true,
+	"NOEXTERNALHORCOLLISIONS":true,
+	"NOEXTERNALVERCOLLISIONS":true,
+	"mask":[true,
+			true,true,false,false,true,
+			true,true,true,true,false,
+			true,true,true,true,false,
+			true,true,true,false,false,
+			true,true,false,true,true,
+			false,true,false,false,true,
+			false,true],
+	"spawnchildren":["snd_hammer2"],
+	"spawnchildrenparent":false,
+
+	"minspeedy":-15,
+	"v":{
+		"shot":true,
+		"dead":true
+	},
+	"combo":1,
+	"combopointstable":[100,200,400,800,1000,2000,4000,8000,"oneup"],
+
+	"spawnsenemy":"score note spawner",
+	"spawnenemydelays":[99e99],
+	"spawnpassedparameters":["points","playernumber","delay"],
+	"spawnpassedparametersbeforespawn":true,
+
+	"outi":1,
+	"customtimer":[
+		[0,["set","playsound"],["property","spawnenemy"]],
+		[0,["set","passivecollide"],["property","addoutput"]],
+		[0,["min","speedy"],["property","minspeedy"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+		[0,["set","spawnenemy"],["property","sarelease"]],
+
+		[0,["set","qgs"],["property","quadgroup"]],
+		[0,["set","qs"],["property","quad"]],
+
+		[0,["set","quadgroup"],["property","fireballthrower"]],
+		[0,"setframe","playernumber"],
+		[0,["set","playernumber"],["property","quad"]],
+
+		[0,["set","quadgroup"],["property","combopointstable"]],
+		[0,"setframe",["property","combo"]],
+		[0,["set","points"],["property","quad"]],
+
+		[0,["set","quadgroup"],["property","outtable"]],
+		[0,"setframe",["property","outi"]],
+
+		[0,["if","quad","notexists",""],["add","currentcustomtimerstage"],20],
+			[0,["add","outi"],1],
+			[0,["set","quadgroup"],["property","quad"]],
+			[0,"setframe",2],
+
+			[0,["set","obj"],["property","quad"]],
+			[0,["set","quadgroup"],["property","quad"]],
+
+			[0,"setframe","resistshammer"],
+			[0,["set","resists1"],["property","quad"]],
+
+			[0,"setframe","resistsenemykill"],
+			[0,["set","resists2"],["property","quad"]],
+
+			[0,"setframe","resistseverything"],
+			[0,["set","resists3"],["property","quad"]],
+
+			[0,"setframe","shot"],
+			[0,["set","resists4"],["property","quad"]],
+
+			[0,"setframe","dead"],
+			[0,["set","resists5"],["property","quad"]],
+
+			[0,["if","resists1","==",true,"or","resists2","==",true,"or","resists3","==",true,"or","resists4","==",true,"or","resists5","==",true],["add","currentcustomtimerstage"],4],
+				[0,["add","combo"],1],
+				[0,"spawnenemy"],
+
+				[0,["set","delay"],["property","customtimertimer"]],
+				[0,"playsound","score note spawner"],
+
+		[0,["set","quadgroup"],["property","qgs"]],
+		[0,["set","quad"],["property","qs"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["set","currentcustomtimerstage"],["property","loopline"]]
+	],
+	"dontloopcustomtimer":true,
+	"regiontriggerexclude":true
+}

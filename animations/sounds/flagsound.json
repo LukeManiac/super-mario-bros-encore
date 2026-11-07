@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "playsound", "levelend" ], [ "sleep", "9" ], [ "setnumber", "course finish", "+", "1" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "flagsound" ] ]
+}

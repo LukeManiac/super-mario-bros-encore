@@ -1,0 +1,7 @@
+base=powerup
+{
+	"description":"place anywhere - blue shell powerup",
+	"hidden":false,
+    "targetsize":14,
+    "stretchspeed":5
+}

@@ -1,0 +1,44 @@
+{
+	"quadcount":24,
+	"nospritesets":true,
+	"hidden":true,
+
+	"width":0,
+	"height":0,
+	"resistseverything":true,
+	"regiontriggerexclude":true,
+
+	"offsetX":0,
+	"offsetY":0,
+	"quadcenterX":0,
+	"quadcenterY":0,
+
+	"active":false,
+
+	"xrelativetocamera":0.625,
+	"yrelativetocamera":10.25,
+
+	"frameoffset":1,
+	"customtimer":[
+		[0,["concat","transformanimation"],["property","pnum"]],
+		[0,["set","qgs"],["property","quadgroup"]],
+		[0,["set","frameoffset"],["property","offset"]],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+		[0,["set","quadgroup"],["property","spawner"]],
+		[0,"setframe","frameoffset"],
+		[0,["set","frame"],["property","frameoffset"]],
+		[0,["add","frame"],["property","quad"]],
+		[0,["set","quadgroup"],["property","qgs"]],
+		[0,"setframe",["property","frame"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["set","currentcustomtimerstage"],["property","loopline"]]
+	],
+	
+	"transforms":true,
+	"transformsinto":"nil",
+	"transformtrigger":"animation",
+	"transformanimation":"dialogend p"
+}

@@ -1,0 +1,48 @@
+{
+	"hidden":true,
+	"width":0,
+	"height":0,
+	"active":false,
+
+	"spawnsenemy":"-",
+	"spawnenemydelays":[99e99],
+	"spawnsetparameters":[["instantdelete",true]],
+	"spawnpassedparameters":[1,2],
+
+	"tracked":true,
+
+	"customtrigger":false,
+	"customtimer":[
+		[0,["set","spawner"]],
+
+		[0,["set",1],"__baseclass"],
+		[0,["set",2]],
+		[0,"spawnenemy"],
+
+		[0,["set",1],"justspawned"],
+		[0,["set",2]],
+		[0,"spawnenemy"],
+
+		[0,["set",1],["property","index"]],
+		[0,["set",2],["property","value"]],
+		[0,"spawnenemy"],
+
+		[0,["set","transformsetparameters"],["property","spawnedenemies"]],
+		[0,["set","spawnenemy"],["property","transform"]],
+		[0,"spawnenemy"],
+
+		[0,["set","transformkill"]],
+		[0,["set","v"],["property","transformedinto"]],
+
+		[0,["set","spawnenemy"],["property","sarelease"]],
+		[0,["set","obj"],["property","table"]],
+		[0,"spawnenemy"],
+
+		[0,["set","obj"],["property","v"]],
+		[0,["set","v"],{"instantdelete":true,"__baseclass":[]}],
+		[0,"spawnenemy"],
+
+		[0,["set","instantdelete"],true]
+	],
+	"dontloopcustomtimer":true
+}

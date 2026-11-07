@@ -1,0 +1,39 @@
+base=goomba
+{
+	"description":"place on empty tile - ninji, imported from retrush",
+	"hidden":false,
+	"animationtype":"none",
+	"movement":"none",
+	"facesplayer":true,
+	"nospritesets":true,
+
+	"grabframe":2,
+	"deathframe":2,
+	"inhaleframe":2,
+
+	"fallswhenstomped":true,
+
+	"spawnchildren":["enemy death helper"],
+    "spawnchildrenparent":true,
+
+	"offsetable":true,
+
+	"jumpheight":5,
+	"jumpspeed":-4,
+	"hoptimer":1,
+	"minhoptime":0.4,
+	"customtimer":[
+		[0,["multiply","jumpspeed"],["property","jumpheight"]],
+		[0,["add","hoptimer"],["property","customtimertimer"]],
+
+		[0,["if","hoptimer","<",2,"and","hoptimer",">","minhoptime"],["add","currentcustomtimerstage"],2],
+			[0,["if","speedy","==",0],["set","speedy"],["property","jumpspeed"]],
+			[0,["if","hoptimer",">=",2],["set","hoptimer"],0],
+
+		[0,["if","speedy","==",0],"setframe",1],
+		[0,["if","speedy","~=",0],"setframe",2],
+
+		[0,["set","customtimertimer"],0],
+		[0,["set","currentcustomtimerstage"],1]
+	],
+}

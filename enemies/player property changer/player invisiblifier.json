@@ -1,0 +1,16 @@
+base=player property changer
+{
+    "description":"place anywhere - player invisiblifier, makes player invisible",
+    "stopjumpsounds":true,
+    "continuous":true,
+    "propstochange":{
+        "controlsenabled":false,
+        "x":12,
+        "y":7,
+        "width":0,
+        "height":0,
+        "speedy":0,
+        "drawable":false,
+        "animation":false
+    }
+}

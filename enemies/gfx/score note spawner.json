@@ -1,0 +1,25 @@
+{
+    "hidden":true,
+    "width":0,
+    "height":0,
+    "active":false,
+
+    "transforms":true,
+    "transformsinto":"score note",
+    "transformtrigger":"lifetime",
+    "transformpassedparameters":["points","playernumber"],
+    "transformpassedparametersbeforespawn":true,
+
+    "dt":0,
+    "delay":0,
+    "customtimer":[
+        [0,["add","currentcustomtimerstage"],2],
+        [0,["add","dt"],["property","customtimertimer"]],
+        [0,["set","customtimertimer"],0],
+
+        [0,["if","dt","<",["property","delay"]],["set","currentcustomtimerstage"],1],
+
+        [0,["set","lifetimer"],0]
+    ],
+    "dontloopcustomtimer":true
+}

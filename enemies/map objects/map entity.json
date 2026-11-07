@@ -1,0 +1,260 @@
+{
+    "hidden":true,
+    "drawable":false,
+    "static":false,
+    "active":true,
+
+    "width":1,
+    "height":1,
+
+    "nograbsound":true,
+    "userect":[],
+
+    "gravity":0,
+
+	"mask":[true,
+			false,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true],
+
+	"autodelete":false,
+	"resistseverything":true,
+
+    "transforms":false,
+    "transformsinto":["mapup","mapdown","mapleft","mapright","mapselect","mapbump"],
+    "transformtrigger":["animation","animation","animation","animation","animation","collide"],
+    "transformtriggerobjectcollide":"tile",
+    "transformanimationstable":[
+        ["p1mapup","p1mapdown","p1mapleft","p1mapright","p1mapselect"],
+        ["p2mapup","p2mapdown","p2mapleft","p2mapright","p2mapselect"],
+        ["p3mapup","p3mapdown","p3mapleft","p3mapright","p3mapselect"],
+        ["p4mapup","p4mapdown","p4mapleft","p4mapright","p4mapselect"]
+    ],
+
+    "spawnpassedparameters":["playerobj"],
+    "spawnpassedparametersbeforespawn":true,
+    "spawnsetparametersbeforespawn":true,
+
+    "v":{
+        "drawable":false,
+        "animation":false,
+        "width":0,
+        "height":0,
+        "controlsenabled":false,
+        "regiontriggerexclude":true
+    },
+    "moving":false,
+    "movespeed":5,
+    "movetiles":1,
+    "beforemovex":0,
+    "beforemovey":0,
+
+    "justmoved":false,
+    "disabled":false,
+    "outi":1,
+    "customtimer":[
+        [0,["set","drawable"]],
+        [0,["set","spawnenemy"],["property","sarelease"]],
+
+        [0,["set","movespeed2"],["property","movespeed"]],
+        [0,["reverse","movespeed2"]],
+
+        [0,["if","x","~=",["property","startx"],"or","y","~=",["property","starty"]],["add","currentcustomtimerstage"],2],
+			[0,["set","instantdelete"],true],
+			[0,["set","currentcustomtimerstage"],99e99],
+
+        [0,["set","playsound"],["property","used"]],
+        [0,"playsound",["property","sticktoplayer"]],
+
+        [0,["set","playerobj"],["property","carryparent"]],
+        [0,["set","playsound"],["property","output"]],
+        [0,"playsound"],
+
+        [0,["set","outputted"]],
+
+        [0,["set","obj"],["property","playerobj"]],
+        [0,"spawnenemy"],
+
+        [0,["set","quadgroup"],["property","transformanimationstable"]],
+        [0,"setframe",["property","sticktoplayer"]],
+        [0,["set","transformanimation"],["property","quad"]],
+
+        [0,["set","spawnenemy"]],
+        [0,["set","playsound"],["property","spawnenemy"]],
+
+        [0,"playsound","map entity layer1"],
+        [0,"playsound","map entity layer2"],
+
+        [0,["set","spawnpassedparameters"],["animationtriggerondeath"]],
+        [0,["set","spawnsetparameters"],[
+            ["transformenemyanimationonspawn","stopallmapentities"],
+            ["animationtriggeronspawn","fade in"],
+            ["spawnchildren",["music stopper"]],
+            ["spawnsound","collectable9"],
+            ["instantdelete",false],
+            ["lifetime",1]
+        ]],
+
+        [0,["set","playsound"]],
+
+        [0,["set","static"],false],
+        [0,["set","active"],true],
+
+        [0,["set","playernumber"],["property","sticktoplayer"]],
+        [0,["set","sticktoplayer"]],
+        [0,["set","teleportplayer"],["property","playernumber"]],
+
+        [0,["set","transform"],["property","addoutput"]],
+        [0,["set","transforms"],true],
+
+        [0,["set","snapxtogrid"],true],
+        [0,["set","snapytogrid"],true],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,["if","justmoved","==",true],"playsound",["property","t"]],
+        [0,["set","justmoved"]],
+
+        [0,["if","disabled","==",true],["add","currentcustomtimerstage"],91],
+            [0,["if","moving","==",true],["add","currentcustomtimerstage"],63],
+                [0,["set","movinghor"],false],
+                [0,["set","movingver"],false],
+
+                [0,["round","x"]],
+                [0,["round","y"]],
+
+                [0,["set","quadgroup"],["property","outtable"]],
+                [0,"setframe",["property","outi"]],
+
+                [0,["if","quad","notexists",""],["add","currentcustomtimerstage"],45],
+                    [0,["add","outi"],1],
+                    [0,["set","quadgroup"],["property","quad"]],
+                    [0,"setframe",1],
+
+                    [0,["if","quad","~=","mapup"],["add","currentcustomtimerstage"],3],
+                        [0,["set","moving"],true],
+                        [0,["set","xspeed"],0],
+                        [0,["set","yspeed"],["property","movespeed2"]],
+
+                    [0,["if","quad","~=","mapdown"],["add","currentcustomtimerstage"],3],
+                        [0,["set","moving"],true],
+                        [0,["set","xspeed"],0],
+                        [0,["set","yspeed"],["property","movespeed"]],
+
+                    [0,["if","quad","~=","mapleft"],["add","currentcustomtimerstage"],3],
+                        [0,["set","moving"],true],
+                        [0,["set","xspeed"],["property","movespeed2"]],
+                        [0,["set","yspeed"],0],
+
+                    [0,["if","quad","~=","mapright"],["add","currentcustomtimerstage"],3],
+                        [0,["set","moving"],true],
+                        [0,["set","xspeed"],["property","movespeed"]],
+                        [0,["set","yspeed"],0],
+
+                    [0,["if","quad","~=","mapselect"],["add","currentcustomtimerstage"],25],
+                        [0,["set","coursenumber"],0],
+                        [0,["set","courseloopline"],["property","currentcustomtimerstage"]],
+
+                        [0,["add","coursenumber"],1],
+                        [0,["set","quadgroup"],["property","worlddata"]],
+                        [0,"setframe",["property","coursenumber"]],
+
+                        [0,["set","courseentercheck1"]],
+                        [0,["set","courseentercheck2"]],
+                        [0,["set","courseentercheck"]],
+
+                        [0,["if","quad","notexists",""],["add","currentcustomtimerstage"],8],
+                            [0,["set","quadgroup"],["property","quad"]],
+
+                            [0,"setframe",1],
+                            [0,["if","x","==",["property","quad"]],["set","courseentercheck1"],true],
+
+                            [0,"setframe",2],
+                            [0,["if","y","==",["property","quad"]],["set","courseentercheck2"],true],
+
+                            [0,["if","courseentercheck1","==",true,"and","courseentercheck2","==",true],["set","courseentercheck"],true],
+
+                            [0,["set","customtimertimer"],0],
+                            [0,["if","courseentercheck","~=",true,"and","coursenumber","<=",4],["set","currentcustomtimerstage"],["property","courseloopline"]],
+
+                        [0,["if","courseentercheck","~=",true],["add","currentcustomtimerstage"],7],
+                            [0,["set","disabled"],true],
+
+                            [0,["set","animationtriggerondeath"],"load w"],
+                            [0,["concat","animationtriggerondeath"],["property","worldnumber"]],
+                            [0,["concat","animationtriggerondeath"],["property","coursenumber"]],
+
+                            [0,["set","playsound"],["property","spawnenemy"]],
+                            [0,"playsound","nil"],
+                            [0,["set","playsound"]],
+
+                [0,["if","moving","~=",true],["add","currentcustomtimerstage"],10],
+                    [0,["set","justmoved"],true],
+                    [0,["set","transforms"]],
+
+                    [0,["set","beforemovex"],["property","x"]],
+                    [0,["set","beforemovey"],["property","y"]],
+
+                    [0,["set","snapxtogrid"]],
+                    [0,["set","snapytogrid"]],
+
+                    [0,["set","speedx"],["property","xspeed"]],
+                    [0,["set","speedy"],["property","yspeed"]],
+
+                    [0,["if","speedx","~=",0],["set","movinghor"],true],
+                    [0,["if","speedy","~=",0],["set","movingver"],true],
+
+            [0,["set","regiontriggerexclude"],["property","moving"]],
+
+            [0,["if","moving","~=",true],["add","currentcustomtimerstage"],26],
+                [0,["if","movinghor","~=",true],["add","currentcustomtimerstage"],3],
+                    [0,["set","dist"],["property","x"]],
+                    [0,["subtract","dist"],["property","beforemovex"]],
+                    [0,["abs","dist"]],
+
+                [0,["if","movingver","~=",true],["add","currentcustomtimerstage"],3],
+                    [0,["set","dist"],["property","y"]],
+                    [0,["subtract","dist"],["property","beforemovey"]],
+                    [0,["abs","dist"]],
+
+                [0,["set","ranintowall"]],
+                [0,["if","speedx","==",0,"and","speedy","==",0],["set","ranintowall"],true],
+                [0,["if","ranintowall","==",true],["set","dist"],["property","movetiles"]],
+
+                [0,["set","movevel"],["property","movespeed"]],
+                [0,["multiply","movevel"],["property","customtimertimer"]],
+
+                [0,["set","fixedmovetiles"],["property","movetiles"]],
+                [0,["subtract","fixedmovetiles"],["property","movevel"]],
+
+                [0,["if","dist","<",["property","fixedmovetiles"]],["add","currentcustomtimerstage"],10],
+                    [0,["set","transforms"],true],
+                    [0,["set","justmoved"]],
+                    [0,["set","moving"],false],
+
+                    [0,["set","speedx"],0],
+                    [0,["set","speedy"],0],
+
+                    [0,["set","snapxtogrid"],true],
+                    [0,["set","snapytogrid"],true],
+
+                    [0,["if","ranintowall","~=",true],["add","currentcustomtimerstage"],2],
+                        [0,"playsound","blockhit"],
+                        [0,"stopsound",["property","t"]],
+
+        [0,["if","disabled","~=",true],["add","currentcustomtimerstage"],4],
+            [0,["set","regiontriggerexclude"]],
+            [0,["set","static"],true],
+
+            [0,["set","speedx"],0],
+            [0,["set","speedy"],0],
+
+        [0,["set","customtimertimer"],0],
+        [0,["set","currentcustomtimerstage"],["property","loopline"]]
+    ],
+    "dontloopcustomtimer":true
+}

@@ -1,0 +1,29 @@
+base=hammerbros
+{
+    "description":"place on empty tile - hammer bro",
+    "hidden":false,
+    "quadcount":12,
+    "offsetable":true,
+    "nospritesets":true,
+
+    "animationframes":4,
+    "animationspeed":0.1,
+
+    "spawnchildren":["enemy death helper"],
+    "spawnchildrenparent":true,
+    "spawnsenemy":"reskinned hammer",
+	
+	"chasetime":false,
+    "throwquadoffset":4,
+	
+	"deathproperties":{
+        "animationtype":"frames",
+        "animationstart":9,
+        "animationspeed":0.05,
+        "rollanimation":false
+    },
+
+    "offsetY":3,
+    "quadcenterX":9,
+    "quadcenterY":20
+}

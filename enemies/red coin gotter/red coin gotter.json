@@ -1,0 +1,74 @@
+{
+	"quadcount":1,
+	"nospritesets":true,
+	"spawnonload":true,
+	"showicononeditor":true,
+	"graphiccolor":[0,0,0,0],
+	"description":"place anywhere - red coin gotter, right-click to set title, subtitle, colour, and display duration",
+
+	"width":0,
+	"height":0,
+
+	"offsetX":0,
+	"offsetY":16,
+	"quadcenterX":8,
+	"quadcenterY":8,
+
+	"static":true,
+	"activestatic":true,
+	"active":true,
+
+	"autodelete":false,
+
+	"category":2,
+	"ignoreceilcollide":true,
+	"ignoreleftcollide":true,
+	"ignorerightcollide":true,
+	"ignorefloorcollide":true,
+	"mask":[true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true],
+
+	"transformpassedparameters":["draw","rcname","rctext","color","activeduration"],
+	"spawnpassedparameters":["table","varsets"],
+
+	"color":[255,255,255],
+	"customtimer":[
+		[0,["set","drawable"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",["property","textdraw"],"notexists",""],["subtract","currentcustomtimerstage"],2],
+
+		[0,["set","table"],["property","color"]],
+		[0,["set","varsets"],[[1,"rc_r"],[2,"rc_g"],[3,"rc_b"]]],
+
+		[0,["set","playsound"],["property","spawnenemy"]],
+		[0,"playsound","multivarset"],
+
+		[0,["set","draw"],["property","textdraw"]],
+
+		[0,["set","customtimeraction"],["property","transform"]],
+		[0,"red coin gotter wait"]
+	],
+	"dontloopcustomtimer":true,
+
+	"rightclick":[
+		["text","course name:"],
+		["input","rcname",25],
+		["text","red coin subtitle:"],
+		["input","rctext",25],
+		["text","red coin colour: (r, g, b)"],
+		["input","rc_r",5],
+		["input","rc_g",5],
+		["input","rc_b",5],
+		["text","display duration:"],
+		["input","activeduration",5]
+	],
+	"rightclickdefaults":["","","255","255","255","5"],
+	"rightclicktypes":["string","string","num","num","num","string"]
+}

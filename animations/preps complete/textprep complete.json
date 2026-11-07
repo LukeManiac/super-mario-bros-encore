@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "animationoutput", "textprep complete", "on" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "textprep complete" ] ]
+}

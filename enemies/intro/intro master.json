@@ -1,0 +1,71 @@
+{
+	"quadcount":1,
+	"nospritesets":true,
+	"graphiccolor":[0,0,0,0],
+	"description":"this is the intro master",
+
+	"spawnchildren":["intro author message","intro loading message","intro silhouette"],
+
+	"width":0,
+	"height":0,
+
+	"active":false,
+	"resistseverything":true,
+
+	"introsoundstable":[
+		["bitcrushed",["bastion","bounce","drift","ember","fanfare","sanctum","shimmer","twinkle","velvet"]],
+		["chordium",["astral","boreas","hyperion","nymph","zephyrus"]],
+		["flex",["cipher","glint","halo","jubilee","kairos","kinetic","quartz","redemption","static","timber","vaporwave","vesper","voltage","yonder","zeal"]],
+		["tiktok",["amber","anvil","cloudburst","driftwood","firefly","flare","foundry","heartbeat","hearth","hollow","lattice","loam","quickstep","ramble","ridgeline","skitter","sparrow","switchback","thicket","undertow","wheatfield","whisper"]]
+	],
+
+	"minimumduration":5,
+	"timer":0,
+	"introsound":"introsnd_",
+	"customtimer":[
+		[0,["set","drawable"]],
+		[0,["set","playsound"],["property","spawnenemy"]],
+
+		[0,["set","customtimertimer"],0],
+
+		[0,["random","introsoundgroup"],["property","introsoundstable"]],
+
+		[0,["set","quadgroup"],["property","introsoundgroup"]],
+		[0,"setframe",1],
+		[0,["concat","introsound"],["property","quad"]],
+
+		[0,"setframe",2],
+		[0,["random","sound"],["property","quad"]],
+		[0,["concat","introsound"],["property","sound"]],
+
+		[0,"playsound",["property","introsound"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","quadgroup"],["property","spawnedenemies"]],
+		[0,"setframe",1],
+		[0,["set","quadgroup"],["property","quad"]],
+
+		[0,"setframe","duration"],
+		[0,["if","quad","notexists",""],["set","quad"],["property","minimumduration"]],
+		[0,["max","quad"],["property","minimumduration"]],
+		[0,["set","duration"],["property","quad"]],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["add","timer"],["property","customtimertimer"]],
+
+		[0,["if","timer","<",["property","duration"]],["set","currentcustomtimerstage"],["property","loopline"]],
+		[0,["set","playsound"],["property","triggeranimation"]],
+		[0,"playsound","fade in"],
+		[1,"playsound","load title"]
+	],
+	"dontloopcustomtimer":true,
+
+	"spawnonload":true,
+
+	"offsetX":0,
+	"offsetY":16,
+	"quadcenterX":8,
+	"quadcenterY":8
+}

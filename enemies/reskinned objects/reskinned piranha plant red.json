@@ -1,0 +1,11 @@
+base=reskinned piranha plant
+{
+    "description":"place on pipe - red piranha plant, faster and has narrower range on staying retracted",
+    "animationstart":4,
+    "animationspeed":0.05,
+    "pistonspeedx":4,
+    "pistonspeedy":4,
+    "pistonextendtime":1.5,
+    "pistonretracttime":1.2,
+    "dontpistondist":1
+}

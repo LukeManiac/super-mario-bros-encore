@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "setnumber", "w144complete", "=", "1" ] ],
+    "conditions": [ [ "worldequals", "14" ], [ "levelequals", "4" ] ],
+    "triggers": [ [ "animationtrigger", "world map register" ] ]
+}

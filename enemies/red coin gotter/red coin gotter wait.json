@@ -1,0 +1,41 @@
+base=red coin gotter
+{
+	"hidden":true,
+	"spawn":false,
+
+	"spawnsenemy":"red coin gotter text",
+	"spawnenemydelays":[99e99],
+	"spawnpassedparameters":["text","draw","color","activeduration"],
+	"spawnpassedparametersbeforespawn":true,
+	"spawnsetparametersbeforespawn":true,
+
+	"customtimer":[
+		[0,["set","drawable"]],
+
+		[0,["set","transform"],["property","dosupersize"]],
+		[0,["set","transforms"],true],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+		[0,["if","spawn","~=",true],["add","currentcustomtimerstage"],8],
+			[0,["set","text"],["property","rctext"]],
+			[0,"spawnenemy"],
+
+			[0,["set","color"],[216,40,0]],
+			[0,["set","spawnsetparameters"],[["yrelativetocamera",1.5],["big",true]]],
+
+			[0,["set","text"],["property","rcname"]],
+			[0,"spawnenemy"],
+
+			[0,["set","lifetimer"],0],
+			[0,["set","currentcustomtimerstage"],99e99],
+
+		[0,["set","customtimertimer"],0],
+		[0,["set","currentcustomtimerstage"],["property","loopline"]]
+	],
+
+	"supersizeproperties":{"spawn":true},
+
+	"transformtrigger":"animation",
+	"transformanimation":"rcget"
+}

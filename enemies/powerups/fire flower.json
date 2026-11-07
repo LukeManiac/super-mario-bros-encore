@@ -1,0 +1,14 @@
+base=powerup
+{
+	"description":"place anywhere - fire flower",
+	"hidden":false,
+	"quadcount":2,
+
+	"animationtype":"frames",
+	"animationstart":1,
+	"animationframes":2,
+	"animationspeed":0.2,
+
+	"targetsize":3,
+	"stretchspeed":5
+}

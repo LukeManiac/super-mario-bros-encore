@@ -1,0 +1,88 @@
+{
+    "quadcount":1,
+    "nospritesets":true,
+    "regiontriggerexclude":true,
+    "description":"place above koopaling - koopaling cloner, gives the koopaling a custom graphic and death animation",
+
+    "graphiccolor":[0,0,0,0],
+
+    "spawnonload":true,
+    "spawnoffsety":1,
+    "width":1,
+    "height":1,
+
+    "static":true,
+    "activestatic":true,
+    "active":true,
+
+    "category":2,
+	"ignoreceilcollide":true,
+	"ignoreleftcollide":true,
+	"ignorerightcollide":true,
+	"ignorefloorcollide":true,
+
+    "mask":[true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,false,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true],
+
+    "transformpassedparameters":["koopaling"],
+
+    "v":{
+        "drawable":false,
+        "freezable":false,
+        "enemy":true,
+        "key":false,
+        "boss":false,
+        "animationdirection":"left"
+    },
+    "customtimer":[
+        [0,["set","drawable"]],
+
+        [0,["set","passivecollide"],["property","addoutput"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+        [0,["set","customtimertimer"],0],
+
+        [0,["set","quadgroup"],["property","outtable"]],
+        [0,"setframe",1],
+
+        [0,["if","quad","notexists",""],["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,["set","quadgroup"],["property","quad"]],
+        [0,"setframe",2],
+        [0,["set","koopaling"],["property","quad"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["if",["property","sarelease"],"notexists",""],["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,["set","obj"],["property","quad"]],
+        [0,["set","spawnenemy"],["property","sarelease"]],
+        [0,"spawnenemy"],
+
+        [0,["set","quadgroup"],["property","koopaling"]],
+        [0,"setframe","t"],
+
+        [0,["if","quad",">=",1,"and","quad","<=",7],["add","currentcustomtimerstage"],4],
+            [0,["set","v"],{"drawable":true}],
+            [0,"spawnenemy"],
+
+            [0,["set","instantdelete"],true],
+            [0,["set","currentcustomtimerstage"],99e99],
+
+        [0,["set","customtimeraction"],["property","transform"]],
+        [0,"reskinned koopaling"]
+    ],
+    "dontloopcustomtimer":true,
+
+    "offsetX":8,
+    "offsetY":16,
+    "quadcenterX":8,
+    "quadcenterY":8
+}

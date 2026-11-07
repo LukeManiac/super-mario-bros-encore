@@ -1,0 +1,69 @@
+{
+	"quadcount":1,
+	"nospritesets":true,
+	"drawback":true,
+	"hidden":true,
+
+	"width":1,
+	"height":1,
+
+	"static":false,
+	"active":false,
+	"dontstopmario":true,
+	"gravity":0,
+	"resistseverything":true,
+
+	"transformsinto":"skull flag",
+	"transformtrigger":"animation",
+	"transformsetparameters":[
+		["movement","path"],
+		["movementpath",[[0,8]]],
+		["movementpathspeed",[8.5,0]],
+		["customtimer",false]
+	],
+	"transformsetparametersbeforespawn":true,
+
+	"customtimer":[
+		[0,["set","qgs"],["property","quadgroup"]],
+		[0,["set","qs"],["property","quad"]],
+
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","quadgroup"],["property","spawner"]],
+
+		[0,"setframe","x"],
+		[0,["set","initx"],["property","quad"]],
+
+		[0,"setframe","y"],
+		[0,["set","inity"],["property","quad"]],
+
+		[0,"setframe","castlex"],
+		[0,["set","endx"],["property","quad"]],
+
+		[0,"setframe","castley"],
+		[0,["set","endy"],["property","quad"]],
+
+		[0,["set","transformanimation"],"flag get x"],
+		[0,["concat","transformanimation"],["property","initx"]],
+
+		[0,["concat","transformanimation"]," y"],
+		[0,["concat","transformanimation"],["property","inity"]],
+
+		[0,["concat","transformanimation"]," endx"],
+		[0,["concat","transformanimation"],["property","endx"]],
+
+		[0,["concat","transformanimation"]," endy"],
+		[0,["concat","transformanimation"],["property","endy"]],
+
+		[0,["set","transforms"],true],
+
+		[0,["set","quadgroup"],["property","qgs"]],
+		[0,["set","quad"],["property","qs"]]
+	],
+	"dontloopcustomtimer":true,
+
+	"offsetX":8,
+	"offsetY":0,
+	"quadcenterX":8,
+	"quadcenterY":8
+}

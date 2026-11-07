@@ -1,0 +1,70 @@
+base=bulletbill
+{
+    "quadcount":8,
+    "nospritesets":true,
+    "animationtype":"frames",
+    "animationframes":4,
+    "animationstart":1,
+    "animationspeed":0.1,
+    "grabframe":5,
+    "deathframe":5,
+    "inhaleframe":5,
+    "speedx":7,
+    "resistsfire":true,
+    "stompcombosuppressor":false,
+    "mask":[true,
+            true,false,true,true,true,
+            true,true,true,true,true,
+            true,false,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true],
+    "spawnchildren":["enemy death helper"],
+    "spawnchildrenparent":true,
+    "deathproperties":{
+        "animationtype":"frames",
+        "animationstart":5,
+        "gravity":20,
+        "rollanimation":false,
+        "speedx":0,
+        "speedy":-2.5,
+        "enemy":"harmless explosion",
+        "newcustomtimer":[
+            [1,["set","cox"],["property","x"]],
+            [0,["set","coy"],["property","y"]],
+
+            [0,["add","cox"],1],
+            [0,["add","coy"],1],
+
+            [0,["set","playsound"],["property","spawnonscreen"]],
+            [0,"playsound"],
+
+            [0,["set","lifetimer"],0]
+        ],
+        "dontloopcustomtimer":true
+	},
+    "offsetable":true,
+    "spawnsound":"bulletbill",
+    "customtrigger":[
+        [["if","x","==","x"],["set","grabframe"],["property","quadi"]],
+        [["if","x","==","x"],["add","grabframe"],4],
+        [["if","x","==","x"],["set","inhaleframe"],["property","quadi"]],
+        [["if","x","==","x"],["add","inhaleframe"],4]
+    ],
+    "customtimer":[
+        [0,["if","spawnsound","~=","bulletbill"],"stopsound","bulletbill"],
+        [0,["set","diffx"],["property","startx"]],
+        [0,["subtract","diffx"],["property","x"]],
+        [0,["abs","diffx"]],
+
+        [0,["set","diffy"],["property","starty"]],
+        [0,["subtract","diffy"],["property","y"]],
+        [0,["abs","diffy"]],
+
+        [0,["if","diffx",">=",["property","width"],"or","diffy",">=",["property","height"]],["set","customscissor"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["if","customscissor","notexists",""],["set","dontloopcustomtimer"],true]
+    ]
+}

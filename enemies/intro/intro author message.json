@@ -1,0 +1,33 @@
+{
+	"hidden":true,
+	"quadcount":1,
+    "nospritesets":true,
+	"width":0,
+	"height":0,
+	"static":true,
+	"active":false,
+	"xrelativetocamera":12.5,
+	"yrelativetocamera":7,
+
+	"text":"",
+	"outline":true,
+	"centered":true,
+	"big":true,
+	"showtext":true,
+	"color":[33,173,16],
+
+	"spawnsenemy":"clonedraw",
+	"spawnenemydelays":[99e99],
+
+    "customtimer":[
+		[0,["set","draw"],["property","textdraw"]],
+		[0,"spawnenemy"],
+		[0,["set","quadgroup"],["property","spawnedenemies"]],
+		[0,"setframe",1],
+		[0,["set","spawnsenemy"],["property","quad"]],
+		[0,["set","spawnenemy"],["property","addoutput"]],
+		[0,"spawnenemy"],
+		[0,["set","text"],"lukemaniac"]
+	],
+	"dontloopcustomtimer":true
+}

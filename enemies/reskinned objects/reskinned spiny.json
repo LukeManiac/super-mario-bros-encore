@@ -1,0 +1,9 @@
+base=reskinned buzzy beetle
+{
+    "description":"place on empty tile - spiny, stompable when upside down unlike the regular spinies",
+    "quadcount":8,
+    "resistsfire":false,
+    "stompable":false,
+    "kills":true,
+    "spiketype":true
+}

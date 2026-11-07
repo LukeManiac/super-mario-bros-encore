@@ -1,0 +1,56 @@
+base=varset
+{
+	"seti":0,
+	"customtrigger":false,
+	"customtimer":[
+		[0,["set","host"],["property","spawner"]],
+		[0,["set","spawner"]],
+
+		[0,["set",1],"__baseclass"],
+		[0,["set",2]],
+		[0,"spawnenemy"],
+
+		[0,["set",1],"justspawned"],
+		[0,["set",2]],
+		[0,"spawnenemy"],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+		[0,["set","quadgroup"],["property","varsets"]],
+		[0,["add","seti"],1],
+		[0,"setframe",["property","seti"]],
+
+		[0,["if",["property","quad"],"notexists",""],["add","currentcustomtimerstage"],9],
+			[0,["set","quadgroup"],["property","quad"]],
+			[0,"setframe",1],
+			[0,["set",1],["property","quad"]],
+
+			[0,"setframe",2],
+			[0,["set","quadgroup"],["property","host"]],
+			[0,"setframe",["property","quad"]],
+			[0,["set",2],["property","quad"]],
+
+			[0,"spawnenemy"],
+			[0,["set","currentcustomtimerstage"],["property","loopline"]],
+
+		[0,["set","transformsetparameters"],["property","spawnedenemies"]],
+
+		[0,["print","t"]],
+
+		[0,["set","spawnenemy"],["property","transform"]],
+		[0,"spawnenemy"],
+
+		[0,["set","transformkill"]],
+		[0,["set","v"],["property","transformedinto"]],
+
+		[0,["set","spawnenemy"],["property","sarelease"]],
+		[0,["set","obj"],["property","table"]],
+		[0,"spawnenemy"],
+
+		[0,["set","obj"],["property","v"]],
+		[0,["set","v"],{"instantdelete":true,"__baseclass":[]}],
+		[0,"spawnenemy"],
+
+		[0,["set","instantdelete"],true],
+	]
+}

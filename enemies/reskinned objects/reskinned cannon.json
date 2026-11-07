@@ -1,0 +1,115 @@
+{
+    "description":"place on empty tile - cannon, right-click to set speed, and direction for cannon and base",
+    "quadcount":2,
+    "nospritesets":true,
+    "resistseverything":true,
+    "offsetable":true,
+    "inedible":true,
+    "freezable":true,
+    "doesntunrotate":true,
+    "drawback":true,
+    "notkilledfromblocksbelow":true,
+    "jumpsfromblocksbelow":true,
+    "jumpforce":10,
+    "walkonwithshoe":true,
+    "trackable":true,
+    "graphiccolor":[0,0,0,0],
+
+    "width":1,
+    "height":1,
+
+    "quadi":1,
+
+    "rightclick":[
+        ["text","direction:"],
+        ["dropdown",[
+            [["rotation",0]],
+            [["rotation",0.7853981633]],
+            [["rotation",1.570796327]],
+            [["rotation",2.35619449]],
+            [["rotation",3.141592653]],
+            [["rotation",-2.35619449]],
+            [["rotation",-1.570796327]],
+            [["rotation",-0.7853981633]]
+        ],9,["up","upright","right","downright","down","downleft","left","upleft"]],
+        ["text","base:"],
+        ["dropdown",[
+            [["baserotation",0],["gravitydir","down"]],
+            [["baserotation",1.570796327],["gravitydir","left"]],
+            [["baserotation",3.141592653],["gravitydir","up"]],
+            [["baserotation",-1.570796327],["gravitydir","right"]]
+        ],5,["down","left","up","right"]],
+        ["text","speed:"],
+        ["input","cannonspeed",10]
+    ],
+    "rightclickdefaults":["up","down","7"],
+    "rightclicktypes":["string","string","num"],
+    "casesensitive":true,
+
+    "static":false,
+    "active":true,
+
+    "category":2,
+    "mask":[true,
+            false,false,false,false,false,
+            false,true,false,true,false,
+            false,false,true,false,false,
+            true,true,false,false,false,
+            false,true,true,false,false,
+            true,false,true,true,true,
+            false],
+
+	"autodelete":false,
+    "dontplaysoundsoffscreen":true,
+
+    "trackplatform":true,
+    "trackplatformpush":true,
+
+    "solidkill":true,
+
+    "spawndelay":4,
+    "enemy":"reskinned cannon ball",
+    "customtimer":[
+        [0,["set","playsound"],["property","spawnenemy"]],
+        [0,"playsound","reskinned cannon base"],
+
+        [0,["set","dt"],["property","spawndelay"]],
+        [0,["subtract","dt"],1],
+
+        [0,["sin","xvel"],["property","rotation"]],
+        [0,["cos","yvel"],["property","rotation"]],
+
+        [0,["multiply","xvel"],["property","cannonspeed"]],
+        [0,["multiply","yvel"],["property","cannonspeed"]],
+        [0,["reverse","yvel"]],
+
+        [0,["if","cannonspeed","<=",7],["add","currentcustomtimerstage"],3],
+            [0,["set","quadi"],2],
+            [0,"setframe",["property","quadi"]],
+            [0,["concat","enemy"]," fast"],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+        [0,["add","dt"],["property","customtimertimer"]],
+
+        [0,["set","cox"],["property","x"]],
+        [0,["set","coy"],["property","y"]],
+
+        [0,["add","cox"],1],
+        [0,["add","coy"],1],
+
+        [0,["if","dt","<",["property","spawndelay"]],["add","currentcustomtimerstage"],3],
+            [0,["subtract","dt"],["property","spawndelay"]],
+            [0,["set","playsound"],["property","spawnonscreen"]],
+            [0,"playsound"],
+
+        [0,["set","customtimertimer"],0],
+        [0,["set","currentcustomtimerstage"],["property","loopline"]]
+    ],
+
+    "offsetX":8,
+    "offsetY":0,
+    "quadcenterX":8,
+    "quadcenterY":8,
+
+    "customtrigger":[[["if","x","==","x"],["set","graphiccolor"]]]
+}

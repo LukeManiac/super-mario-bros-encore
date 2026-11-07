@@ -1,0 +1,5 @@
+base=reskinned goomba
+{
+    "description":"place on empty tile - goombrat, turns around as it hits a cliff",
+    "turnaroundoncliff":true
+}

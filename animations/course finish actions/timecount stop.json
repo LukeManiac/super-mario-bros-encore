@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "setnumber", "time scroll", "=", "0" ], [ "stopsound", "scorering" ], [ "settime", "1" ], [ "addtime", "-1" ], [ "addpoints", "50" ], [ "sleep", "2" ], [ "setnumber", "course finish", "+", "1" ] ],
+    "conditions": [ [ "ifnumber", "time scroll", "=", "1" ] ],
+    "triggers": [ [ "mariotimeless", "1" ] ]
+}

@@ -1,0 +1,25 @@
+{
+	"hidden":true,
+	
+	"quadcount":1,
+	"nospritesets":true,
+
+	"width":0,
+	"height":0,
+
+	"offsetX":8,
+	"offsetY":16,
+	"quadcenterX":8,
+	"quadcenterY":8,
+
+	"active":false,
+
+	"supersizeproperties":{"instantdelete":true},
+	
+	"customtimer":[
+		[0,["set","iceblock"],["property","spawner"]],
+		[0,["set","input"],["property","dosupersize"]],
+		[0,["set","frozen"],true]
+	],
+	"dontloopcustomtimer":true
+}

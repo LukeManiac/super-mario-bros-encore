@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "triggeranimation", "world map load" ] ],
+    "conditions": [ [ "sublevelequals", "10" ] ],
+    "triggers": [ [ "mapload" ] ]
+}

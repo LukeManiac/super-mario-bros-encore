@@ -1,0 +1,54 @@
+{
+	"hidden":true,
+	"quadcount":16,
+	"nospritesets":true,
+
+	"movement":"none",
+    "gravity":0,
+    "spawnoffsety":1.75,
+	
+	"killsenemies":true,
+	"regiontriggerexclude":true,
+	"dontstopmario":true,
+	"nocoinblockanimation":true,
+
+    "NoHitSound":true,
+	"breaksblocks":true,
+    "breakshardblocks":true,
+    "breaksflipblocks":true,
+    "breakBlockSide":"global",
+	"resistseverything":true,
+	"ignoreplatform":true,
+	"blowable":false,
+	
+	"animationtype":"frames",
+	"animationframes":16,
+	"animationstart":1,
+	"animationspeed":0.01,
+
+	"width":4.5,
+	"height":4.5,
+	
+	"static":false,
+	"active":true,
+	
+	"category":13,
+	
+	"mask":[true,
+				false,false,false,false,false,
+				false,true,false,true,false,
+				false,false,false,false,false,
+				true,true,false,false,false,
+				false,true,true,false,false,
+				true,false,true,true,true],
+	
+	"emancipatecheck":true,
+	"autodelete":true,
+	
+	"offsetX":8,
+	"offsetY":0,
+	"quadcenterX":8,
+	"quadcenterY":8,
+
+    "lifetime":0.16
+}

@@ -1,0 +1,68 @@
+base=text drawing primer
+{
+	"description":"place above energy catcher, with an enemy spawner linked to it - spawner primer",
+	"varsets":[["spawnerclass","spawnerclass"],["spawnonscreen","spawnonscreen"],["customenemy","customenemy"],["animation","animation"],["spawnonlyonscreen","spawnonlyonscreen"],["xvel","xvel"],["yvel","yvel"]],
+
+	"customenemy":true,
+	"animation":false,
+	"spawnonlyonscreen":true,
+	"xvel":0,
+	"yvel":0,
+	"customtimer":[
+        [0,["set","drawable"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",["property","sarelease"],"notexists",""],["subtract","currentcustomtimerstage"],2],
+
+		[0,["if",["property","spawnerclass"],"notexists",""],["add","currentcustomtimerstage"],10],
+		[0,["if",["property","spawnonscreen"],"notexists",""],["add","currentcustomtimerstage"],9],
+		[0,["if",["property","customenemy"],"notexists",""],["add","currentcustomtimerstage"],8],
+		[0,["if",["property","animation"],"notexists",""],["add","currentcustomtimerstage"],7],
+		[0,["if",["property","spawnonlyonscreen"],"notexists",""],["add","currentcustomtimerstage"],6],
+		[0,["if",["property","xvel"],"notexists",""],["add","currentcustomtimerstage"],5],
+		[0,["if",["property","yvel"],"notexists",""],["add","currentcustomtimerstage"],4],
+			[0,["set","blowrange"],[0.25,0.5,0,0]],
+			[0,["set","customtimertimer"],0],
+			[0,["set","lifetimer"],0],
+			[0,["set","customtimertimer"],0],
+
+		[0,"---------------------------------------Clone spawner"],
+        [0,["set","playsound"],["property","spawnenemy"]],
+
+		[0,["set","globalcollide"],["property","addoutput"]],
+        [0,["set","customtimertimer"],0],
+		[0,["set","globalcollide"]],
+
+		[0,["if",["property","spawnerclass"],"exists",""],["add","currentcustomtimerstage"],10],
+			[0,["set","quadgroup"],["property","outtable"]],
+			[0,"setframe",1],
+			[0,["set","quadgroup"],["property","quad"]],
+
+			[0,"setframe",2],
+			[0,["set","quadgroup"],["property","quad"]],
+
+			[0,"setframe","outtable"],
+			[0,["set","quadgroup"],["property","quad"]],
+
+			[0,"setframe",1],
+			[0,["set","quadgroup"],["property","quad"]],
+
+			[0,"setframe",1],
+			[0,["set","spawnerclass"],["property","quad"]],
+
+		[0,["set","quadgroup"],["property","spawnerclass"]],
+
+		[0,"setframe","spawn"],
+		[0,["set","spawnonscreen"],["property","quad"]],
+
+        [0,["set","table"],["property","__baseclass"]],
+        [0,"playsound","multivarset"],
+
+        [0,["set","blowrange"],[0.25,0.5,0,0]],
+		[0,["set","customtimertimer"],0],
+
+        [0,["set","lifetimer"],0]
+	],
+
+	"animationtriggerondeath":"spawnerprep complete"
+}

@@ -1,0 +1,6 @@
+base=nil
+{
+	"description":"place in spawner - red coin get, sends a signal to the red coin gotter",
+	"hidden":false,
+	"transformenemyanimationonspawn":"rcget"
+}

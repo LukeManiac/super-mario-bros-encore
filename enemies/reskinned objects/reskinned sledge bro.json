@@ -1,0 +1,25 @@
+base=reskinned hammer bro
+{
+    "description":"place on empty tile - sledge bro",
+    "quadcount":6,
+    "shakesground":true,
+
+    "width":1.5,
+    "height":1.5,
+
+    "animationframes":2,
+    "animationspeed":0.2,
+
+    "throwquadoffset":2,
+
+    "deathproperties":{
+        "animationtype":"frames",
+        "animationstart":5,
+        "animationspeed":0.1
+    },
+
+    "offsetX":12,
+    "offsetY":-4,
+    "quadcenterX":12,
+    "quadcenterY":20
+}

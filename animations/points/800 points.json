@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "addpoints", "800" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "800 points" ] ]
+}

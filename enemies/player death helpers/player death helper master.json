@@ -1,0 +1,39 @@
+{
+	"quadcount":1,
+	"nospritesets":true,
+	"graphiccolor":[0,0,0,0],
+	"description":"place anywhere - player death helper",
+	
+	"width":1,
+	"height":1,
+
+	"active":false,
+	"resistseverything":true,
+
+	"spawnonload":true,
+
+	"sticktoplayer":1,
+
+	"spawnsenemy":"player death helper",
+	"spawnenemydelays":[99e99],
+	"spawnpassedparameters":["sticktoplayer"],
+	"spawnpassedparametersbeforespawn":true,
+
+	"offsetX":8,
+	"offsetY":0,
+	"quadcenterX":8,
+	"quadcenterY":8,
+
+	"customtimer":[
+		[0,"spawnenemy"],
+
+		[0,["set","customtimertimer"],0],
+		[0,["add","sticktoplayer"],1],
+
+		[0,["if","sticktoplayer","<=",4],["set","currentcustomtimerstage"],0],
+
+		[0,["set","sticktoplayer"]],
+		[0,["set","instantdelete"],true]
+	],
+	"dontloopcustomtimer":true
+}

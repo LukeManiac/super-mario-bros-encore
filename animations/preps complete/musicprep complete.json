@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "animationoutput", "musicprep complete", "on" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "musicprep complete" ] ]
+}

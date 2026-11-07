@@ -1,0 +1,217 @@
+{
+    "hidden":true,
+    "quadcount":15,
+    "regiontriggerexclude":true,
+    "resistseverything":true,
+    "nospritesets":true,
+    "dontmirror":true,
+    "drawback":true,
+
+    "animframes":1,
+    "animstart":1,
+    "animduration":0,
+    "animtimer":0,
+    "animframe":1,
+
+    "width":0,
+    "height":0,
+
+    "static":true,
+    "active":true,
+
+    "mask":[true,
+            true,false,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true],
+
+    "dontstopmario":true,
+
+    "duckwait":{
+        "animframes":1,
+        "animstart":1,
+        "animduration":1
+    },
+    "duckjump":{
+        "animframes":3,
+        "animstart":1,
+        "animduration":0.1,
+        "animnoloop":true
+    },
+    "walking":{
+        "animframes":10,
+        "animstart":4,
+        "animduration":0.05
+    },
+    "bigjumpwait":{
+        "animframes":1,
+        "animstart":3,
+        "animduration":1
+    },
+    "stomped":{
+        "animframes":2,
+        "animstart":14,
+        "animduration":0.075
+    },
+    "v":{"speedy":-15},
+    "v2":{
+        "shot":false,
+        "dead":false,
+        "static":false,
+        "active":true,
+        "mask":[true,
+                true,true,true,true,true,
+                true,true,true,true,true,
+                true,true,true,true,true,
+                true,true,true,true,true,
+                true,true,true,true,true,
+                true,true,true,true,true,
+                true],
+        "speedx":0,
+        "stompedtimer":0,
+        "gravity":20,
+        "resistseverything":true
+    },
+
+    "deathtimer":0,
+    "deaththudmark":2,
+    "deathduration":4,
+
+    "dead":false,
+    "thudded":false,
+
+    "customtimer":[
+        [0,["set","qgs"],["property","quadgroup"]],
+        [0,["set","qs"],["property","quad"]],
+
+        [0,["set","playsound"],["property","dosupersize"]],
+        [0,["set","obj"],["property","boomboom"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,["set","supersizepropertiesstore"],["property","supersizeproperties"]],
+
+        [0,["set","quadgroup"],["property","boomboom"]],
+
+        [0,"setframe","x"],
+        [0,["set","x"],["property","quad"]],
+
+        [0,"setframe","y"],
+        [0,["set","y"],["property","quad"]],
+
+        [0,"setframe","width"],
+        [0,["set","width"],["property","quad"]],
+
+        [0,"setframe","height"],
+        [0,["set","height"],["property","quad"]],
+
+        [0,"setframe","offsetX"],
+        [0,["set","offsetX"],["property","quad"]],
+
+        [0,"setframe","offsetY"],
+        [0,["set","offsetY"],["property","quad"]],
+        [0,["subtract","offsetY"],4],
+
+        [0,["set","supersizeproperties"],["property","walking"]],
+
+        [0,"setframe","ducking"],
+        [0,["if","quad","==",true],["set","supersizeproperties"],["property","duckwait"]],
+
+        [0,"setframe","justducked"],
+        [0,["if","quad","==",true],["set","supersizeproperties"],["property","duckjump"]],
+
+        [0,"setframe","startduckingtimer"],
+        [0,["set","ducktimer"],["property","quad"]],
+
+        [0,"setframe","duckdelay"],
+        [0,["set","duckdelay"],["property","quad"]],
+
+        [0,"setframe","speedx"],
+        [0,["if","ducktimer","<=",["property","duckdelay"],"and","quad","==",0,"and","supersizeproperties","~=",["property","duckwait"]],["set","supersizeproperties"],["property","bigjumpwait"]],
+
+        [0,"setframe","stomped"],
+        [0,["if","quad","==",true],["set","supersizeproperties"],["property","stomped"]],
+
+        [0,"setframe","dead"],
+
+        [0,["if","quad","~=",true,"or","dead","==",true],["add","currentcustomtimerstage"],11],
+            [0,["set","spawnenemy"],["property","sarelease"]],
+            [0,"spawnenemy"],
+
+            [0,["set","playsound"]],
+            [0,["set","spawnenemy"]],
+
+            [0,"playsound","bowserfall"],
+            [0,"playsound","shot"],
+            [0,"stopsound","stomp"],
+
+            [0,["set","playsound"],["property","spawnenemy"]],
+            [0,"playsound","music stopper"],
+
+            [0,["set","playsound"],["property","dosupersize"]],
+            [0,["set","dead"],true],
+
+        [0,["set","quadgroup"],["property","qgs"]],
+        [0,["set","quad"],["property","qs"]],
+
+        [0,["if","dead","~=",true],["add","currentcustomtimerstage"],6],
+            [0,["add","deathtimer"],["property","customtimertimer"]],
+            [0,["set","spawnenemy"],["property","sarelease"]],
+
+            [0,["set","v"],["property","v2"]],
+            [0,"spawnenemy"],
+
+            [0,["set","spawnenemy"]],
+            [0,["set","supersizeproperties"],["property","stomped"]],
+
+        [0,["set","animnoloop"]],
+        [0,"playsound"],
+
+        [0,["if","supersizeproperties","~=",["property","supersizepropertiesstore"]],["set","animtimer"],["property","animduration"]],
+
+        [0,["add","animtimer"],["property","customtimertimer"]],
+
+        [0,["if","animtimer","<",["property","animduration"]],["add","currentcustomtimerstage"],4],
+            [0,["add","animframe"],1],
+            [0,["subtract","animtimer"],["property","animduration"]],
+            [0,["if","animframe",">",["property","animframes"],"and","animnoloop","~=",true],["subtract","animframe"],["property","animframes"]],
+            [0,["min","animframe"],["property","animframes"]],
+
+        [0,["set","animquad"],["property","animframe"]],
+        [0,["add","animquad"],["property","animstart"]],
+        [0,["subtract","animquad"],1],
+        [0,"setframe",["property","animquad"]],
+
+        [0,["if","deathtimer","<",["property","deaththudmark"],"or","thudded","==",true],["add","currentcustomtimerstage"],8],
+            [0,["set","playsound"]],
+            [0,"playsound","boom"],
+
+            [0,["set","playsound"],["property","spawnenemy"]],
+            [0,"playsound","player course finisher"],
+
+            [0,["set","playsound"],["property","triggeranimation"]],
+            [0,"playsound","shake"],
+
+            [0,["set","playsound"],["property","dosupersize"]],
+            [0,["set","thudded"],true],
+
+        [0,["if","deathtimer","<",["property","deathduration"]],["add","currentcustomtimerstage"],4],
+            [0,["set","playsound"],["property","triggeranimation"]],
+            [0,"playsound","bossclear sound"],
+
+            [0,["set","instantdelete"],true],
+            [0,["set","currentcustomtimerstage"],99e99],
+
+        [0,["set","customtimertimer"],0],
+        [0,["set","currentcustomtimerstage"],["property","loopline"]]
+    ],
+    "dontloopcustomtimer":true,
+
+    "offsetX":0,
+    "offsetY":16,
+    "quadcenterX":16,
+    "quadcenterY":20
+}

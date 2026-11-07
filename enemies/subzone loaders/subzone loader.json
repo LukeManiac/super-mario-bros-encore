@@ -1,0 +1,42 @@
+base=nil
+{
+	"description":"place anywhere - subzone loader, redirects player to a subzone without resetting timer",
+	"hidden":false,
+	"nograbsound":true,
+	"userect":[],
+	"instantdelete":false,
+	"subzone":["sub",0],
+    "subtarget":0,
+    "index":2,
+    "spawnpassedparameters":["table","index","value"],
+    "customtimer":[
+        [0,["set","drawable"]],
+
+		[0,["add","currentcustomtimerstage"],1],
+		[0,["set","customtimertimer"],0],
+		[0,["if","sarelease","notexists",""],["subtract","currentcustomtimerstage"],2],
+
+		[0,["set","playsound"],["property","used"]],
+		[0,"playsound",1],
+
+        [0,["set","playerobj"],["property","carryparent"]],
+		[0,["set","playsound"],["property","output"]],
+		[0,"playsound"],
+
+        [0,["set","outputted"]],
+
+        [0,["set","playsound"],["property","spawnenemy"]],
+        [0,["set","table"],["property","subzone"]],
+		[0,["set","value"],["property","subtarget"]],
+        [0,"playsound","varset"],
+
+        [0,["set","quadgroup"],["property","playerobj"]],
+		[0,"setframe","pipetravel"],
+		[0,["set","spawnenemy"],["property","quad"]],
+
+		[0,["set","customtimertimer"],0],
+        [0,["set","animationmisc"],["property","subzone"]],
+		[0,"spawnenemy"]
+	],
+	"dontloopcustomtimer":true
+}

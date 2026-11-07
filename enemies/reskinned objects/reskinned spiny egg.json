@@ -1,0 +1,49 @@
+base=reskinned spiny
+{
+    "description":"place on empty tile - spiny egg",
+    "transforms":true,
+    "transformsinto":"reskinned spiny",
+    "transformtrigger":"lifetime",
+    "transformpassedparameters":["speedx","speedy"],
+    "transformpassedparametersbeforespawn":true,
+    "shellanimal":false,
+
+    "reflectsx":true,
+    "rollanimation":true,
+
+    "gravity":30,
+    "animationframes":1,
+    "animationstart":8,
+
+    "movement":false,
+
+    "speedx":0,
+
+    "isfalling":false,
+    "landed":false,
+    "yland":99e99,
+    "customtimer":[
+        [0,["set","yspeed"],["property","speedy"]],
+        [0,["divide","yspeed"],-1.570796327],
+
+        [0,["set","customtimertimer"],0],
+        [0,["if","speedy",">",0],["set","isfalling"],true],
+
+        [0,["if","y","<=",["property","yland"]],["add","currentcustomtimerstage"],3],
+            [0,["set","landed"],false],
+            [0,["set","lifetimer"]],
+            [0,["set","friction"]],
+
+        [0,["if","speedy","~=",0,"or","isfalling","~=",true],["set","currentcustomtimerstage"],0],
+
+        [0,["set","speedy"],["property","yspeed"]],
+        [0,["set","friction"],1],
+        [0,["if","landed","~=",true],["set","lifetimer"],1],
+
+        [0,["set","landed"],true],
+        [0,["set","isfalling"],false],
+
+        [0,["set","yland"],["property","y"]]
+    ],
+    "customtrigger":false
+}

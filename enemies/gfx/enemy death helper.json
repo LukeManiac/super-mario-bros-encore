@@ -1,0 +1,256 @@
+{
+	"hidden":true,
+    "drawable":false,
+	"active":false,
+	"width":0,
+	"height":0,
+    "autodelete":false,
+    "prevdead":false,
+
+    "customtimer":[
+        [0,["set","quadgroup"],["property","parent"]],
+        [0,["set","obj"],["property","parent"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["if",["property","sarelease"],"notexists",""],["subtract","currentcustomtimerstage"],2],
+
+        [0,["set","spawnenemy"],["property","sarelease"]],
+
+        [0,"setframe","t"],
+        [0,["set","transformsinto"],["property","quad"]],
+
+        [0,"setframe","name"],
+        [0,["if","quad","exists",""],["set","transformsinto"],["property","quad"]],
+
+        [0,["set","v"],{
+            "shotframe":0,
+            "noshotsound":true,
+            "wcddeathproperties":{
+                "active":false,
+                "drawable":false,
+                "kill":true,
+                "shot":true,
+                "nodeaththrow":true,
+                "deatheffect":"nil"
+            }
+        }],
+        [0,"spawnenemy"],
+
+        [0,"setframe","stompanimation"],
+        [0,["set","v"],{"stompedframe":0}],
+        [0,["if","quad","~=",true],"spawnenemy"],
+
+        [0,["set","v"],{
+            "drawable":false,
+            "instantdelete":true
+        }],
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+		[0,["set","customtimertimer"],0],
+
+        [0,"setframe","instantdelete"],
+        [0,["set","instantdelete"],["property","quad"]],
+
+        [0,"setframe","shot"],
+
+        [0,["if","quad","~=",true,"or","dead","==",true],["add","currentcustomtimerstage"],33],
+            [0,"setframe","resistseverything"],
+
+            [0,["if","quad","~=",true],["add","currentcustomtimerstage"],2],
+                [0,["set","instantdelete"],true],
+                [0,["set","currentcustomtimerstage"],99e99],
+
+            [0,"setframe","width"],
+            [0,["set","width"],["property","quad"]],
+
+            [0,"setframe","height"],
+            [0,["set","height"],["property","quad"]],
+
+            [0,"setframe","x"],
+            [0,["set","x"],["property","quad"]],
+
+            [0,"setframe","y"],
+            [0,["set","y"],["property","quad"]],
+
+            [0,"setframe","quadi"],
+            [0,["set","enemyquad"],["property","quad"]],
+
+            [0,"setframe","animationdirection"],
+            [0,["set","animdir"],["property","quad"]],
+
+            [0,["set","playsound"]],
+
+            [0,"setframe","shotsound"],
+            [0,["if","quad","notexists",""],["set","quad"],"shot"],
+            [0,"playsound",["property","quad"]],
+
+            [0,"setframe","deathsound"],
+            [0,["if","quad","exists",""],"playsound",["property","quad"]],
+
+            [0,"spawnenemy"],
+
+            [0,"setframe","drawable"],
+            [0,["set","drawable"],["property","quad"]],
+
+            [0,"setframe","supersized"],
+            [0,["set","supersized"],["property","quad"]],
+
+            [0,"setframe","rotation"],
+            [0,["set","enemyrotation"],["property","quad"]],
+
+            [0,"setframe","upsidedown"],
+            [0,["set","flippedflopped"],["property","quad"]],
+
+            [0,["set","lifetimer"],0],
+            [0,["set","currentcustomtimerstage"],99e99],
+
+        [0,["set","currentcustomtimerstage"],["property","loopline"]]
+	],
+    "transforms":true,
+    "transformtrigger":"lifetime",
+    "transformpassedparameters":["enemyquad","animdir","drawable","supersized","enemyrotation","flippedflopped"],
+    "transformpassedparametersbeforespawn":true,
+    "transformsetparameters":[
+        ["inedible",true],
+        ["static",false],
+        ["active",true],
+        ["red",true],
+        ["autodelete",true],
+        ["extremeautodelete",true],
+        ["spawnoffsetx",0],
+        ["spawnoffsety",0],
+        ["ignorequicksand",true],
+        ["animationtype",false],
+        ["movement",false],
+        ["movementrandoms",false],
+        ["customscissor",false],
+        ["invertedscissor",false],
+        ["killsenemies",false],
+        ["lifetime",false],
+        ["lifetimerandoms",false],
+        ["jumps",false],
+        ["chasetime",false],
+        ["spawnsound",false],
+        ["carryable",false],
+        ["transforms",false],
+        ["spawnsenemy",false],
+        ["spawnsenemyrandoms",false],
+        ["sticktoplayer",false],
+        ["sticktonearestplayer",false],
+        ["spawnchildren",false],
+        ["teleportplayer",false],
+        ["teleportnearestplayer",false],
+        ["friction",0],
+        ["airfriction",0],
+        ["trackable",false],
+        ["platform",false],
+        ["animationtriggeronspawn",false],
+        ["triggeranimationonspawn",false],
+        ["transformenemyanimationonspawn",false],
+        ["animationtriggerondeath",false],
+        ["triggeranimationondeath",false],
+        ["transformenemyanimationondeath",false],
+        ["supersizeproperties",false],
+        ["customtrigger",false],
+        ["doesntunrotate",true],
+        ["rotationanimation",false],
+        ["spawnenemyspeedx",0],
+        ["spawnenemyspeedy",0],
+        ["gravity",false],
+        ["watergravity",20],
+        ["facesplayer",false],
+        ["facesplayery",false],
+        ["dontmirror",true],
+        ["customtimer",[
+            [0,"setframe",["property","enemyquad"]],
+            [0,["set","rollanimation"],true],
+
+            [0,["if","deatheffect","notexists",""],["add","currentcustomtimerstage"],8],
+                [0,["set","spawnenemyoffsetx"],["property","deathoffsetx"]],
+                [0,["set","spawnenemyoffsety"],["property","deathoffsety"]],
+
+                [0,["set","spawnenemyspeedx"],["property","deathspeedx"]],
+                [0,["set","spawnenemyspeedy"],["property","deathspeedy"]],
+
+                [0,["set","spawnpassedparameters"],["property","deathpassedparameters"]],
+                [0,["set","spawnsetparameters"],["property","deathsetparameters"]],
+
+                [0,["set","playsound"],["property","spawnenemy"]],
+                [0,"playsound",["property","deatheffect"]],
+
+            [0,["if","deathproperties","notexists",""],["add","currentcustomtimerstage"],10],
+                [0,["set","playsound"],["property","dosupersize"]],
+
+                [0,["set","supersizeproperties"],["property","deathproperties"]],
+                [0,"playsound"],
+
+                [0,["set","playsound"]],
+                [0,["if","deathframe","exists",""],["set","animationstart"],["property","deathframe"]],
+
+                [0,["if","animationstart","exists",""],["set","quadi"],["property","animationstart"]],
+                [0,["if","quadi","exists",""],"setframe",["property","quadi"]],
+
+                [0,["set","animationtimer"],0],
+                [0,["set","animationtimerstage"],1],
+
+                [0,["add","currentcustomtimerstage"],1],
+
+            [0,["if","deathframe","exists",""],"setframe",["property","deathframe"]],
+            [0,["set","drawable"],true],
+
+            [0,["set","playsound"],["property","spawnenemy"]],
+
+            [0,["set","customtimertimer"],0],
+            [0,["if","gravity","==",["property","watergravity"]],["multiply","speedy"],4],
+
+            [0,["if","rollanimation","==",false],["set","rotation"],["property","enemyrotation"]],
+            [0,["set","animationdirection"],["property","animdir"]],
+            [0,["set","upsidedown"],["property","flippedflopped"]],
+
+            [0,["if","newcustomtimer","notexists",""],["add","currentcustomtimerstage"],10],
+                [0,["set","spawnpassedparameters"],["table","index","value"]],
+                [0,["set","supersizeproperties"],{"currentcustomtimerstage":0,"customtimertimer":0}],
+
+                [0,["set","table"],["property","supersizeproperties"]],
+                [0,["set","index"],"customtimer"],
+                [0,["set","value"],["property","newcustomtimer"]],
+                [0,"playsound","varset"],
+
+                [0,["set","customtimertimer"],0],
+                [0,"playsound","varset"],
+
+                [0,["set","playsound"],["property","dosupersize"]],
+                [0,"playsound"]
+        ]],
+        ["dontloopcustomtimer",true],
+        ["speedx",4],
+        ["speedy",-8],
+        ["starttowardsplayerhorizontal",false],
+        ["startawayfromplayerhorizontal",true],
+        ["freezable",false],
+        ["ignorefunnel",true],
+        ["ignorefaithplates",true],
+        ["dontstoplasers",true],
+        ["ignoreplatform",true],
+        ["blowable",false],
+        ["resistseverything",true],
+        ["dontstopmario",true],
+        ["kills",false],
+        ["mask",[true,
+                true,true,true,true,true,
+                true,true,true,true,true,
+                true,true,true,true,true,
+                true,true,true,true,true,
+                true,true,true,true,true,
+                true,true,true,true,true,
+                true,true]],
+        ["notkilledfromblocksbelow",true],
+        ["regiontriggerexclude",true],
+        ["spawnpassedparameters",false],
+        ["spawnpassedparametersbeforespawn",true],
+        ["spawnsetparameters",false],
+        ["spawnsetparametersbeforespawn",true],
+        ["NOEXTERNALHORCOLLISIONS",true],
+        ["NOEXTERNALVERCOLLISIONS",true]
+    ],
+    "transformsetparametersbeforespawn":true
+}

@@ -1,0 +1,5 @@
+base=mushroom
+{
+    "hidden":true,
+    "resistseverything":true
+}

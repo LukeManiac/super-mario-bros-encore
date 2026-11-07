@@ -1,0 +1,17 @@
+base=fire flower
+{
+    "description":"place anywhere - hammer suit, press run while up is held to fire the hammer high up",
+	"targetsize":4,
+    "fireenemyprops":{
+        "size":4,
+        "enemy":["hammer suit projectile up","hammer suit projectile"],
+        "max":2,
+        "speed":4,
+        "addplayerspeedx":true,
+        "addplayerspeedy":true,
+        "offsetx":0.5,
+        "offsety":-0.5,
+        "nofiresound":true,
+        "holdbutton":["up",false]
+    }
+}

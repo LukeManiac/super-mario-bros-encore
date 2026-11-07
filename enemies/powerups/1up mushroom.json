@@ -1,0 +1,7 @@
+base=super mushroom
+{
+	"description":"place anywhere - 1up mushroom",
+	"targetsize":false,
+	"mushroomifmariosmall":false,
+	"extralifeitem":true
+}

@@ -1,0 +1,121 @@
+{
+    "quadcount":1,
+    "graphiccolor":[0,0,0,0],
+    "description":"place anywhere - map entity spawner",
+    "nospritesets":true,
+
+    "mask":[true,
+            true,false,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true],
+
+    "width":1,
+    "height":1,
+
+    "static":true,
+    "active":true,
+
+    "autodelete":false,
+
+    "worldstable":[
+        [3,11],
+        [9,11],
+        [15,11],
+        [21,11]
+    ],
+    "worldnumber":1,
+
+    "spawnsenemy":"map entity",
+    "spawnenemydelays":[99e99],
+    "spawnpassedparameters":["sticktoplayer","worldnumber","worlddata"],
+
+    "transforms":false,
+    "transformsinto":"aight, timeout y'all",
+    "transformtrigger":"animation",
+    "transformanimation":"stopallmapentities",
+
+    "supersizeproperties":{"everybodystops":true},
+    "v":{
+        "moving":false,
+        "transforms":false,
+        "speedx":0,
+        "speedy":0
+    },
+    "teleportplayer":true,
+
+    "spawnedi":0,
+    "everybodystops":false,
+    "customtimer":[
+        [0,["set","drawable"]],
+
+        [0,["add","currentcustomtimerstage"],1],
+		[0,["set","customtimertimer"],0],
+		[0,["if",["property","sarelease"],"notexists","","or",["property","textdraw"],"notexists",""],["subtract","currentcustomtimerstage"],2],
+
+        [0,["set","teleportplayer"]],
+        [0,["set","sticktoplayer"],1],
+
+        [0,["set","transform"],["property","dosupersize"]],
+        [0,["set","transforms"]],
+
+        [0,["set","worlddata"],["property","worldstable"]],
+
+        [0,["round","x"]],
+        [0,["round","y"]],
+
+        [0,["set","startx"],["property","x"]],
+        [0,["set","starty"],["property","y"]],
+
+        [0,["set","playerloop"],["property","currentcustomtimerstage"]],
+        [0,["set","customtimertimer"],0],
+
+        [0,["set","x"],["property","startx"]],
+        [0,["set","y"],["property","starty"]],
+
+        [0,"spawnenemy"],
+
+        [0,["add","sticktoplayer"],1],
+        [0,["if","sticktoplayer","<=",4],["set","currentcustomtimerstage"],["property","playerloop"]],
+
+        [0,["set","sticktoplayer"]],
+        [0,["set","spawnenemy"],["property","sarelease"]],
+
+        [0,["set","x"],["property","startx"]],
+        [0,["set","y"],["property","starty"]],
+
+        [0,["set","width"],0],
+        [0,["set","height"],0],
+
+        [0,["set","playsound"],["property","triggeranimation"]],
+        [0,"playsound","stop jump sounds"],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["if","everybodystops","~=",true],["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+        [0,["set","quadgroup"],["property","spawnedenemies"]],
+        [0,["add","spawnedi"],1],
+        [0,"setframe",["property","spawnedi"]],
+
+        [0,["if","quad","notexists",""],["add","currentcustomtimerstage"],4],
+            [0,["set","obj"],["property","quad"]],
+            [0,"spawnenemy"],
+
+            [0,["set","customtimertimer"],0],
+            [0,["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,["set","instantdelete"],true]
+    ],
+    "dontloopcustomtimer":true,
+
+    "offsetX":8,
+    "offsetY":0,
+    "quadcenterX":8,
+    "quadcenterY":8
+}

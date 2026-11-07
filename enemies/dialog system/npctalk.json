@@ -1,0 +1,14 @@
+base=npc
+{
+	"hidden":true,
+
+	"nearframeoffset":2,
+	"talkingnow":true,
+	"playerinregion":true,
+
+	"transformsinto":"npc",
+	"transformtrigger":"animation",
+	"transformanimation":"dialogend",
+	"transformsetparameters":[["finishtalking",true]],
+	"transformsetparametersbeforespawn":true
+}

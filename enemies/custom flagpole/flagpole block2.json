@@ -1,0 +1,7 @@
+base=flagpole block
+{
+    "spawnoffsetx":0.25,
+    "blowspeedx":5,
+    "blowminspeedx":false,
+    "blowmaxspeedx":5
+}

@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "setnumber", "course finish", "=", "0" ], [ "setnumber", "time scroll", "=", "0" ], [ "animationoutput", "mapload", "on" ], [ "sleep", "0.001" ], [ "animationoutput", "mapload", "off" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "map load" ], [ "mapload" ] ]
+}

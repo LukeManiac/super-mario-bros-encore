@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "animationoutput", "checkpoint", "off" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "whennumber", "checkpoint", "=", "0" ] ]
+}

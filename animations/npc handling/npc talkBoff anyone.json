@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "transformenemy", "forceenddialog p0" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "buttonpressed", "jump", "everyone" ] ]
+}

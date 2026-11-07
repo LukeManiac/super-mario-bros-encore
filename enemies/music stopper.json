@@ -1,0 +1,24 @@
+base=nil
+{
+    "instantdelete":false,
+    "customtimer":[
+        [0,["set","drawable"]],
+
+        [0,["set","customtimertimer"],0],
+		[0,["if",["property","musicplay"],"notexists",""],["subtract","currentcustomtimerstage"],2],
+
+        [0,["set","spawnenemy"],["property","musicplay"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,"--stop fanfares and custom character music"],
+        [0,"stopsound","lowtime"],
+        [0,"stopsound","megamushroom"],
+        [0,"stopsound","pbutton"],
+        [0,"stopsound","k star controller"],
+        [0,"spawnenemy"],
+
+        [0,["set","customtimertimer"],0],
+        [0,["set","currentcustomtimerstage"],["property","loopline"]]
+    ]
+}

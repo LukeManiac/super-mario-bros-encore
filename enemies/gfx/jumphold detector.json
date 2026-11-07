@@ -1,0 +1,34 @@
+{
+    "hidden":true,
+    "width":0,
+    "height":0,
+    "active":false,
+
+    "transformsinto":"jumptoggle",
+    "transformtrigger":"animation",
+    "transformanimation":"jumphold p",
+
+    "supersizeproperties":{"jumptoggled":true},
+
+    "pnum":1,
+    "jumpheld":true,
+    "jumptoggled":true,
+    "customtimer":[
+        [0,["set","transform"],["property","dosupersize"]],
+        [0,["set","transforms"],true],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,["if","jumptoggled","==",false],["add","currentcustomtimerstage"],5],
+            [0,["reverse","jumpheld"]],
+            [0,["set","transformanimation"],"jump"],
+            [0,["if","jumpheld","==",true],["concat","transformanimation"],"un"],
+            [0,["concat","transformanimation"],"hold p"],
+            [0,["concat","transformanimation"],["property","pnum"]],
+            [0,["set","jumptoggled"],false],
+
+        [0,["set","customtimertimer"],0],
+        [0,["set","currentcustomtimerstage"],["property","loopline"]]
+    ],
+    "dontloopcustomtimer":true
+}

@@ -1,0 +1,16 @@
+base=reskinned koopa troopa
+{
+    "description":"place on empty tile - green paratroopa, bounces around",
+    "bounces":true,
+    "bounceforce":10,
+    "animationstart":3,
+    "gravity":30,
+    "transforms":true,
+    "transformsinto":"reskinned koopa troopa",
+    "transformtrigger":"stomp",
+    "transformpassedparameters":["animationdirection","speedx","wcddeathproperties"],
+    "stompable":true,
+    "shellanimal":false,
+    "pushmariowhenstomped":true,
+    "notkilledfromblocksbelow":true
+}

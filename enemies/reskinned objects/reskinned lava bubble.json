@@ -1,0 +1,57 @@
+base=upfire
+{
+    "description":"place anywhere - lava bubble, rises 5 blocks above spawn position",
+    "hidden":false,
+    "showicononeditor":true,
+    "spawnchildren":["enemy death helper"],
+    "spawnchildrenparent":true,
+    "offsetable":true,
+    "resistsstar":false,
+    "supersize":false,
+    "movement":false,
+    "doesntunrotate":true,
+    "customtimer":[
+        [0,["add","y"],["property","rocketdistance"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,["set","rocketmarker"],["property","starty"]],
+        [0,["add","rocketmarker"],["property","rocketdistance"]],
+
+        [0,["set","targetrotation"],0],
+        [0,["if","speedy",">",0],["set","targetrotation"],3.1415926535],
+
+        [0,["if","y","<=",["property","rocketmarker"],"or","speedy","<=",0],["add","currentcustomtimerstage"],10],
+            [0,["set","y"],["property","rocketmarker"]],
+
+            [0,["set","gravmarker"],["property","gravity"]],
+            [0,["multiply","gravmarker"],1.625],
+
+            [0,["set","gravrocket"],["property","gravmarker"]],
+            [0,["multiply","gravrocket"],["property","rocketmarker"]],
+
+            [0,["set","root"],["property","gravrocket"]],
+            [0,["sqrt","root"]],
+            [0,["reverse","root"]],
+
+            [0,["set","speedy"],["property","root"]],
+            [0,["set","rotation"],0],
+
+        [0,["multiply","customtimertimer"],12.5],
+
+        [0,["set","startrotation"],["property","rotation"]],
+
+        [0,["set","setrotation"],["property","targetrotation"]],
+        [0,["subtract","setrotation"],["property","startrotation"]],
+        [0,["multiply","setrotation"],["property","customtimertimer"]],
+
+        [0,["add","setrotation"],["property","startrotation"]],
+
+        [0,["set","rotation"],["property","setrotation"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["set","currentcustomtimerstage"],["property","loopline"]]
+    ],
+    "quadcenterX":9,
+    "quadcenterY":9
+}

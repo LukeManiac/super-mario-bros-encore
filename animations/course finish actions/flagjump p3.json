@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "playerjump", "player 3" ], [ "playerstopjump", "player 3" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "flagjump p3" ] ]
+}

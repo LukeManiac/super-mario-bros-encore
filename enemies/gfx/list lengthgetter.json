@@ -1,0 +1,41 @@
+{
+    "hidden":true,
+    "width":0,
+    "height":0,
+    "active":false,
+
+    "spawnsenemy":"varset",
+    "spawnenemydelays":[99e99],
+    "spawnpassedparameters":["table","index","value"],
+
+    "tablei":0,
+    "outoffset":0,
+    "customtimer":[
+        [0,["set","quadgroup"],["property","spawner"]],
+
+        [0,"setframe","outoffset"],
+        [0,["if","quad","exists",""],["set","outoffset"],["property","quad"]],
+
+        [0,"setframe","targetvar"],
+        [0,["set","index"],["property","quad"]],
+
+        [0,"setframe","reflist"],
+        [0,"setframe",["property","quad"]],
+        [0,["set","quadgroup"],["property","quad"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+        [0,["add","tablei"],1],
+        [0,"setframe",["property","tablei"]],
+        [0,["if","quad","exists",""],["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,["subtract","tablei"],1],
+        [0,["add","tablei"],["property","outoffset"]],
+
+        [0,["set","table"],["property","spawner"]],
+        [0,["set","value"],["property","tablei"]],
+        [0,["if","index","exists",""],"spawnenemy"],
+
+        [0,["set","instantdelete"],true]
+    ],
+    "dontloopcustomtimer":true
+}

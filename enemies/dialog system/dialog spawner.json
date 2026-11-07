@@ -1,0 +1,31 @@
+{
+	"hidden":true,
+
+	"width":0.75,
+	"height":0.75,
+	"resistseverything":true,
+	"regiontriggerexclude":true,
+	
+	"static":true,
+	"active":true,
+
+	"category":1,
+	"mask":[false,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true],
+
+	"customtimer":[
+		[0,["set","x"],5],
+		[0,["set","y"],-10],
+		[0,["set","customtimertimer"],0],
+		[0,["set","lifetimer"],0]
+	],
+	"dontloopcustomtimer":true,
+
+	"transformenemyanimationonspawn":"dialogstart",
+	"transformenemyanimationondeath":"npctalk"
+}

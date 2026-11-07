@@ -1,0 +1,11 @@
+base=dialog display
+{
+	"xrelativetocamera":false,
+	"yrelativetocamera":false,
+	"spawnsenemy":false,
+	"customtimer":[[0,["set","drawable"]]],
+
+	"transformsinto":"dialog display",
+	"transformanimation":"dialogstart",
+	"light":0
+}

@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "animationoutput", "spawnerprep complete", "on" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "spawnerprep complete" ] ]
+}

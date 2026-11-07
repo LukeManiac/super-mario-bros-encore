@@ -1,0 +1,16 @@
+base=enemy blocker
+{
+	"description":"place anywhere - player blocker, spawns one block to the right, only blocks the right side",
+	"spawnoffsetx":1,
+	"ignoreleftcollide":true,
+	"ignorefloorcollide":true,
+	"ignoreceilcollide":true,
+	
+	"mask":[true,
+		true,false,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true]
+}

@@ -1,0 +1,10 @@
+base=fire flower
+{
+    "description":"place anywhere - ice flower",
+	"quadcount":4,
+
+    "animationframes":4,
+    "animationspeed":0.1,
+
+    "targetsize":7
+}

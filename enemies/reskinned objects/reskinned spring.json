@@ -1,0 +1,144 @@
+{
+	"quadcount":4,
+	"nospritesets":true,
+	"dontmirror":true,
+	"description":"place on empty tile - spring, works almost like from hello mario engine",
+
+	"animationtype":"frames",
+	"animationframes":4,
+	"animationstart":1,
+	"animationspeed":[0.05,0.05,0.05,0.05,99e99],
+
+	"reflects":true,
+
+	"movement":"none",
+	"trackable":true,
+
+	"friction":15,
+
+	"dontstopmario":true,
+	"drawback":true,
+	
+	"width":0.75,
+	"height":0.75,
+	
+	"static":false,
+	"active":true,
+
+	"bounces":true,
+	"bounceforce":0,
+	
+	"category":19,
+	
+	"mask":[	true,
+				false,false,true,true,true,
+				true,true,true,true,true,
+				true,true,true,true,true,
+				true,true,true,true,true,
+				true,true,true,true,true,
+				true,true,true,true,true,
+				true],
+
+	"emancipatecheck":false,
+	"autodelete":false,
+	"dontspawnnearcheckpoint":false,
+
+	"resistseverything":true,
+	"freezable":false,
+	"notkilledfromblocksbelow":true,
+	"jumpsfromblocksbelow":true,
+	"jumpforce":10,
+
+	"spawnsenemy":"jumphold detector",
+	"spawnenemydelays":[99e99],
+	"spawnpassedparameters":["pnum"],
+
+	"yoshispit":true,
+
+	"pnum":0,
+	"vjump":{
+		"speedy":-22.5,
+		"jumping":true,
+		"falling":true,
+		"animationstate":"jumping"
+	},
+	"vnojump":{"speedy":-16},
+
+	"outi":1,
+	"customtimer":[
+		[0,["add","pnum"],1],
+		[0,"spawnenemy"],
+
+		[0,["if","pnum","<",4],["subtract","currentcustomtimerstage"],3],
+
+		[0,["add","currentcustomtimerstage"],1],
+		[0,["set","customtimertimer"],0],
+		[0,["if","sarelease","notexists",""],["subtract","currentcustomtimerstage"],2],
+
+		[0,["set","jumpdetectors"],["property","spawnedenemies"]],
+
+		[0,["set","spawnpassedparameters"]],
+		[0,["set","playsound"],["property","spawnenemy"]],
+		[0,["set","spawnenemy"],["property","sarelease"]],
+
+		[0,["set","ceilcollide"],["property","addoutput"]],
+		[0,["set","customtimertimer"],0],
+		[0,["set","animationtimerstage"],5],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+		[0,["set","bounceforce"],["property","speedy"]],
+		[0,["divide","bounceforce"],2.5],
+
+		[0,["set","qgs"],["property","quadgroup"]],
+		[0,["set","qs"],["property","quad"]],
+
+		[0,["set","quadgroup"],["property","outtable"]],
+		[0,"setframe",["property","outi"]],
+
+		[0,["if","quad","notexists",""],["add","currentcustomtimerstage"],25],
+			[0,["add","outi"],1],
+			[0,["set","quadgroup"],["property","quad"]],
+			[0,"setframe",1],
+
+			[0,["if","quad","~=","player"],["add","currentcustomtimerstage"],21],
+				[0,"setframe",2],
+				[0,["set","quadgroup"],["property","quad"]],
+				[0,["set","obj"],["property","quad"]],
+				[0,["set","v"],["property","vnojump"]],
+				[0,["set","spawnsenemy"],"snd_spring"],
+
+				[0,"setframe","playernumber"],
+				[0,["set","playernumber"],["property","quad"]],
+
+				[0,["set","quadgroup"],["property","jumpdetectors"]],
+				[0,"setframe",["property","playernumber"]],
+				[0,["set","quadgroup"],["property","quad"]],
+				[0,"setframe","jumpheld"],
+
+				[0,["if","quad","~=",true],["add","currentcustomtimerstage"],2],
+					[0,["set","v"],["property","vjump"]],
+					[0,["concat","spawnsenemy"],"jump"],
+
+				[0,"playsound",["property","spawnsenemy"]],
+				[0,"spawnenemy"],
+
+				[0,["set","quadgroup"],["property","animationspeed"]],
+				[0,"setframe",1],
+				[0,["set","animationtimer"],0],
+				[0,["set","animationtimerstage"],1],
+
+				[0,["set","quadi"],["property","animationstart"]],
+
+		[0,["set","quadgroup"],["property","qgs"]],
+		[0,["set","quad"],["property","qs"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["set","currentcustomtimerstage"],["property","loopline"]]
+	],
+
+	"offsetX":6,
+	"offsetY":4,
+	"quadcenterX":8,
+	"quadcenterY":8
+}

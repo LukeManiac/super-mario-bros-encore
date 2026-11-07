@@ -1,0 +1,25 @@
+base=goomba
+{
+    "description":"place on empty tile - goomba",
+    "hidden":false,
+    "nospritesets":true,
+    "quadcount":4,
+    "animationtype":"frames",
+    "animationframes":2,
+    "animationstart":1,
+    "grabframe":3,
+    "deathframe":3,
+    "inhaleframe":3,
+    "stompedframe":4,
+    "spawnchildren":["enemy death helper"],
+    "spawnchildrenparent":true,
+    "offsetable":true,
+    "mask":[true,
+            false,false,false,false,true,
+            false,true,false,true,false,
+            false,false,true,false,false,
+            true,true,false,false,false,
+            false,true,true,false,false,
+            true,false,true,true,true,
+            false]
+}

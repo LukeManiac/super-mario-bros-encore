@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "playerwalk", "player 4", "left", "0" ], [ "playeranimationstop", "player 4" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "unduck p4_left" ] ]
+}

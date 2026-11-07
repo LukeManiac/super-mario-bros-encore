@@ -1,0 +1,54 @@
+{
+    "hidden":true,
+    "quadcount":2,
+    "nospritesets":true,
+    "resistsfire":true,
+    "notkilledfromblocksbelow":true,
+    "dontmirror":true,
+    "spawnsound":"bulletbill",
+
+    "static":false,
+    "active":true,
+
+    "width":0.75,
+    "height":0.75,
+
+    "gravity":0,
+
+    "stompable":true,
+    "killsonsides":true,
+    "killsonbottom":true,
+    "fallswhenstomped":true,
+
+    "quadi":1,
+    "quadno":1,
+
+    "category":11,
+    "mask":[true,
+			true,false,true,true,true,
+			true,true,true,true,true,
+			true,false,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true],
+
+    "spawnchildren":["enemy death helper"],
+    "spawnchildrenparent":true,
+    "deathproperties":{
+        "rollanimation":false,
+        "rotation":0,
+        "speedx":0
+    },
+
+    "emancipatecheck":true,
+    "autodelete":true,
+
+    "customscissor":[0.125,0.125,0.75,0.75],
+    "invertedscissor":true,
+
+    "offsetX":6,
+    "offsetY":2,
+    "quadcenterX":8,
+    "quadcenterY":8
+}

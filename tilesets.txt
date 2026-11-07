@@ -1,0 +1,18 @@
+Overworld
+Underground
+Castle
+Underwater
+Ghost House
+Desert
+Jungle
+Snow
+Volcano
+Autumn
+Beach
+Mountain
+Space
+Garden
+Pipeland
+Airship
+Bonus
+Sky

@@ -1,0 +1,78 @@
+base=fader
+{
+	"customtimer":[
+		[0,["set","quadgroup"],["property","graphiccolor"]],
+
+		[0,"setframe",1],
+		[0,["if","quad","notexists",""],["set","quad"],255],
+		[0,["set",1],["property","quad"]],
+
+		[0,"setframe",2],
+		[0,["if","quad","notexists",""],["set","quad"],255],
+		[0,["set",2],["property","quad"]],
+
+		[0,"setframe",3],
+		[0,["if","quad","notexists",""],["set","quad"],255],
+		[0,["set",3],["property","quad"]],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+		[0,["set","dt"],["property","customtimertimer"]],
+		[0,["multiply","dt"],1000],
+		[0,["subtract",2],["property","dt"]],
+		[0,["subtract",3],["property","dt"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",2,">",0],["set","currentcustomtimerstage"],["property","loopline"]],
+		[0,["set",2],0],
+		[0,["set",3],0],
+		[0,["set","beginstage"],["property","currentcustomtimerstage"]],
+		[0,["set","dt"],["property","customtimertimer"]],
+		[0,["multiply","dt"],1000],
+		[0,["add",2],["property","dt"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",2,"<",255],["set","currentcustomtimerstage"],["property","beginstage"]],
+		[0,["set",2],255],
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+		[0,["set","dt"],["property","customtimertimer"]],
+		[0,["multiply","dt"],1000],
+		[0,["subtract",1],["property","dt"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",1,">",0],["set","currentcustomtimerstage"],["property","loopline"]],
+		[0,["set",1],0],
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+		[0,["set","dt"],["property","customtimertimer"]],
+		[0,["multiply","dt"],1000],
+		[0,["add",3],["property","dt"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",3,"<",255],["set","currentcustomtimerstage"],["property","loopline"]],
+		[0,["set",3],255],
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+		[0,["set","dt"],["property","customtimertimer"]],
+		[0,["multiply","dt"],1000],
+		[0,["subtract",2],["property","dt"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",2,">",0],["set","currentcustomtimerstage"],["property","loopline"]],
+		[0,["set",2],0],
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+		[0,["set","dt"],["property","customtimertimer"]],
+		[0,["multiply","dt"],1000],
+		[0,["add",1],["property","dt"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",1,"<",255],["set","currentcustomtimerstage"],["property","loopline"]],
+		[0,["set",1],255],
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+		[0,["set","dt"],["property","customtimertimer"]],
+		[0,["multiply","dt"],1000],
+		[0,["subtract",3],["property","dt"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",3,">",0],["set","currentcustomtimerstage"],["property","loopline"]],
+		[0,["set",3],0],
+		[0,["set","currentcustomtimerstage"],["property","beginstage"]]
+	]
+}

@@ -1,0 +1,7 @@
+base=reskinned cannon ball
+{
+    "quadi":2,
+    "quadno":2,
+    "spawnsound":"cannonfast",
+    "dontplaysoundsoffscreen":true
+}

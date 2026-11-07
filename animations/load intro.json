@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "setnumber", "title set", "=", "1" ], [ "loadlevelinstant", "1", "1", "1", "1" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "load intro" ] ]
+}

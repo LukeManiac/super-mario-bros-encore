@@ -1,0 +1,11 @@
+base=npc
+{
+	"hidden":true,
+	
+	"nearframeoffset":2,
+	"playerinregion":true,
+
+	"transformsinto":["npc","npctalk"],
+	"transformtrigger":["playernotnear","animation"],
+	"transformanimation":"npctalk"
+}

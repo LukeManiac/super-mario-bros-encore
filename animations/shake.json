@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "screenshake", "2.5" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "shake" ] ]
+}

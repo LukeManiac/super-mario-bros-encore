@@ -1,0 +1,13 @@
+{
+	"drawable":false,
+	"hidden":true,
+
+	"width":0,
+	"height":1000,
+
+	"static":true,
+	"resistseverything":true,
+
+	"category":10,
+	"mask":[true]
+}

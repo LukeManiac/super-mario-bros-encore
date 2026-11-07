@@ -1,0 +1,11 @@
+name=smb encore
+author=lukemaniac
+description=a new journey forthe heroesA well what awaits them?
+lives=5
+physics=5
+camera=2
+realtime=t
+continuesublevelmusic=t
+nocoinlimit=t
+disabletransition=t
+overridesounds=t

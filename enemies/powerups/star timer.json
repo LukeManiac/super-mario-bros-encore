@@ -1,0 +1,188 @@
+{
+    "hidden":true,
+
+    "quadcount":32,
+    "drawback":true,
+
+    "width":0,
+    "height":0,
+
+    "static":true,
+    "active":true,
+    "resistseverything":true,
+
+    "mask":[true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true],
+    "graphiccolor":[0,0,0,0],
+    "sticktoplayeroffsety":-1.75,
+
+    "warned":false,
+    "leaving":false,
+    "handlerspawned":false,
+
+    "timer":0,
+
+    "pierow":1,
+    "regularstartimer":12,
+
+    "customtimer":[
+        [0,["set","stopstartimer"],["property","regularstartimer"]],
+        [0,["subtract","stopstartimer"],1],
+
+        [0,["set","spawnenemy"],["property","sarelease"]],
+        [0,["set","qgs"],["property","quadgroup"]],
+
+        [0,["set","drawable"]],
+        [0,["concat","transformanimation"],["property","playernumber"]],
+        [0,["set","sticktoplayer"],["property","playernumber"]],
+        [0,["set","customtimertimer"],0],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+        [0,["add","timer"],["property","customtimertimer"]],
+
+        [0,["set","quadgroup"],["property","spawner"]],
+        [0,"setframe","instantdelete"],
+
+        [0,["if","quad","~=",true],["add","currentcustomtimerstage"],3],
+            [0,["set","drawable"]],
+            [0,["set","instantdelete"],true],
+            [0,["set","currentcustomtimerstage"],99e99],
+
+        [0,"setframe","graphiccolor"],
+        [0,["set","graphiccolor"],["property","quad"]],
+
+        [0,"setframe","starduration"],
+        [0,["set","starduration"],["property","quad"]],
+
+        [0,"setframe","playerobj"],
+        [0,["set","playerobj"],["property","quad"]],
+
+        [0,["set","quadgroup"],["property","playerobj"]],
+        [0,["set","obj"],["property","playerobj"]],
+        [0,["set","table"],["property","playerobj"]],
+
+        [0,"setframe","dead"],
+        [0,["reverse","quad"]],
+        [0,["set","drawable"],["property","quad"]],
+
+        [0,["if","drawable","==",true],["add","currentcustomtimerstage"],12],
+            [0,["set","v"],{"starred":false,"startimer":11.999}],
+            [0,"spawnenemy"],
+
+            [0,["set","customtimertimer"],0],
+            [0,"spawnenemy"],
+
+            [0,["set","customtimertimer"],0],
+            [0,"spawnenemy"],
+
+            [0,["set","spawnenemy"]],
+            [0,["set","playsound"],["property","spawnenemy"]],
+
+            [0,"playsound","starmusic handler master"],
+
+            [0,["set","spawnenemy"],["property","sarelease"]],
+            [0,["set","playsound"]],
+
+            [0,["add","currentcustomtimerstage"],2],
+
+        [0,"setframe","starred"],
+
+        [0,["if","quad","~=",false],["add","currentcustomtimerstage"],3],
+            [0,["set","drawable"]],
+            [0,["set","instantdelete"],true],
+            [0,["set","currentcustomtimerstage"],99e99],
+
+        [0,["set","stardiff"],["property","regularstartimer"]],
+        [0,["subtract","stardiff"],["property","starduration"]],
+
+        [0,["set","properstartimer"],["property","stardiff"]],
+        [0,["add","properstartimer"],["property","timer"]],
+
+        [0,["set","varsets"],[["startimer","properstartimer"]]],
+
+        [0,["set","spawnenemy"]],
+        [0,["set","playsound"],["property","spawnenemy"]],
+
+        [0,"playsound","multivarset"],
+
+        [0,["set","spawnenemy"],["property","sarelease"]],
+        [0,["set","playsound"]],
+
+        [0,"setframe","startimer"],
+        [0,["set","startimer"],["property","quad"]],
+        [0,["subtract","startimer"],["property","stardiff"]],
+
+        [0,["set","quadgroup"],["property","qgs"]],
+
+        [0,["set","warnchecktimer"],["property","starduration"]],
+        [0,["subtract","warnchecktimer"],["property","startimer"]],
+
+        [0,["if","warnchecktimer",">=",2,"or","warned","~=",false],["add","currentcustomtimerstage"],6],
+            [0,["set","warned"],true],
+
+            [0,["set","spawnenemy"]],
+            [0,["set","playsound"],["property","spawnenemy"]],
+
+            [0,"playsound","snd_timerrunout"],
+
+            [0,["set","spawnenemy"],["property","sarelease"]],
+            [0,["set","playsound"]],
+
+        [0,["if","leaving","~=",true,"or","handlerspawned","==",true],["add","currentcustomtimerstage"],2],
+            [0,"playsound","starmusic handler master"],
+            [0,["set","handlerspawned"],true],
+
+        [0,["if","warnchecktimer",">=",1,"or","leaving","~=",false],["add","currentcustomtimerstage"],7],
+            [0,["set","leaving"],true],
+            [0,["set","spawnenemy"]],
+            [0,["set","playsound"],["property","spawnenemy"]],
+
+            [0,"playsound","multivarset"],
+
+            [0,["set","spawnenemy"],["property","sarelease"]],
+            [0,["set","playsound"]],
+
+            [0,["set","properstartimer"],["property","stopstartimer"]],
+
+        [0,["divide","startimer"],["property","starduration"]],
+        [0,["multiply","startimer"],["property","quadcount"]],
+        [0,["set","starframe"],["property","startimer"]],
+        [0,["multiply","starframe"],4],
+        [0,["ceil","starframe"]],
+
+        [0,["set","pierow"],1],
+
+        [0,["if","starframe","<=",["property","quadcount"]],["add","currentcustomtimerstage"],2],
+            [0,["subtract","starframe"],["property","quadcount"]],
+            [0,["add","pierow"],1],
+
+        [0,["if","starframe",">",["property","quadcount"]],["subtract","currentcustomtimerstage"],4],
+
+        [0,["set","quadgroup"],["property","quadbase"]],
+		[0,"setframe",["property","pierow"]],
+		[0,["set","quadgroup"],["property","quad"]],
+		[0,"setframe",["property","starframe"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["set","currentcustomtimerstage"],["property","loopline"]]
+    ],
+    "dontloopcustomtimer":true,
+
+    "transforms":true,
+    "transformsinto":"nil",
+    "transformtrigger":"animation",
+    "transformanimation":"startimerreset",
+
+    "offsetX":0,
+    "offsetY":8,
+    "quadcenterX":8,
+    "quadcenterY":8,
+
+    "spawnpassedparameters":["table","varsets"]
+}

@@ -1,0 +1,23 @@
+base=cheepcheepred
+{
+    "description":"place in underwater course - red cheep cheep, travels faster than a green cheep cheep",
+    "hidden":false,
+    "quadcount":4,
+    "grabframe":3,
+    "deathframe":3,
+    "inhaleframe":3,
+    "spawnchildren":["enemy death helper"],
+    "spawnchildrenparent":true,
+    "offsetable":true,
+    "deathproperties":{
+        "animationtype":"frames",
+        "animationstart":3,
+        "animationspeed":0.1
+    },
+    "customtrigger":[
+        [["if","x","==","x"],["set","grabframe"],["property","quadi"]],
+        [["if","x","==","x"],["add","grabframe"],2],
+        [["if","x","==","x"],["set","inhaleframe"],["property","quadi"]],
+        [["if","x","==","x"],["add","inhaleframe"],2]
+    ]
+}

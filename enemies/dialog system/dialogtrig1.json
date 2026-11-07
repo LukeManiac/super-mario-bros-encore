@@ -1,0 +1,29 @@
+{
+	"width":0,
+	"height":0,
+	"active":false,
+	"nospritesets":true,
+	"resistseverything":true,
+	"regiontriggerexclude":true,
+	"description":"place anywhere - dialog trigger",
+
+	"npcid":"1",
+	"pnum":0,
+
+	"spawnsenemy":"dialog spawner",
+	"spawnenemydelays":[99e99],
+	"spawnpassedparameters":["npcid","pnum"],
+
+	"customtimer":[[0,"spawnenemy"]],
+	"dontloopcustomtimer":true,
+
+	"transforms":true,
+	"transformsinto":"nil",
+	"transformtrigger":"animation",
+	"transformanimation":"dialogend p0",
+
+	"offsetX":0,
+	"offsetY":16,
+	"quadcenterX":8,
+	"quadcenterY":8
+}

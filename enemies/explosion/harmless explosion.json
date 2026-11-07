@@ -1,0 +1,7 @@
+base=explosion
+{
+    "hidden":true,
+    "kills":false,
+    "killsenemies":false,
+    "dontstopmario":true
+}

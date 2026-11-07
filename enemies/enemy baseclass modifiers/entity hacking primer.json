@@ -1,0 +1,99 @@
+{
+	"quadcount":1,
+	"nospritesets":true,
+	"spawnonload":true,
+	"graphiccolor":[0,0,0,0],
+	"description":"place above tile moving to end of track - entity hacking primer",
+	"spawnoffsety":1,
+
+	"width":1,
+	"height":1,
+
+	"active":true,
+	"static":true,
+	"category":2,
+	"mask":[true,
+		false,true,true,true,true,
+		true,false,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true],
+	"resistseverything":true,
+	"regiontriggerexclude":true,
+
+	"spawnpassedparameters":["table","varsets","sarelease","dospawnanimation"],
+	"spawnsetparameters":[["instantdelete",true]],
+	"varsets":[["sarelease","sarelease"],["new","new"]],
+
+	"item":"nil",
+	"hitsblocks":true,
+
+	"blowchecktable":["tilemoving"],
+	"blowstrong":true,
+	"blowspeedy":1e10,
+	"blowstaticenemies":true,
+
+	"a":1,
+	"v":[],
+
+	"customtimer":[
+		[0,["set","drawable"]],
+
+		[0,["if",["property","sarelease"],"notexists",""],["add","currentcustomtimerstage"],4],
+			[0,["set","blowrange"],[0.5,0.5,0,0]],
+			[0,["set","customtimertimer"],0],
+			[0,["set","lifetimer"],0],
+			[0,["set","customtimertimer"],0],
+
+		[0,"---------------------------------------Clone moving tile, spawn animation, sarelease, and enemy newclass function"],
+		[0,["set","playsound"],["property","spawnenemy"]],
+
+		[0,["set","globalcollide"],["property","addoutput"]],
+		[0,["set","customtimertimer"],0],
+		[0,["set","globalcollide"]],
+
+		[0,["set","quadgroup"],["property","outtable"]],
+		[0,"setframe",1],
+		[0,["set","quadgroup"],["property","quad"]],
+
+		[0,"setframe",2],
+		[0,["set","quadgroup"],["property","quad"]],
+
+		[0,"setframe","hit"],
+		[0,["set","spawnenemy"],["property","quad"]],
+		[0,"spawnenemy"],
+
+		[0,"stopsound","blockhit"],
+		[0,"stopsound","mushroomappear"],
+
+		[0,["set","quadgroup"],["property","moveobject"]],
+		[0,"setframe","release"],
+		[0,["set","sarelease"],["property","quad"]],
+
+		[0,["set","spawnenemy"]],
+		[0,["set","dospawnanimation"],["property","update"]],
+		[0,["set","table"],["property","__baseclass"]],
+		[0,["set","playsound"],["property","spawnenemy"]],
+		[0,"playsound","multivarset"],
+
+		[0,["set","quadgroup"],["property","spawnedenemies"]],
+		[0,"setframe",1],
+		[0,["set","obj"],["property","quad"]],
+		[0,["set","spawnenemy"],["property","sarelease"]],
+		[0,"spawnenemy"],
+
+		[0,["set","blowrange"],[0.5,0.5,0,0]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","lifetimer"],0]
+	],
+	"dontloopcustomtimer":true,
+	"animationtriggerondeath":"hackprep complete",
+
+	"offsetX":8,
+	"offsetY":16,
+	"quadcenterX":8,
+	"quadcenterY":8
+}

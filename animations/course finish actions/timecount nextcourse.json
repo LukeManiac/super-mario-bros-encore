@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "setnumber", "checkpoint", "=", "0" ], [ "triggeranimation", "map load" ], [ "triggeranimation", "world map register" ], [ "sleep", ".001" ], [ "triggeranimation", "world map load" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "whennumber", "course finish", "=", "2" ] ]
+}

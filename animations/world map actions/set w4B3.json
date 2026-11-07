@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "setnumber", "world number", "=", "4" ], [ "setnumber", "course number", "=", "3" ] ],
+    "conditions": [ [ "worldequals", "4" ], [ "levelequals", "3" ] ],
+    "triggers": [ [ "mapload" ] ]
+}

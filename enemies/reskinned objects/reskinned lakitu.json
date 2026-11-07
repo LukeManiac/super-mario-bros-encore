@@ -1,0 +1,106 @@
+base=lakito
+{
+	"description":"place on empty tile - lakitu",
+    "hidden":false,
+    "nospritesets":true,
+    "quadcount":5,
+    "grabframe":5,
+    "deathframe":5,
+    "inhaleframe":5,
+    "spawnchildren":["enemy death helper"],
+    "spawnchildrenparent":true,
+    "offsetable":true,
+
+    "deatheffect":"reskinned lakitu cloud poof",
+    "deathoffsety":0.25,
+
+    "spawnsenemy":false,
+    "spawnenemydelays":false,
+    "spawnmax":5,
+
+    "spawndelay":4,
+    "spawnpreparetime":0.5,
+    "spawnpreparing":false,
+
+    "timer":0,
+
+    "animationtype":"frames",
+    "animationframes":2,
+    "animationstart":1,
+    "animationspeed":0.2,
+
+    "rightclick":[
+        ["text","ending x:"],
+        ["input","endx",5]
+    ],
+    "rightclickdefaults":["99e99"],
+    "rightclicktypes":["num"],
+    "casesensitive":true,
+
+    "crossedend":false,
+    "crossedendtimermark":0,
+    "customtimer":[
+        [0,["set","playsound"],["property","spawnenemy"]],
+        [0,["if","endx","exists",""],["subtract","endx"],["property","width"]],
+
+        [0,["set","spawnmark"],["property","spawndelay"]],
+        [0,["subtract","spawnmark"],["property","spawnpreparetime"]],
+
+        [0,["set","animationstartstore"],["property","animationstart"]],
+        [0,["set","animationspeedstore"],["property","animationspeed"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,["if","crossedend","==",false],["add","timer"],["property","customtimertimer"]],
+
+        [0,["if","timer","<",["property","spawnmark"],"or","spawnpreparing","==",true],["add","currentcustomtimerstage"],7],
+            [0,["set","animationstart"],3],
+            [0,["set","animationspeed"],[0.1,0.1,99e99]],
+
+            [0,["set","animationtimer"],0],
+            [0,["set","animationtimerstage"],2],
+
+            [0,["set","spawnpreparing"],true],
+
+            [0,["set","quadi"],["property","animationstart"]],
+            [0,"setframe",["property","quadi"]],
+
+        [0,["if","timer","<",["property","spawndelay"]],["add","currentcustomtimerstage"],13],
+            [0,["set","spawnenemyspeedx"],["property","speedx"]],
+            [0,["divide","spawnenemyspeedx"],1.25],
+            [0,["min","spawnenemyspeedx"],4.5],
+            [0,["max","spawnenemyspeedx"],-4.5],
+
+            [0,["subtract","timer"],["property","spawndelay"]],
+            [0,["set","spawnpreparing"],false],
+
+            [0,"playsound","reskinned spiny egg"],
+            [0,"playsound","snd_spinythrow"],
+
+            [0,["set","animationstart"],["property","animationstartstore"]],
+            [0,["set","animationspeed"],["property","animationspeedstore"]],
+
+            [0,["set","animationtimer"],0],
+
+            [0,["set","quadi"],["property","animationstart"]],
+            [0,"setframe",["property","quadi"]],
+
+        [0,["if","endx","notexists",""],["add","currentcustomtimerstage"],7],
+        [0,["if","x","<",["property","endx"],"or","crossedend","==",true],["add","currentcustomtimerstage"],6],
+            [0,["set","movement"],"truffleshuffle"],
+            [0,["set","truffleshufflespeed"],3],
+            [0,["set","truffleshuffleacceleration"],8],
+
+            [0,["set","speedx"],["property","truffleshufflespeed"]],
+            [0,["reverse","speedx"]],
+
+            [0,["set","crossedend"],true],
+
+        [0,["set","customtimertimer"],0],
+        [0,["set","currentcustomtimerstage"],["property","loopline"]]
+    ],
+
+    "offsetY":2,
+    "quadcenterX":9,
+    "quadcenterY":16
+}

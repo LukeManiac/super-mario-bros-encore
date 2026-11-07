@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "setnumber", "w113complete", "=", "1" ] ],
+    "conditions": [ [ "worldequals", "11" ], [ "levelequals", "3" ] ],
+    "triggers": [ [ "animationtrigger", "world map register" ] ]
+}

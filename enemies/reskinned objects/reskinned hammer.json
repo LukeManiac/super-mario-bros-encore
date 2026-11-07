@@ -1,0 +1,21 @@
+base=hammer
+{
+    "quadcount":1,
+    "animationtype":false,
+    "nospritesets":true,
+    "NOEXTERNALHORCOLLISIONS":true,
+    "NOEXTERNALVERCOLLISIONS":true,
+    "spawnchildren":["enemy death helper","snd_hammer"],
+    "spawnchildrenparent":true,
+    "rollanimation":true,
+    "resistseverything":true,
+    "killsenemiesafterportal":false,
+    "mask":[true,
+			true,false,false,false,true,
+			true,true,true,true,true,
+			true,false,true,true,true,
+			true,true,true,false,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			false]
+}

@@ -1,0 +1,15 @@
+endingtextcolor=255, 255, 255
+endingcolorname=white
+endingtext=congratulations on finishing,super mario bros. encore!
+playername=score
+hudtextcolor=255, 255, 255
+hudcolorname=white
+hudvisible=true
+hudworldletter=false
+hudoutline=true
+hudsimple=true
+toadtext=,,
+peachtext=,,,,
+steve=false
+levelscreen=1|1|
+hudhidecollectables=f,f,t,t,t,t,t,t,t,t

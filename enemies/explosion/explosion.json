@@ -1,0 +1,77 @@
+{
+	"quadcount":3,
+	"spawnsound":"boom",
+	"animationtriggeronspawn":"shake",
+	"meltsice":true,
+	"dontmirror":true,
+	"dontplaysoundsoffscreen":true,
+	"hidden":true,
+
+	"movement":"none",
+    "gravity":0,
+
+	"spawnoffsety":0.5,
+
+	"spawnchildren":["explosionstars"],
+	"spawnchildrenoffsety":-1,
+
+	"spawnsenemy":"poof",
+	"spawnenemydelays":[99e99],
+
+	"kills":true,
+	"killsenemies":true,
+	"regiontriggerexclude":true,
+	"nocoinblockanimation":true,
+	"nospritesets":true,
+
+    "NoHitSound":true,
+	"breaksblocks":true,
+    "breakshardblocks":true,
+    "breakBlockSide":"global",
+    "breaksflipblocks":true,
+    "breaksentityblocks":true,
+    "triggerspowblock":true,
+    "hitsblocks":true,
+    "hitsflipblocks":true,
+    "hitsentityblocks":true,
+	"resistseverything":true,
+	"noshotsound":true,
+	
+	"animationtype":"frames",
+	"animationframes":3,
+	"animationstart":1,
+	"animationspeed":0.1,
+
+	"width":3,
+	"height":3,
+	
+	"static":true,
+	"active":true,
+	
+	"category":4,
+	"ignoreplatform":true,
+	"blowable":false,
+	
+	"mask":[true,
+			true,false,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true],
+	
+	"emancipatecheck":true,
+	"autodelete":true,
+	
+	"offsetX":24,
+	"offsetY":-16,
+	"quadcenterX":18,
+	"quadcenterY":18,
+
+    "lifetime":0.3,
+    "transforms":true,
+    "transformsinto":"explosionend",
+    "transformtrigger":"lifetime",
+	"transformpassedparameters":["kills","dontstopmario"],
+	"transformpassedparametersbeforespawn":true
+}

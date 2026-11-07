@@ -1,0 +1,20 @@
+{
+    "hidden":true,
+    "hardmode":false,
+    "flightlimit":99e99,
+    "mixmeter":true,
+    "movesunderwater":true,
+    "healfromsleep":true,
+    "raremix":false,
+    "kdl1mode":false,
+    "fixflyingfish":true,
+    "slowkingbills":true,
+    "slowkoopalings":true,
+    "noturrets":true,
+    "laserimmunity":true,
+    "damagecrash":true,
+    "noairsteering":false,
+    "falldamage":false,
+    "invisible":false,
+    "fancyinhale":true
+}

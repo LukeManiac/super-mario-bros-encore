@@ -1,0 +1,347 @@
+{
+	"hidden":true,
+	"drawable":false,
+	"active":false,
+	"resistseverything":true,
+
+	"width":0.75,
+	"height":0.75,
+
+	"spawnchildren":["music stopper","player invinciblifier","snd_flaggrab"],
+	"spawnchildrenparent":true,
+
+	"spawnpassedparameters":["table","varsets"],
+	"spawnpassedparametersbeforespawn":true,
+
+	"spawnsound":"grab",
+
+	"flagjump":"flagjump p",
+	"flagwalk":"flagwalk p",
+
+	"playerreleasedtimer":0,
+
+	"flagplayed":false,
+	"completed":false,
+
+	"pmask":[true,
+			false,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true],
+
+	"v":{"red":true,"animationstate":"climbing","blowable":false,"animation":false,"drawable":true,"finishedcourse":true},
+
+	"v_flagpush":{"speedx":3.75},
+	"v_flagpush_sth":{"speedx":2.5},
+
+	"v_flagjump":{"speedy":-12.5},
+	"v_flagjump_k":{"speedy":-8.75},
+	"v_flagjump_sth":{"speedy":-6.25},
+
+	"varsets":[["y","quad"],["mask","pmask"]],
+
+	"customtimer":[
+		[0,["set","playsound"],["property","spawnenemy"]],
+		[0,["set","spawnenemy"],["property","sarelease"]],
+
+		[0,["set","quadgroup"],["property","spawner"]],
+		[0,"setframe","spawner"],
+		[0,["set","quadgroup"],["property","quad"]],
+
+		[0,"setframe","x"],
+		[0,["set","initx"],["property","quad"]],
+
+		[0,"setframe","y"],
+		[0,["set","inity"],["property","quad"]],
+
+		[0,"setframe","castlex"],
+		[0,["set","endx"],["property","quad"]],
+
+		[0,"setframe","castley"],
+		[0,["set","endy"],["property","quad"]],
+
+		[0,["set","spawnx"],["property","x"]],
+		[0,["set","spawny"],["property","y"]],
+		[0,["set","spawnwidth"],["property","width"]],
+		[0,["set","spawnheight"],["property","height"]],
+
+		[0,["set","obj"],["property","playerobj"]],
+		[0,"spawnenemy"],
+
+		[0,["set","customtimertimer"],0],
+		[0,"spawnenemy"],
+
+		[0,["set","customtimertimer"],0],
+		[0,["set","v"],{"controlsenabled":true}],
+		[0,"spawnenemy"],
+
+		[0,["set","swidth"],["property","width"]],
+		[0,["set","sheight"],["property","height"]],
+
+		[0,["set","centerx"],["property","x"]],
+		[0,["set","centerwidth"],["property","width"]],
+		[0,["divide","centerwidth"],2],
+		[0,["add","centerx"],["property","centerwidth"]],
+
+		[0,["set","quadgroup"],["property","playerobj"]],
+
+		[0,"setframe","mask"],
+		[0,["set","maskstore"],["property","quad"]],
+
+		[0,"setframe","width"],
+		[0,["set","width"],["property","quad"]],
+		[0,["subtract","swidth"],["property","width"]],
+		[0,["add","x"],["property","swidth"]],
+
+		[0,"setframe","height"],
+		[0,["set","height"],["property","quad"]],
+		[0,["subtract","sheight"],["property","height"]],
+		[0,["add","y"],["property","sheight"]],
+
+		[0,"setframe","x"],
+		[0,["set","pcenterx"],["property","quad"]],
+		[0,["set","pcenterwidth"],["property","width"]],
+		[0,["divide","pcenterwidth"],2],
+		[0,["add","pcenterx"],["property","pcenterwidth"]],
+
+		[0,"setframe","y"],
+		[0,["set","diffy"],["property","y"]],
+		[0,["subtract","diffy"],["property","quad"]],
+		[0,["subtract","diffy"],8],
+		[0,["max","diffy"],0],
+
+		[0,["add","quad"],["property","diffy"]],
+
+		[0,["set","table"],["property","playerobj"]],
+		[0,"playsound","multivarset"],
+
+		[0,["set","customtimertimer"],0],
+		[0,["set","v"],{"controlsenabled":false}],
+		[0,"spawnenemy"],
+
+		[0,["set","diffcenterx"],["property","pcenterx"]],
+		[0,["subtract","diffcenterx"],["property","centerx"]],
+		[0,["set","v"],{"animationdirection":"right"}],
+		[0,["if","diffcenterx",">",0],["set","v"],{"animationdirection":"left"}],
+
+		[0,"spawnenemy"],
+		[0,["set","customtimertimer"],0],
+
+		[0,"setframe","animationdirection"],
+		[0,["set","playerdir"],["property","quad"]],
+
+		[0,["set","nowx"],["property","x"]],
+		[0,["subtract","nowx"],0.25],
+		[0,["if","playerdir","==","left"],["add","nowx"],0.5],
+
+		[0,["set","varsets"],[["x","nowx"]]],
+		[0,"playsound","multivarset"],
+
+		[0,["set","nowy"],["property","y"]],
+		[0,["set","sticktoplayer"],["property","playernumber"]],
+		[0,["set","customtimertimer"],0],
+		[0,["set","sticktoplayer"]],
+
+		[0,["set","varsets"],[["y","y"]]],
+		[0,"playsound","multivarset"],
+
+		[0,["set","customtimertimer"],0],
+		[0,"playsound","multivarset"],
+
+		[0,"setframe","characterdata"],
+		[0,["set","quadgroup"],["property","quad"]],
+
+		[0,"setframe","spawnenemy"],
+		[0,["set","charcontroller"],["property","quad"]],
+
+		[0,["set","quadgroup"],["property","playerobj"]],
+
+		[0,["if","charcontroller","~=","sth master controller"],["add","currentcustomtimerstage"],4],
+			[0,"setframe","x"],
+			[0,["set","startx"],["property","quad"]],
+
+			[0,["set","v_flagjump"],["property","v_flagjump_sth"]],
+			[0,["set","v_flagpush"],["property","v_flagpush_sth"]],
+
+		[0,["if","charcontroller","==","k master controller"],["set","v_flagjump"],["property","v_flagjump_k"]],
+
+		[0,["set","storex"],["property","x"]],
+		[0,["set","storey"],["property","y"]],
+		[0,["set","storewidth"],["property","width"]],
+		[0,["set","storeheight"],["property","height"]],
+
+		[0,["set","x"],["property","spawnx"]],
+		[0,["set","y"],["property","spawny"]],
+		[0,["set","width"],["property","spawnwidth"]],
+		[0,["set","height"],["property","spawnheight"]],
+
+		[0,"playsound","flagpole block"],
+		[0,"playsound","flagpole block2"],
+
+		[0,["set","x"],["property","storex"]],
+		[0,["set","y"],["property","storey"]],
+		[0,["set","width"],["property","storewidth"]],
+		[0,["set","height"],["property","storeheight"]],
+
+		[0.5,["set","v"],{"speedy":8.5}],
+		[0,"spawnenemy"],
+
+		[0,["set","playsound"]],
+		[0,["set","spawnenemy"]],
+
+		[0,"playsound",["property","t"]],
+
+		[0,["set","playsound"],["property","spawnenemy"]],
+		[0,["set","spawnenemy"],["property","sarelease"]],
+
+		[0,["set","transformenemyanimationonspawn"],"flag get x"],
+		[0,["concat","transformenemyanimationonspawn"],["property","initx"]],
+
+		[0,["concat","transformenemyanimationonspawn"]," y"],
+		[0,["concat","transformenemyanimationonspawn"],["property","inity"]],
+
+		[0,["concat","transformenemyanimationonspawn"]," endx"],
+		[0,["concat","transformenemyanimationonspawn"],["property","endx"]],
+
+		[0,["concat","transformenemyanimationonspawn"]," endy"],
+		[0,["concat","transformenemyanimationonspawn"],["property","endy"]],
+
+		[0,["set","spawnps"],["property","spawnpassedparameters"]],
+		[0,["set","spawnpassedparameters"],["transformenemyanimationonspawn"]],
+
+		[0,"playsound","nil"],
+		[0,["set","transformenemyanimationonspawn"]],
+
+		[0,["set","spawnpassedparameters"],["property","spawnps"]],
+
+		[1,["set","sticktoplayer"],["property","playernumber"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","sticktoplayer"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","teleportplayer"],["property","playernumber"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["if","playerdir","==","left"],["set","x"],["property","startx"]],
+		[0,["if","playerdir","==","right","and","charcontroller","~=","sth master controller"],["add","x"],0.25],
+
+		[0,["set","y"],["property","nowy"]],
+
+		[0,["set","v"],{"animationstate":"climbing","animationdirection":"left","controlsenabled":true,"speedy":0}],
+		[0,"spawnenemy"],
+
+		[0,["if","playerdir","~=","right"],["add","currentcustomtimerstage"],3],
+			[0,["set","x"],["property","startx"]],
+			[0,["add","x"],0.5],
+			[0,["add","currentcustomtimerstage"],1],
+
+		[0,["if","charcontroller","~=","sth master controller"],["add","x"],0.25],
+
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","teleportplayer"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","sticktoplayer"],["property","playernumber"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","sticktoplayer"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","width"],0],
+		[0,["set","height"],0],
+
+		[0,["set","varsets"],[["y","nowy"]]],
+		[0,"playsound","multivarset"],
+
+		[0,["set","v"],{"controlsenabled":false}],
+		[0,"spawnenemy"],
+
+		[0,["set","varsets"],[["mask","maskstore"]]],
+		[0,"playsound","multivarset"],
+
+		[0.5,["set","teleportplayer"],["property","playernumber"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["add","x"],0.5],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","teleportplayer"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","playsound"],["property","triggeranimation"]],
+		[0,["concat","flagjump"],["property","playernumber"]],
+		[0,"playsound",["property","flagjump"]],
+
+		[0,["set","v"],{"speedy":0,"animationdirection":"left","red":false}],
+		[0,"spawnenemy"],
+
+		[0,["set","customtimertimer"],0],
+
+		[0,"setframe","characterdata"],
+		[0,["set","quadgroup"],["property","quad"]],
+
+		[0,"setframe","nojumpsound"],
+		[0,["set","nojumpsound"],["property","quad"]],
+
+		[0,["set","quadgroup"],["property","playerobj"]],
+
+		[0,["if","nojumpsound","~=",true],["add","currentcustomtimerstage"],10],
+			[0,"setframe","size"],
+
+			[0,["set","jumpsound"],"jumpbig"],
+			[0,["if","quad","==",12],["set","jumpsound"],"jumpskinny"],
+			[0,["if","quad","==",-1],["set","jumpsound"],"jumptiny"],
+			[0,["if","quad","==",1],["set","jumpsound"],"jump"],
+
+			[0,["set","playsound"]],
+			[0,["set","spawnenemy"]],
+
+			[0,"playsound",["property","jumpsound"]],
+
+			[0,["set","playsound"],["property","triggeranimation"]],
+			[0,["set","spawnenemy"],["property","sarelease"]],
+
+		[0,["set","v"],["property","v_flagjump"]],
+		[0,"spawnenemy"],
+
+		[0,["set","customtimertimer"],0],
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+		[0,["set","v"],["property","v_flagpush"]],
+		[0,"spawnenemy"],
+
+		[0,["set","customtimertimer"],0],
+		[0,["add","playerreleasedtimer"],["property","customtimertimer"]],
+
+		[0,["if","playerreleasedtimer","<",0.25,"or","flagplayed","==",true],["add","currentcustomtimerstage"],2],
+			[0,"playsound","flagsound"],
+			[0,["set","flagplayed"],true],
+
+		[0,["set","v"],{"blowable":true}],
+
+		[0,"setframe","x"],
+		[0,["if","quad",">=",["property","initx"]],"spawnenemy"],
+
+		[0,"setframe","landed"],
+		[0,["if","quad","~=",true],["set","currentcustomtimerstage"],["property","loopline"]],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+		[0,["set","customtimertimer"],0],
+
+		[0,"setframe","speedx"],
+		[0,["abs","quad"]],
+		[0,["if","quad",">",0],["set","currentcustomtimerstage"],["property","loopline"]],
+
+		[0,["concat","flagwalk"],["property","playernumber"]],
+		[0,"playsound",["property","flagwalk"]],
+
+		[0,["set","completed"],true]
+	],
+	"dontloopcustomtimer":true
+}

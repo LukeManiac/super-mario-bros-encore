@@ -1,0 +1,71 @@
+{
+	"quadcount":1,
+	"nospritesets":true,
+	"spawnonload":true,
+	"showicononeditor":true,
+	"graphiccolor":[0,0,0,0],
+	"description":"place anywhere - text cloner, right-click to set text, colour, and active duration",
+
+	"width":0,
+	"height":0,
+
+	"offsetX":0,
+	"offsetY":16,
+	"quadcenterX":8,
+	"quadcenterY":8,
+
+	"static":true,
+	"activestatic":true,
+	"active":true,
+
+	"category":2,
+	"ignoreceilcollide":true,
+	"ignoreleftcollide":true,
+	"ignorerightcollide":true,
+	"ignorefloorcollide":true,
+	"mask":[true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true],
+
+	"transformpassedparameters":["draw","text","color","activeduration"],
+	"transformpassedparametersbeforespawn":true,
+
+	"spawnpassedparameters":["table","varsets"],
+
+	"color":[255,255,255],
+	"customtimer":[
+		[0,["set","drawable"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",["property","textdraw"],"notexists",""],["subtract","currentcustomtimerstage"],2],
+
+		[0,["set","table"],["property","color"]],
+		[0,["set","varsets"],[[1,"colour1"],[2,"colour2"],[3,"colour3"]]],
+
+		[0,["set","playsound"],["property","spawnenemy"]],
+		[0,"playsound","multivarset"],
+
+		[0,["set","draw"],["property","textdraw"]],
+
+		[0,["set","customtimeraction"],["property","transform"]],
+		[0,"text"]
+	],
+	"dontloopcustomtimer":true,
+	"rightclick":[
+		["text","text:"],
+		["input","text",30],
+		["text","colour (r, g, b):"],
+		["input","colour1",5],
+		["input","colour2",5],
+		["input","colour3",5],
+		["text","display duration:"],
+		["input","activeduration",5]
+	],
+	"rightclickdefaults":["text","255","255","255","5"],
+	"rightclicktypes":["string","num","num","num","num"]
+}

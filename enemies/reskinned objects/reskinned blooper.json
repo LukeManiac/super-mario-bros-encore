@@ -1,0 +1,14 @@
+base=squid
+{
+    "description":"place in underwater course - blooper",
+    "hidden":false,
+    "quadcount":3,
+    "grabframe":3,
+    "deathframe":3,
+    "inhaleframe":3,
+    "offsetY":1,
+    "quadcenterY":12,
+    "spawnchildren":["enemy death helper"],
+    "spawnchildrenparent":true,
+    "offsetable":true
+}

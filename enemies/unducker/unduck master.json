@@ -1,0 +1,26 @@
+{
+    "hidden":true,
+    "width":0,
+    "height":0,
+    "active":false,
+
+    "spawnsenemy":"unduck child",
+    "spawnenemydelays":[99e99],
+	"spawnpassedparameters":["pnum"],
+    "spawnpassedparametersbeforespawn":true,
+
+    "autodelete":false,
+    "resistseverything":true,
+
+    "pnum":1,
+    "customtimer":[
+        [0,["set","drawable"]],
+
+        [0,"spawnenemy"],
+        [0,["add","pnum"],1],
+        [0,["if","pnum","<",4],["subtract","currentcustomtimerstage"],3],
+
+        [0,["set","instantdelete"],true]
+    ],
+    "dontloopcustomtimer":true
+}

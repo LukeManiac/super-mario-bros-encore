@@ -1,0 +1,227 @@
+{
+	"hidden":true,
+
+	"removeonmariocontact":false,
+	"notkilledfromblocksbelow":true,
+	"jumpsfromblocksbelow":true,
+	"mushroomifmariosmall":"super mushroom",
+	"regiontriggerexclude":true,
+
+	"resistseverything":true,
+
+	"freezable":false,
+	"dontmirror":true,
+
+	"noclearpiperotation":true,
+
+	"dontstopmario":true,
+	"nospritesets":true,
+
+	"extralifeitem":false,
+
+	"offsetable":true,
+
+	"truffleshufflespeed":3.6,
+	"truffleshuffleacceleration":8,
+
+	"bounceforce":13,
+	"gravity":40,
+
+	"quadi":1,
+
+	"width":0.75,
+	"height":1,
+
+	"static":false,
+	"active":true,
+	"category":6,
+	"mask":[true,
+			false,false,true,true,true,
+			false,true,false,true,true,
+			false,true,true,false,true,
+			true,true,false,true,true,
+			false,true,true,false,false,
+			true,false,true,true,true,
+			false],
+
+	"emancipatecheck":true,
+	"autodelete":true,
+	"enemy":true,
+
+	"spawnpassedparametersbeforespawn":true,
+
+	"playernumber":1,
+
+	"stretchspeed":0,
+	"timer":0,
+
+	"outi":1,
+
+	"rainboweffect":false,
+	"rainbowspawned":false,
+
+	"stareffecttimer":0,
+	"stareffectduration":0.04,
+	"starsoundtimer":0,
+	"starsoundduration":0.125,
+
+	"deletenow":false,
+	"noscorenote":false,
+	"customtimer":[
+		[0,["set","playsound"],["property","spawnenemy"]],
+
+		[0,["set","sticktoplayer"]],
+		[0,["set","enemytransformanim"],["property","transformenemyanimationondeath"]],
+		[0,["set","offsetYstore"],["property","offsetY"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["set","fallstage"],["property","currentcustomtimerstage"]],
+		[0,["if","falling","==",true],["add","currentcustomtimerstage"],7],
+
+		[0,["set","speedx"],0],
+		[0,["set","bounces"],["property","powerupbounces"]],
+		[0,["set","movement"],["property","powerupmovement"]],
+		[0,["if","movement","==","truffleshuffle"],["set","speedx"],["property","truffleshufflespeed"]],
+		[0,["if","movement","~=","truffleshuffle"],["set","friction"],24],
+		[0,["set","airfriction"],0],
+		[0,["set","fallstage"]],
+
+		[0,["if","rainboweffect","~=",true,"or","rainbowspawned","~=",false],["add","currentcustomtimerstage"],12],
+			[0,"playsound","rainbow effect"],
+
+			[0,["set","qgs"],["property","quadgroup"]],
+			[0,["set","qs"],["property","quad"]],
+
+			[0,["set","quadgroup"],["property","spawnedenemies"]],
+			[0,"setframe",1],
+			[0,["set","graphiccolor"],["property","quad"]],
+
+			[0,["set","quadgroup"],["property","qgs"]],
+			[0,["set","quad"],["property","qs"]],
+
+			[0,["set","customtimertimer"],0],
+			[0,["set","customtimertimer"],0],
+
+			[0,["set","spawnpassedparameters"],["graphiccolor","hitboxcolor"]],
+			[0,["set","rainbowspawned"],true],
+
+		[0,["set","name"],["property","t"]],
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+		[0,["set","canloop"],false],
+
+		[0,["if","rainboweffect","~=",true],["add","currentcustomtimerstage"],18],
+			[0,["set","canloop"],true],
+
+			[0,["random","spawnenemyoffsetx"],1.5],
+			[0,["subtract","spawnenemyoffsetx"],0.75],
+
+			[0,["random","spawnenemyoffsety"],1.5],
+			[0,["subtract","spawnenemyoffsety"],0.75],
+
+			[0,["add","stareffecttimer"],["property","customtimertimer"]],
+			[0,["add","starsoundtimer"],["property","customtimertimer"]],
+
+			[0,["if","stareffecttimer","<",["property","stareffectduration"]],["add","currentcustomtimerstage"],2],
+				[0,"playsound","star particle"],
+				[0,["subtract","stareffecttimer"],["property","stareffectduration"]],
+
+			[0,["if","starsoundtimer","<",["property","starsoundduration"]],["add","currentcustomtimerstage"],7],
+				[0,["random","starsoundid"],5],
+				[0,["floor","starsoundid"]],
+				[0,["add","starsoundid"],1],
+
+				[0,["set","starsound"],"snd_star"],
+				[0,["concat","starsound"],["property","starsoundid"]],
+				[0,"playsound",["property","starsound"]],
+
+				[0,["subtract","starsoundtimer"],["property","starsoundduration"]],
+
+		[0,["if","stretchspeed","<=",0],["add","currentcustomtimerstage"],14],
+			[0,["set","canloop"],true],
+
+			[0,["set","dt"],["property","customtimertimer"]],
+			[0,["multiply","dt"],["property","stretchspeed"]],
+			[0,["add","timer"],["property","dt"]],
+
+			[0,["sin","scalemult"],["property","timer"]],
+			[0,["multiply","scalemult"],2.5],
+			[0,["divide","scalemult"],["property","height"]],
+
+			[0,["set","offsetY"],["property","offsetYstore"]],
+			[0,["subtract","offsetY"],["property","scalemult"]],
+
+			[0,["divide","scalemult"],["property","quadcenterY"]],
+
+			[0,["set","animationscalex"],1],
+			[0,["add","animationscalex"],["property","scalemult"]],
+
+			[0,["set","animationscaley"],1],
+			[0,["subtract","animationscaley"],["property","scalemult"]],
+
+		[0,["set","globalcollide"],["property","addoutput"]],
+
+		[0,["set","removeonmariocontact"]],
+		[0,["set","makesmariogrow"]],
+		[0,["set","givesalife"]],
+		[0,["set","makesmariostar"]],
+
+		[0,["set","hitboxcolor"],["property","graphiccolor"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","regiontriggerexclude"],true],
+
+		[0,["set","qgs"],["property","quadgroup"]],
+		[0,["set","qs"],["property","quad"]],
+
+		[0,["set","quadgroup"],["property","outtable"]],
+		[0,"setframe",["property","outi"]],
+
+		[0,["if","quad","notexists",""],["add","currentcustomtimerstage"],17],
+			[0,["add","outi"],1],
+			[0,["set","canloop"],true],
+			[0,["set","quadgroup"],["property","quad"]],
+			[0,"setframe",1],
+
+			[0,["if","quad","~=","player"],["add","currentcustomtimerstage"],12],
+				[0,"setframe",2],
+                [0,["set","playerobj"],["property","quad"]],
+
+				[0,["set","quadgroup"],["property","quad"]],
+                [0,"setframe","playernumber"],
+                [0,["set","playernumber"],["property","quad"]],
+
+				[0,["set","transformenemyanimationondeath"],["property","enemytransformanim"]],
+				[0,["if","enemytransformanim","exists",""],["concat","transformenemyanimationondeath"],["property","playernumber"]],
+
+				[0,["set","marioused"]],
+				[0,["set","red"],true],
+				[0,["set","drawable"]],
+
+				[0,["set","lifetimer"],0],
+				[0,["set","currentcustomtimerstage"],99e99],
+
+		[0,["set","quadgroup"],["property","qgs"]],
+		[0,["set","quad"],["property","qs"]],
+
+		[0,["set","drawable"],true],
+
+		[0,["set","globalcollide"]],
+
+		[0,["if","fallstage","exists",""],["set","currentcustomtimerstage"],["property","fallstage"]],
+		[0,["if","canloop","~=",false],["set","currentcustomtimerstage"],["property","loopline"]]
+	],
+	"dontloopcustomtimer":true,
+
+	"offsetX":6,
+	"offsetY":-1,
+	"quadcenterX":8,
+	"quadcenterY":8,
+	
+	"light":2,
+
+	"transforms":true,
+	"transformsinto":"item silhouette",
+	"transformtrigger":"lifetime",
+	"transformpassedparameters":["deletenow","playerobj","playernumber","targetsize","extralifeitem","starify","makesmariostarduration","fireenemyprops","setmariocolours","name","transformenemyanimationondeath","noscorenote"],
+	"transformpassedparametersbeforespawn":true
+}

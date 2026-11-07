@@ -1,0 +1,19 @@
+{
+	"instantdelete":true,
+	"nospritesets":true,
+	"hidden":true,
+	"width":0,
+	"height":0,
+	"active":false,
+	"ignoreplatform":true,
+	"resistseverything":true,
+	"regiontriggerexclude":true,
+	"t":"nil",
+	"spawnsound":"nil",
+	"dontplaysoundsoffscreen":true,
+	"graphiccolor":[0,0,0,0],
+	"offsetX":0,
+	"offsetY":16,
+	"quadcenterX":8,
+	"quadcenterY":8
+}

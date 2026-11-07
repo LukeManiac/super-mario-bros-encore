@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "transformenemy", "jumpunhold p2" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "buttonreleased", "jump", "player 2" ] ]
+}

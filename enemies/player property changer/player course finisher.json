@@ -1,0 +1,15 @@
+base=player property changer
+{
+    "description":"place anywhere - player course finisher, useful for custom course finishers",
+    "propstochange":{
+        "speedx":0,
+        "controlsenabled":false,
+        "invincible":true,
+		"propellerjumping":false,
+		"propellerjumped":true,
+		"propellertime":0,
+		"jumping":false,
+		"falling":true
+    },
+    "spawnchildren":["unduck master"]
+}

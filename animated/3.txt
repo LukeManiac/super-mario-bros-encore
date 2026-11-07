@@ -1,0 +1,6 @@
+collision=true
+spikesup=true
+spikesdown=true
+spikesleft=true
+spikesright=true
+delay=200

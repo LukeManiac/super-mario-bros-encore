@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "disableanimation" ], [ "sleep", "0.1" ], [ "triggeranimation", "handlecp" ], [ "enableanimation" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "checkcp" ], [ "whennumber", "checkpoint", "=", "1" ] ]
+}

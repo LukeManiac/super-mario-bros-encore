@@ -1,0 +1,11 @@
+base=reskinned bullet bill
+{
+    "movement":"homing",
+    "homingturnspeed":1.65,
+    "homingspeed":4,
+    "homingrotation":0,
+    "rotationishomingrotation":true,
+    "upsidedownifhomingrotationright":true,
+    "dontmirror":true,
+    "spawnsound":"reskinned bullet bill homing"
+}

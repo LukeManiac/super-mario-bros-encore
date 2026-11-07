@@ -1,0 +1,32 @@
+base=reskinned cannon
+{
+    "hidden":true,
+    "spawnsenemy":false,
+    "spawnchildren":false,
+    "rightclick":false,
+    "static":true,
+    "customtimer":[
+        [0,["set","qgs"],["property","quadgroup"]],
+        [0,["set","qs"],["property","quad"]],
+
+        [0,["set","quadgroup"],["property","spawner"]],
+        [0,"setframe","baserotation"],
+        [0,["set","rotation"],["property","quad"]],
+
+        [0,"setframe","quadi"],
+        [0,["set","quadi"],["property","quad"]],
+
+        [0,"setframe","x"],
+        [0,["set","x"],["property","quad"]],
+
+        [0,"setframe","y"],
+        [0,["set","y"],["property","quad"]],
+
+        [0,["set","quadgroup"],["property","qgs"]],
+        [0,["set","quad"],["property","qs"]],
+
+        [0,"setframe",["property","quadi"]],
+
+        [0,["set","customtimertimer"],0]
+    ]
+}

@@ -1,0 +1,5 @@
+base=flower
+{
+    "hidden":true,
+    "resistseverything":true
+}

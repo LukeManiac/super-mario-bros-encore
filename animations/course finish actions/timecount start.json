@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "setnumber", "time scroll", "=", "1" ], [ "playsound", "scorering" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "timecount start" ] ]
+}

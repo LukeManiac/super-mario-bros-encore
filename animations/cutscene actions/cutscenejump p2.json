@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "playerjump", "player 2" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "cutscenejump p2" ] ]
+}

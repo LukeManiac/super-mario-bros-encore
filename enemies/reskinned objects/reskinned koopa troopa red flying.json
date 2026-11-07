@@ -1,0 +1,29 @@
+base=reskinned koopa troopa red
+{
+	"description":"place on empty tile - red paratroopa, flies vertically while facing player",
+    "movement":false,
+    "animationstart":12,
+    "gravity":0,
+    "pushmariowhenstomped":true,
+    "transforms":true,
+    "transformsinto":"reskinned koopa troopa red",
+    "transformtrigger":"stomp",
+    "transformpassedparameters":["animationdirection","speedx","wcddeathproperties"],
+    "stompable":true,
+    "shellanimal":false,
+    "timer":0,
+    "speedy":0,
+    "pushmariowhenstomped":true,
+    "notkilledfromblocksbelow":true,
+    "facesplayer":true,
+    "customtimer":[
+        [0,["add","timer"],["property","customtimertimer"]],
+        [0,["sin","speedy"],["property","timer"]],
+        [0,["multiply","speedy"],2.5],
+        [0,["set","animationspeed"],0.3141592653],
+        [0,["divide","animationspeed"],["property","speedy"]],
+        [0,["abs","animationspeed"]],
+        [0,["max","animationspeed"],["property","customtimertimer"]],
+        [0,["set","customtimertimer"],0]
+	]
+}

@@ -1,0 +1,5 @@
+base=upfire
+{
+    "hidden":true,
+    "resistseverything":true
+}

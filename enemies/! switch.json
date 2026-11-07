@@ -1,0 +1,170 @@
+{
+	"quadcount":5,
+	"spawnonload":true,
+	"doesntunrotate":true,
+	"description":"place anywhere - ! switch, right-click to set properties",
+
+	"nocoinblockanimation":true,
+
+	"resistseverything":true,
+	
+	"notkilledfromblocksbelow":true,
+	"jumpsfromblocksbelow":true,
+	"jumpforce":10,
+
+    "animationtype":"frames",
+    "animationframes":4,
+    "animationstart":1,
+    "animationspeed":0.1,
+
+	"solidkill":true,
+	
+	"width":1,
+	"height":1,
+	
+	"static":false,
+	"active":true,
+	
+	"category":4,
+	
+	"mask":[	true,
+				false,false,false,false,true,
+				false,true,false,true,false,
+				false,false,false,false,false,
+				true,true,false,false,false,
+				false,true,true,false,false,
+				true,false,true,true,true,
+				false],
+	
+	"emancipatecheck":false,
+	"autodelete":false,
+	
+	"offsetX":8,
+	"offsetY":0,
+	"quadcenterX":8,
+	"quadcenterY":8,
+
+	"trackable":false,
+	"dontenterclearpipe":true,
+	
+	"light":2,
+
+    "transformsinto":"hit",
+	"transformtrigger":"ceilcollide",
+	"transformtriggerobjectcollide":"player",
+
+	"platform":true,
+	"platformpush":true,
+	"platformchecktable":["player"],
+
+    "gravitydir":"down",
+    "colour":1,
+	"graphiccolor":[0,0,0,0],
+
+	"rightclick":[
+		["text","direction:"],
+		["dropdown",[
+			[["rotation",3.141592653],["transformtrigger","floorcollide"],["gravitydir","up"]],
+			[["rotation",0],["transformtrigger","ceilcollide"],["gravitydir","down"]],
+			[["rotation",1.570796327],["transformtrigger","rightcollide"],["gravitydir","left"]],
+			[["rotation",-1.570796327],["transformtrigger","leftcollide"],["gravitydir","right"]]
+		],5,["up","down","left","right"]],
+		["text","colour:"],
+		["dropdown","colour",5,["1","2","3","4"],["red","blue","yellow","green"]],
+		["text","animation trigger on activation:"],
+		["input","activateanimation",30],
+		["text","spawn object on activation:"],
+		["input","activatespawn",30],
+		["text","play sound on activation:"],
+		["input","activatesound",30],
+		["checkbox","dontdisappear","doesn't disappear after activation?"]
+	],
+    "rightclickdefaults":["down","1","","","","false"],
+    "rightclicktypes":["string","num","string","string","string","bool"],
+    "casesensitive":true,
+
+    "supersizeproperties":{
+        "hit":true,
+        "static":true,
+        "active":false,
+        "platform":false,
+        "transforms":false,
+        "hollow":true,
+        "NOEXTERNALHORCOLLISIONS":true,
+        "NOEXTERNALVERCOLLISIONS":true,
+        "mask":[true,
+				true,true,true,true,true,
+				true,true,true,true,true,
+				true,true,true,true,true,
+				true,true,true,true,true,
+				true,true,true,true,true,
+				true,true,true,true,true],
+        "animationframes":1,
+        "animationstart":5,
+        "animationtimer":0.1,
+        "quadi":5
+    },
+
+    "hit":false,
+	"hitduration":1,
+	"customtimer":[
+        [0,["set","quadgroup"],["property","quadbase"]],
+		[0,"setframe",["property","colour"]],
+
+        [0,["set","quadgroup"],["property","quad"]],
+		[0,"setframe",1],
+
+		[0,["set","maskstore"],["property","mask"]],
+
+        [0,["set","transform"],["property","dosupersize"]],
+        [0,["set","transforms"],true],
+		[0,["set","graphiccolor"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["if","hit","~=",true],["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,"playsound","switch"],
+        [0,"playsound",["property","activatesound"]],
+
+        [0,["set","playsound"],["property","spawnenemy"]],
+        [0,["if","activatespawn","exists",""],"playsound",["property","activatespawn"]],
+
+        [0,["set","playsound"],["property","triggeranimation"]],
+        [0,["if","activateanimation","exists",""],"playsound",["property","activateanimation"]],
+
+		[0,["set","playsound"]],
+
+		[0,["set","hittimer"],0],
+		[0,["set","hitloop"],["property","currentcustomtimerstage"]],
+
+		[0,["add","hittimer"],["property","customtimertimer"]],
+
+        [0,["set","customtimertimer"],0],
+		[0,["if","hittimer","<",["property","hitduration"]],["set","currentcustomtimerstage"],["property","hitloop"]],
+
+		[0,["if","dontdisappear","~=",true],["add","currentcustomtimerstage"],15],
+			[0,["set","animationframes"],4],
+			[0,["set","animationstart"],1],
+			[0,["set","animationtimer"],["property","animationspeed"]],
+
+			[0,["set","customtimertimer"],0],
+			[0,"setframe",["property","animationstart"]],
+
+			[0,["set","hit"],false],
+			[0,["set","static"],false],
+			[0,["set","active"],true],
+			[0,["set","platform"],true],
+			[0,["set","transforms"],true],
+			[0,["set","hollow"]],
+			[0,["set","NOEXTERNALHORCOLLISIONS"]],
+			[0,["set","NOEXTERNALVERCOLLISIONS"]],
+			[0,["set","mask"],["property","maskstore"]],
+
+			[0,["set","currentcustomtimerstage"],["property","loopline"]],
+
+		[0,["set","instantdelete"],true]
+	],
+	"dontloopcustomtimer":true
+}

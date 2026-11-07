@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "loadlevelinstant", "17", "11", "0", "1" ], [ "triggeranimation", "cpreset" ] ],
+    "conditions": [ [ "ifnumber", "world number", "=", "11" ] ],
+    "triggers": [ [ "animationtrigger", "world map load" ] ]
+}

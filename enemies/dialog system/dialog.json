@@ -1,0 +1,49 @@
+{
+	"quadcount":1,
+	"nospritesets":true,
+	"spawnonload":true,
+	"spawnoffsety":1,
+	"graphiccolor":[0,0,0,0],
+	"description":"place anywhere - dialog system",
+
+	"width":0,
+	"height":0,
+
+	"offsetX":0,
+	"offsetY":32,
+	"quadcenterX":8,
+	"quadcenterY":8,
+
+    "static":true,
+	"activestatic":true,
+	"active":true,
+
+	"category":2,
+	"ignoreceilcollide":true,
+	"ignoreleftcollide":true,
+	"ignorerightcollide":true,
+	"ignorefloorcollide":true,
+	"mask":[true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true],
+
+	"transformpassedparameters":["draw"],
+
+	"customtimer":[
+		[0,["set","drawable"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",["property","textdraw"],"notexists",""],["subtract","currentcustomtimerstage"],2],
+
+		[0,["set","draw"],["property","textdraw"]],
+
+		[0,["set","customtimeraction"],["property","transform"]],
+		[0,"dialog display hidden"]
+	],
+	"dontloopcustomtimer":true
+}

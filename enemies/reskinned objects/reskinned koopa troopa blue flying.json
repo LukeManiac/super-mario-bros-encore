@@ -1,0 +1,28 @@
+base=reskinned koopa troopa blue
+{
+    "description":"place on empty tile - blue paratroopa, flies horizontally",
+    "movement":false,
+    "animationstart":21,
+    "gravity":0,
+    "pushmariowhenstomped":true,
+    "transforms":true,
+    "transformsinto":"reskinned koopa troopa blue",
+    "transformtrigger":"stomp",
+    "transformpassedparameters":["animationdirection","wcddeathproperties"],
+    "stompable":true,
+    "shellanimal":false,
+    "timer":0,
+    "speedx":0,
+    "pushmariowhenstomped":true,
+    "notkilledfromblocksbelow":true,
+    "customtimer":[
+        [0,["add","timer"],["property","customtimertimer"]],
+        [0,["sin","speedx"],["property","timer"]],
+        [0,["multiply","speedx"],2.5],
+        [0,["set","animationspeed"],0.3141592653],
+        [0,["divide","animationspeed"],["property","speedx"]],
+        [0,["abs","animationspeed"]],
+        [0,["max","animationspeed"],["property","customtimertimer"]],
+        [0,["set","customtimertimer"],0]
+	]
+}

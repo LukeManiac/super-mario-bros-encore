@@ -1,0 +1,118 @@
+{
+    "hidden":true,
+    "quadcount":1,
+    "static":true,
+    "active":false,
+    "nospritesets":true,
+
+    "width":1,
+    "height":1,
+
+	"hollow":true,
+	"NOEXTERNALHORCOLLISIONS":true,
+	"NOEXTERNALVERCOLLISIONS":true,
+
+	"mask":[true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true],
+
+	"autodelete":false,
+	"resistseverything":true,
+
+    "characterdata":{
+        "smalloffsetX":0,
+        "smalloffsetY":0,
+        "smallquadcenterX":0,
+        "smallquadcenterY":0
+    },
+
+    "customtimer":[
+        [0,["set","qgs"],["property","quadgroup"]],
+        [0,["set","qs"],["property","quad"]],
+
+        [0,["if","colourdependent","~=",true],["add","currentcustomtimerstage"],35],
+            [0,["set","soffsetX"],["property","offsetX"]],
+            [0,["set","soffsetY"],["property","offsetY"]],
+
+            [0,["set","squadcenterX"],["property","quadcenterX"]],
+            [0,["set","squadcenterY"],["property","quadcenterY"]],
+
+            [0,["set","swidth"],["property","width"]],
+            [0,["set","sheight"],["property","height"]],
+
+            [0,["set","smask"],["property","mask"]],
+
+            [0,["set","quadgroup"],["property","playerobj"]],
+            [0,"setframe","characterdata"],
+
+            [0,["set","quadgroup"],["property","quad"]],
+            [0,"setframe","flightlimit"],
+            [0,["set","flightlimit"],["property","quad"]],
+
+            [0,["set","quadgroup"],["property","playerobj"]],
+
+            [0,["if","flightlimit","exists",""],["add","currentcustomtimerstage"],8],
+                [0,"setframe","setsize"],
+
+                [0,["set","playsound"],["property","quad"]],
+                [0,["set","smallgraphic"],["property","graphic"]],
+
+                [0,"setframe","playernumber"],
+                [0,["set","playernumber"],["property","quad"]],
+                [0,"playsound",1],
+
+                [0,["set","quadgroup"],["property","basecolors"]],
+
+                [0,["add","currentcustomtimerstage"],2],
+
+            [0,"setframe","basecolors"],
+            [0,["set","quadgroup"],["property","quad"]],
+
+            [0,"setframe",1],
+            [0,["set","graphiccolor"],["property","quad"]],
+
+            [0,["set","quadgroup"],["property","qgs"]],
+            [0,["set","quad"],["property","qs"]],
+
+            [0,["set","offsetX"],["property","soffsetX"]],
+            [0,["set","offsetY"],["property","soffsetY"]],
+
+            [0,["set","quadcenterX"],["property","squadcenterX"]],
+            [0,["set","quadcenterY"],["property","squadcenterY"]],
+
+            [0,["set","width"],["property","swidth"]],
+            [0,["set","height"],["property","sheight"]],
+
+            [0,["set","mask"],["property","smask"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,["set","qgs"],["property","quadgroup"]],
+        [0,["set","qs"],["property","quad"]],
+
+        [0,["set","quadgroup"],["property","spawner"]],
+
+        [0,"setframe","x"],
+        [0,["set","x"],["property","quad"]],
+
+        [0,"setframe","y"],
+        [0,["set","y"],["property","quad"]],
+
+        [0,["set","quadgroup"],["property","qgs"]],
+        [0,["set","quad"],["property","qs"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["set","currentcustomtimerstage"],["property","loopline"]]
+    ],
+    "dontloopcustomtimer":true,
+
+    "offsetX":8,
+    "offsetY":0,
+    "quadcenterX":8,
+    "quadcenterY":8
+}

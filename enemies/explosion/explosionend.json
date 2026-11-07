@@ -1,0 +1,47 @@
+base=explosion
+{
+	"hidden":true,
+	"spawnsenemy":"explosionstar",
+	"spawnenemydelays":[99e99],
+    "spawnenemyoffsety":-1.35,
+    "spawnmax":99e99,
+	"spawnenemyspeedxrandomstart":25,
+	"spawnenemyspeedxrandomend":-25,
+	"spawnenemyspeedyrandomend":25,
+    "spawnenemyspeedyrandomstart":-25,
+	"supersizechildren":true,
+	"spawnsound":false,
+	"animationtriggeronspawn":false,
+
+	"customtimer":[
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"],
+		[0,"spawnenemy"]
+	],
+	"dontloopcustomtimer":true,
+
+    "lifetime":0.01,
+    "transforms":false
+}

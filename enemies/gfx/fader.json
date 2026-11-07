@@ -1,0 +1,39 @@
+{
+	"hidden":true,
+	"drawable":false,
+	"active":false,
+	"width":0,
+	"height":0,
+	"instantdelete":false,
+
+	"graphiccolor":[255,255,255],
+
+	"customtimer":[
+		[0,["set","quadgroup"],["property","graphiccolor"]],
+
+		[0,"setframe",1],
+		[0,["if","quad","notexists",""],["set","quad"],255],
+		[0,["set",1],["property","quad"]],
+
+		[0,"setframe",2],
+		[0,["if","quad","notexists",""],["set","quad"],255],
+		[0,["set",2],["property","quad"]],
+
+		[0,"setframe",3],
+		[0,["if","quad","notexists",""],["set","quad"],255],
+		[0,["set",3],["property","quad"]],
+
+		[0,["set",4],255],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+		[0,["set","dt"],["property","customtimertimer"]],
+		[0,["multiply","dt"],255],
+		[0,["subtract",4],["property","dt"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",4,">",0],["set","currentcustomtimerstage"],["property","loopline"]],
+		[0,["set",4],0],
+		[0,["set","instantdelete"],true]
+	],
+	"dontloopcustomtimer":true
+}

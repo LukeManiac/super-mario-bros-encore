@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "sleep", "0.01" ], [ "setnumber", "checkpoint", "=", "0" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "resetcp" ] ]
+}

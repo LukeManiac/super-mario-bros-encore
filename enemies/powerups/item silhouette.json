@@ -1,0 +1,181 @@
+{
+    "hidden":true,
+    "quadcount":11,
+    "nospritesets":true,
+    "drawback":true,
+
+    "animationspeed":0.2,
+
+    "width":0,
+    "height":0,
+
+    "static":true,
+    "active":true,
+
+    "mask":[true,
+            true,false,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true],
+    "graphiccolor":[0,0,0,0],
+    "customscale":1,
+    "resistseverything":true,
+    "dontstopmario":true,
+
+    "spawnpassedparametersbeforespawn":true,
+    "spawnsetparametersbeforespawn":true,
+
+    "itemstable":{
+        "super mushroom":[[200,72,8],1],
+        "1up mushroom":[[0,144,0],1],
+        "fire flower":[[248,152,56],2,true],
+        "ice flower":[[160,136,248],4],
+        "hammer suit":[[0,112,232],5,true],
+        "super carrot":[[248,152,56],7],
+        "superball flower":[[184,184,184],8,true],
+        "blue shell":[[0,112,232],10],
+        "super star":[[255,255,255],11]
+    },
+
+    "timer":0,
+    "outoffset":1,
+    "reflist":"spawnedenemies",
+    "targetvar":"faderidx",
+    "index":"colors",
+    "value":false,
+    "v":{"dofireenemy":false},
+    "customtimer":[
+        [0,["set","drawable"]],
+        [0,["set","playsound"],["property","spawnenemy"]],
+
+        [0,["set","qgs"],["property","quadgroup"]],
+        [0,["set","obj"],["property","playerobj"]],
+        [0,["set","table"],["property","playerobj"]],
+
+        [0,["set","quadgroup"],["property","itemstable"]],
+        [0,"setframe",["property","name"]],
+        [0,["set","quadgroup"],["property","quad"]],
+
+        [0,["if","quad","exists",""],["add","currentcustomtimerstage"],2],
+            [0,["set","instantdelete"],true],
+            [0,["set","currentcustomtimerstage"],99e99],
+
+        [0,"setframe",1],
+        [0,["set","graphiccolor"],["property","quad"]],
+
+        [0,"setframe",2],
+        [0,["set","itemquad"],["property","quad"]],
+
+        [0,"setframe",3],
+        [0,["set","animated"],["property","quad"]],
+
+        [0,["set","quadgroup"],["property","qgs"]],
+
+        [0,["set","animationstart"],["property","itemquad"]],
+        [0,["set","quadi"],["property","animationstart"]],
+        [0,"setframe",["property","animationstart"]],
+        [0,["set","animationtimer"],0],
+
+        [0,["if","animated","~=",true],["add","currentcustomtimerstage"],2],
+            [0,["set","animationtype"],"frames"],
+            [0,["set","animationframes"],2],
+
+        [0,["set","sticktoplayer"],["property","playernumber"]],
+        [0,["set","customtimertimer"],0],
+
+        [0,["set","spawnsetparameters"],[
+            ["points","oneup"],
+            ["spawnoffsety",0],
+            ["justthescorenote",true]
+        ]],
+        [0,["if","name","==","1up mushroom","and","noscorenote","~=",true],"playsound","score note"],
+
+        [0,["set","makesmariogrow"],["property","targetsize"]],
+        [0,["set","givesalife"],["property","extralifeitem"]],
+        [0,["set","makesmariostar"],["property","starify"]],
+        [0,["set","makesmariocolor"],["property","setmariocolours"]],
+
+        [0,["set","spawnpassedparameters"],["sticktoplayer","makesmariogrow","givesalife","makesmariostar","makesmariostarduration","width","height","mask","dontstopmario","transformenemyanimationonspawn"]],
+        [0,["set","spawnsetparameters"]],
+
+        [0,["set","customtimertimer"],0],
+
+        [0,"playsound","nil"],
+
+        [0,["set","spawnpassedparameters"],["playerobj","playernumber","makesmariostarduration"]],
+
+        [0,["if","name","==","super star"],"playsound","star handler"],
+
+        [0,["set","qs"],["property","quad"]],
+        [0,["set","quadgroup"],["property","playerobj"]],
+
+        [0,["set","spawnpassedparameters"],["table","index","value"]],
+
+        [0,["if","setmariocolours","notexists",""],["add","currentcustomtimerstage"],2],
+            [0,["set","value"],["property","setmariocolours"]],
+            [0,"playsound","varset"],
+
+        [0,["if","fireenemyprops","notexists",""],["add","currentcustomtimerstage"],6],
+            [0,["set","index"],"fireenemy"],
+            [0,["set","value"],["property","fireenemyprops"]],
+            [0,"playsound","varset"],
+
+            [0,["set","spawnenemy"],["property","sarelease"]],
+            [0,"spawnenemy"],
+            [0,["set","spawnenemy"]],
+
+        [0,["set","spawnpassedparameters"]],
+
+        [0,["set","quadgroup"],["property","qgs"]],
+        [0,["set","quad"],["property","qs"]],
+
+        [0,"playsound","list lengthgetter"],
+        [0,["set","customtimertimer"],0],
+
+        [0,["set","spawnpassedparameters"],["graphiccolor"]],
+
+        [0,["set","makesmariogrow"]],
+        [0,["set","givesalife"]],
+        [0,["set","makesmariostar"]],
+        [0,["set","makesmarioshoot"]],
+ 
+        [0,["set","sticktoplayer"]],
+
+        [0,["set","drawable"],["property","deletenow"]],
+        [0,["reverse","drawable"]],
+
+        [0,["set","qgs"],["property","quadgroup"]],
+        [0,["set","qs"],["property","quad"]],
+
+        [0,["if","deletenow","==",true],["add","currentcustomtimerstage"],4],
+            [0,"playsound","fader"],
+
+            [0,["set","quadgroup"],["property","spawnedenemies"]],
+            [0,"setframe",["property","faderidx"]],
+            [0,["set","graphiccolor"],["property","quad"]],
+
+        [0,["set","quadgroup"],["property","qgs"]],
+        [0,["set","quad"],["property","qs"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+        [0,["add","timer"],["property","customtimertimer"]],
+
+        [0,["set","scaletimer"],["property","customtimertimer"]],
+        [0,["multiply","scaletimer"],5],
+        [0,["add","customscale"],["property","scaletimer"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["if","timer","<",1],["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,["set","drawable"]]
+    ],
+    "dontloopcustomtimer":true,
+
+    "offsetX":0,
+    "offsetY":16,
+    "quadcenterX":8,
+    "quadcenterY":8
+}

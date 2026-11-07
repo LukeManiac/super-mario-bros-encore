@@ -1,0 +1,17 @@
+base=music stopper
+{
+    "hidden":true,
+    "customtimer":[
+        [0,["set","drawable"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",["property","musicplay"],"notexists","","or",["property","musicreset"],"notexists",""],["subtract","currentcustomtimerstage"],2],
+
+        [0,["set","spawnenemy"],["property","musicplay"]],
+        [0,"spawnenemy"],
+
+        [0,["set","spawnenemy"],["property","musicreset"]],
+        [0,"spawnenemy"]
+    ],
+    "dontloopcustomtimer":true
+}

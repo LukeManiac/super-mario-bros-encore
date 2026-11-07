@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "playsound", "castleend" ], [ "sleep", "6" ], [ "triggeranimation", "timecount start" ], [ "sleep", "4" ], [ "setnumber", "course finish", "+", "1" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "bossclear sound" ] ]
+}

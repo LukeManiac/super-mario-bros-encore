@@ -1,0 +1,3 @@
+collision=true
+noteblock=true
+delay=200

@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "animationoutput", "jumppress", "on" ], [ "animationoutput", "jumppress", "off" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "buttonpressed", "jump", "player 1" ] ]
+}

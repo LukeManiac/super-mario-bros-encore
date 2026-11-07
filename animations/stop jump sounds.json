@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "stopsound", "jump" ], [ "stopsound", "jumpbig" ], [ "stopsound", "jumpskinny" ], [ "stopsound", "jumptiny" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "stop jump sounds" ] ]
+}

@@ -1,0 +1,105 @@
+{
+    "width":1,
+    "height":1,
+    "static":true,
+    "description":"place in cutscenes - cutscene helper, adaptive to kirby and sonic",
+
+    "mask":[true,
+			true,false,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true],
+
+    "dontstopmario":true,
+    "vjump":{"speedy":-25},
+    "vjump_k":{"speedy":-15},
+    "vjump_sth":{"speedy":-10},
+
+    "outi":1,
+    "customtimer":[
+        [0,["set","drawable"]],
+
+		[0,["add","currentcustomtimerstage"],1],
+		[0,["set","customtimertimer"],0],
+		[0,["if","sarelease","notexists",""],["subtract","currentcustomtimerstage"],2],
+
+        [0,["set","spawnstore"],["property","spawnenemy"]],
+        [0,["set","spawnenemy"],["property","sarelease"]],
+        [0,["set","passivecollide"],["property","addoutput"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+        [0,["set","playsound"],["property","triggeranimation"]],
+
+        [0,["set","cutsceneanim"],"cutscenejump p"],
+        [0,["set","v"],{"cutscenejumped":true}],
+
+        [0,["set","quadgroup"],["property","outtable"]],
+        [0,"setframe",["property","outi"]],
+
+        [0,["if","quad","notexists",""],["add","currentcustomtimerstage"],38],
+            [0,["add","outi"],1],
+            [0,["set","quadgroup"],["property","quad"]],
+            [0,"setframe",1],
+
+            [0,["if","quad","~=","player"],["add","currentcustomtimerstage"],34],
+                [0,"setframe",2],
+                [0,["set","obj"],["property","quad"]],
+                [0,["set","playerobj"],["property","quad"]],
+                [0,["set","quadgroup"],["property","quad"]],
+                [0,"setframe","cutscenejumped"],
+
+                [0,["if","quad","==",true],["add","currentcustomtimerstage"],28],
+                    [0,"setframe","playernumber"],
+                    [0,["concat","cutsceneanim"],["property","quad"]],
+
+                    [0,"setframe","controlsenabled"],
+
+                    [0,["if","quad","==",true],["add","currentcustomtimerstage"],24],
+                        [0,"playsound",["property","cutsceneanim"]],
+                        [0,"spawnenemy"],
+
+                        [0,"setframe","characterdata"],
+                        [0,["set","quadgroup"],["property","quad"]],
+
+                        [0,"setframe","spawnenemy"],
+                        [0,["set","charcontroller"],["property","quad"]],
+
+                        [0,["set","v"],["property","vjump"]],
+                        [0,["if","charcontroller","==","k master controller"],["set","v"],["property","vjump_k"]],
+                        [0,["if","charcontroller","==","sth master controller"],["set","v"],["property","vjump_sth"]],
+
+                        [0,["set","customtimertimer"],0],
+                        [0,"spawnenemy"],
+
+                        [0,"setframe","nojumpsound"],
+                        [0,["set","nojumpsound"],["property","quad"]],
+
+                        [0,["set","quadgroup"],["property","playerobj"]],
+
+                        [0,["if","nojumpsound","~=",true],["add","currentcustomtimerstage"],9],
+                            [0,"setframe","size"],
+
+                            [0,["set","jumpsound"],"jumpbig"],
+                            [0,["if","quad","==",12],["set","jumpsound"],"jumpskinny"],
+                            [0,["if","quad","==",-1],["set","jumpsound"],"jumptiny"],
+                            [0,["if","quad","==",1],["set","jumpsound"],"jump"],
+
+                            [0,["set","playsound"]],
+                            [0,["set","spawnenemy"]],
+
+                            [0,"playsound",["property","jumpsound"]],
+                            [0,["set","spawnenemy"],["property","sarelease"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["set","currentcustomtimerstage"],["property","loopline"]]
+    ],
+    "dontloopcustomtimer":true,
+
+	"offsetX":0,
+	"offsetY":0,
+	"quadcenterX":0,
+	"quadcenterY":0
+}

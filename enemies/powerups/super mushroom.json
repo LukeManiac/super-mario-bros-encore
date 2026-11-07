@@ -1,0 +1,8 @@
+base=powerup
+{
+	"description":"place anywhere - super mushroom",
+    "hidden":false,
+	"powerupmovement":"truffleshuffle",
+	"targetsize":true,
+	"stretchspeed":10
+}

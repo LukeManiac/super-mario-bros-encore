@@ -1,0 +1,7 @@
+base=fire flower
+{
+    "description":"place anywhere - super carrot",
+    "quadcount":1,
+    "animationframes":1,
+    "targetsize":11
+}

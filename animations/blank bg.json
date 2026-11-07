@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "changeforeground", "blank" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "blank bg" ] ]
+}

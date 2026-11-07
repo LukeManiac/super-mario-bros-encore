@@ -1,0 +1,149 @@
+{
+	"commands":{
+		"<triggeranimation>":"triggers an animation",
+		"<playsound>":"plays sound (only from sounds folder)",
+		"<noskip>":"you cannot skip this dialog",
+		"<textspeed>":"sets interval between characters (reset by setting argument to 'default')",
+		"<hold>":"sets a break during dialog",
+		"<endtime>":"sets time until dialog closes",
+		"<npcemotion>":"sets npc emotion (1 = normal, 2 = angery, 3 = womp, 4 = bruh, 5 = noice, 6 = poggers)"
+	},
+	"dialogs":{
+		"1":{
+			"speaker":"talking flower",
+			"dialog":["w","e","l","l"," ","w","e","l","l"," ","w","e","l","l",","," ","l","o","o","k"," ","w","h","o"," ","f","i","n","a","l","l","y"," ","d","e","c","i","d","e","d","\n","t","o"," ","d","r","o","p"," ","i","n","."," ","<npcemotion>",5,"o","h",","," ","t","h","i","s"," ","i","s"," ","g","o","i","n","g"," ","t","o"," ","b","e"," ","f","u","n",".","\n","<hold>",0.3,"i"," ","c","a","n"," ","a","l","r","e","a","d","y"," ","t","e","l","l"," ","y","o","u"," ","a","r","e"," ","g","o","i","n","g"," ","t","o"," ","b","e"," ","a","\n","c","u","r","i","o","u","s"," ","o","n","e",","," ","a","n","d"," ","i"," ","a","b","s","o","l","u","t","e","l","y"," ","l","o","v","e","\n","c","u","r","i","o","u","s"," ","p","e","o","p","l","e","."," ","<textspeed>",0.06,"s","o"," ","g","o"," ","o","n",","," ","t","a","k","e"," ","a"," ","l","o","o","k","\n","a","r","o","u","n","d"," ","a","n","d"," ","g","e","t"," ","c","o","m","f","o","r","t","a","b","l","e","."," ","<npcemotion>",1,"t","h","e","r","e"," ","i","s"," ","a","\n","w","h","o","l","e"," ","w","o","r","l","d"," ","w","a","i","t","i","n","g"," ","f","o","r"," ","y","o","u",","," ","a","n","d"," ","i"," ","a","m","\n","p","o","s","i","t","i","v","e","l","y"," ","b","l","o","o","m","i","n","g"," ","w","i","t","h"," ","e","x","c","i","t","e","m","e","n","t"," ","t","o","\n","s","e","e"," ","w","h","e","r","e"," ","y","o","u"," ","g","o"," ","f","i","r","s","t","."]
+		},
+		"1o":{
+			"speaker":"talking flower",
+			"dialog":["y","o","u"," ","c","a","m","e"," ","b","a","c","k","!"," ","<npcemotion>",5,"y","o","u"," ","a","c","t","u","a","l","l","y"," ","c","a","m","e"," ","b","a","c","k","!","\n","o","h",","," ","i"," ","a","m"," ","s","o"," ","h","a","p","p","y"," ","t","o"," ","s","e","e"," ","y","o","u"," ","a","g","a","i","n","!"," ","<hold>",0.25,"i","\n","w","a","s"," ","s","t","a","r","t","i","n","g"," ","t","o"," ","w","o","n","d","e","r"," ","w","h","e","n"," ","i"," ","w","o","u","l","d"," ","g","e","t","\n","a","n","o","t","h","e","r"," ","c","h","a","n","c","e"," ","t","o"," ","s","e","e"," ","y","o","u","."," ","<textspeed>",0.06,"t","h","i","s"," ","i","s","\n","w","o","n","d","e","r","f","u","l","!"," ","a","b","s","o","l","u","t","e","l","y"," ","w","o","n","d","e","r","f","u","l","!"," ","<npcemotion>",1,"<textspeed>","default","i"," ","h","a","v","e","\n","s","o"," ","m","u","c","h"," ","t","o"," ","s","a","y",","," ","a","n","d"," ","i"," ","a","m"," ","p","r","a","c","t","i","c","a","l","l","y","\n","b","u","r","s","t","i","n","g"," ","w","i","t","h"," ","e","x","c","i","t","e","m","e","n","t","!"," ","i"," ","k","n","e","w"," ","y","o","u","\n","w","o","u","l","d"," ","r","e","t","u","r","n","!"]
+		},
+		"1o2":{
+			"speaker":"talking flower",
+			"dialog":["o","h",","," ","a","n","d"," ","d","i","d"," ","y","o","u"," ","k","n","o","w"," ","l","u","k","e","m","a","n","i","a","c"," ","s","p","e","n","t","\n","a","g","e","s"," ","g","e","t","t","i","n","g"," ","t","h","e"," ","m","u","l","t","i","p","l","a","y","e","r","\n","c","o","m","p","a","t","i","b","i","l","i","t","y"," ","j","u","s","t"," ","r","i","g","h","t","?"," ","<textspeed>",0.06,"m","o","s","t"," ","m","a","p","p","a","c","k","s","\n","w","i","t","h"," ","p","r","o","p","e","r","l","y"," ","d","e","v","e","l","o","p","e","d"," ","e","n","t","i","t","i","e","s"," ","r","e","l","y"," ","o","n","\n","p","l","a","y","e","r"," ","1",","," ","e","v","e","n"," ","w","h","e","n"," ","s","o","m","e","o","n","e"," ","e","l","s","e"," ","s","t","a","r","t","s","\n","t","h","e"," ","a","c","t","i","o","n","."," ","t","h","i","s"," ","m","a","p","p","a","c","k"," ","i","s"," ","d","i","f","f","e","r","e","n","t",".","\n","<npcemotion>",4,"i","t"," ","t","r","u","s","t","s"," ","a","n","y"," ","p","l","a","y","e","r"," ","f","r","o","m"," ","p","l","a","y","e","r"," ","1"," ","t","o","\n","p","l","a","y","e","r"," ","4",","," ","u","s","i","n","g"," ","a","d","d","o","u","t","p","u","t"," ","t","o"," ","i","d","e","n","t","i","f","y","\n","e","x","a","c","t","l","y"," ","w","h","o"," ","t","r","i","g","g","e","r","e","d"," ","a","n"," ","a","c","t","i","o","n",".","\n","\n","n","p","c"," ","p","l","a","y","e","r"," ","d","e","t","e","c","t","i","o","n"," ","i","s"," ","n","o","t"," ","p","e","r","f","e","c","t",",","\n","t","h","o","u","g","h","."," ","<hold>",0.25,"i","t"," ","o","n","l","y"," ","u","p","d","a","t","e","s"," ","w","h","e","n"," ","a"," ","p","l","a","y","e","r","\n","e","n","t","e","r","s"," ","t","h","e"," ","d","e","t","e","c","t","i","o","n"," ","r","e","g","i","o","n",","," ","a","n","d"," ","i","t"," ","d","o","e","s","\n","n","o","t"," ","c","h","e","c","k"," ","f","o","r"," ","a","n","o","t","h","e","r"," ","p","l","a","y","e","r"," ","u","n","t","i","l"," ","t","h","e","\n","d","e","t","e","c","t","e","d"," ","p","l","a","y","e","r"," ","l","e","a","v","e","s",".","\n","l","u","k","e","m","a","n","i","a","c"," ","h","a","s"," ","c","o","d","i","n","g"," ","s","k","i","l","l","s"," ","a","l","m","o","s","t","\n","i","d","e","n","t","i","c","a","l"," ","t","o"," ","h","i","s"," ","f","r","i","e","n","d"," ","w","i","l","l","i","a","m","f","r","o","g","."," ","<textspeed>",0.03,"h","e","\n","o","n","l","y"," ","u","s","e","s"," ","a","i"," ","f","o","r"," ","b","r","a","i","n","s","t","o","r","m","i","n","g",","," ","n","e","v","e","r","\n","f","o","r"," ","c","u","s","t","o","m","t","i","m","e","r"," ","c","r","e","a","t","i","o","n"," ","o","r"," ","e","n","e","m","y","\n","c","o","d","i","n","g","."," ","<npcemotion>",1,"t","h","o","s","e"," ","a","r","e"," ","d","o","n","e"," ","e","n","t","i","r","e","l","y"," ","b","y"," ","h","i","m",".","\n","y","o","u"," ","c","a","n"," ","e","v","e","n"," ","c","h","e","c","k"," ","t","h","e"," ","a","n","i","m","a","t","i","o","n","s"," ","f","o","l","d","e","r","\n","a","n","d"," ","s","e","e"," ","t","h","a","t"," ","n","o","t","h","i","n","g"," ","c","h","a","n","g","e","s"," ","t","h","e"," ","p","l","a","y","e","r","s","\n","c","o","n","t","r","o","l","l","a","b","l","e"," ","s","t","a","t","e","."," ","<textspeed>","default","t","h","e"," ","c","u","s","t","o","m"," ","e","n","t","i","t","i","e","s","\n","h","a","n","d","l","e"," ","a","l","l"," ","o","f"," ","t","h","a","t","."]
+		},
+		"2":{
+			"speaker":"talking flower",
+			"dialog":["j","u","s","t"," ","k","n","o","w"," ","t","h","a","t"," ","i","f"," ","y","o","u"," ","c","o","l","l","e","c","t"," ","a","l","l"," ","3","2"," ","<playsound>","collectable1","r","e","d","\n","c","o","i","n","s"," ","f","r","o","m"," ","w","o","r","l","d","s"," ","1","-","8",","," ","y","o","u","'","l","l"," ","g","e","t"," ","a","c","c","e","s","s","\n","t","o"," ","t","h","e"," ","p","o","s","t","g","a","m","e"," ","w","o","r","l","d","s","."," ","c","h","e","c","k"," ","e","v","e","r","y","\n","b","r","i","c","k",","," ","?"," ","b","l","o","c","k",","," ","a","n","d"," ","p","i","p","e"," ","f","o","r"," ","<playsound>","collectable1","r","e","d"," ","c","o","i","n","s","."]
+		},
+		"3":{
+			"speaker":"dora",
+			"dialog":["t","h","e","r","e"," ","i","s"," ","a"," ","<playsound>","collectable1","r","e","d"," ","c","o","i","n"," ","h","i","d","i","n","g"," ","i","n"," ","a"," ","b","l","o","c","k","\n","r","i","g","h","t"," ","n","e","x","t"," ","t","o"," ","t","h","e"," ","p","l","a","t","f","o","r","m",","," ","j","u","s","t"," ","l","e","f","t"," ","o","f","\n","t","h","e"," ","s","t","e","p","s","."," ","d","o","n","'","t"," ","f","o","r","g","e","t"," ","t","o"," ","g","r","a","b"," ","t","h","a","t"," ","<playsound>","collectable1","r","e","d","\n","c","o","i","n"," ","b","e","f","o","r","e"," ","y","o","u"," ","p","r","e","s","s"," ","o","n","!"]
+		},
+		"4":{
+			"speaker":"britdan",
+			"dialog":["<npcemotion>",6,"w","h","a","t"," ","o","n"," ","e","a","r","t","h"," ","a","r","e"," ","y","o","u"," ","d","o","i","n","g"," ","h","e","r","e","?"," ","i","\n","m","e","a","n",".",".","."," ","i"," ","d","i","d","n","'","t"," ","e","x","p","e","c","t"," ","y","o","u"," ","t","o"," ","n","o","t","i","c","e","\n","m","e","!"," ","<hold>",0.5,"<textspeed>",0.0625,"<npcemotion>",4,"o","h"," ","y","e","a","h"," ","i"," ","f","o","r","g","o","t"," ","i"," ","s","e","t"," ","u","p"," ","p","o","r","t","a","l","s",".","\n","<hold>",0.25,"<textspeed>","default","<npcemotion>",1,"a","n","y","w","a","y","s",","," ","w","h","a","t","'","s"," ","u","p","?"]
+		}
+	},
+	"npcprops":{
+		"talking flower":{
+			"profilecolour":[253,172,23],
+			"profileoffset":0
+		},
+		"dora":{
+			"profilecolour":[248,112,176],
+			"profileoffset":6
+		},
+		"boo":{
+			"profilecolour":[255,255,255],
+			"profileoffset":12
+		},
+		"britdan":{
+			"profilecolour":[55,55,55],
+			"profileoffset":18
+		}
+	},
+	
+	"quadcount":1,
+	"nospritesets":true,
+	"hidden":true,
+
+	"width":0,
+	"height":0,
+	"resistseverything":true,
+	"regiontriggerexclude":true,
+
+	"offsetX":0,
+	"offsetY":-150,
+	"quadcenterX":0,
+	"quadcenterY":0,
+
+	"active":true,
+	"static":true,
+	"activestatic":true,
+
+	"category":1,
+	"mask":[false,true,true,true,true,true,true,true,true,true,true],
+
+	"spawnsenemy":"dialog text name",
+	"spawnenemydelays":[99e99],
+	"spawnpassedparameters":["draw","npcid","pnum","speaker","dialog","afterdialog","animtriggeronfinish","colour","offset"],
+	"graphiccolor":[0,0,0,0],
+
+	"customtimer":[
+		[0,["set","qgs"],["property","quadgroup"]],
+
+		[0,["set","x"],5.1],
+		[0,["set","y"],-9.9],
+
+		[0,["set","passivecollide"],["property","addoutput"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","quadgroup"],["property","outtable"]],
+		[0,"setframe",1],
+		[0,["set","quadgroup"],["property","quad"]],
+
+		[0,"setframe",2],
+		[0,["set","quadgroup"],["property","quad"]],
+
+		[0,"setframe","npcid"],
+		[0,["set","npcid"],["property","quad"]],
+
+		[0,"setframe","pnum"],
+		[0,["set","pnum"],["property","quad"]],
+		[0,["concat","transformanimation"],["property","pnum"]],
+
+		[0,["set","quadgroup"],["property","dialogs"]],
+		[0,"setframe",["property","npcid"]],
+		[0,["set","quadgroup"],["property","quad"]],
+
+		[0,"setframe","speaker"],
+		[0,["set","speaker"],["property","quad"]],
+
+		[0,"setframe","dialog"],
+		[0,["set","dialog"],["property","quad"]],
+
+		[0,"setframe","afterdialog"],
+		[0,["set","afterdialog"],["property","quad"]],
+
+		[0,"setframe","animtriggeronfinish"],
+		[0,["set","animtriggeronfinish"],["property","quad"]],
+
+		[0,["set","quadgroup"],["property","npcprops"]],
+		[0,"setframe",["property","speaker"]],
+		[0,["set","quadgroup"],["property","quad"]],
+
+		[0,"setframe","profilecolour"],
+		[0,["set","colour"],["property","quad"]],
+
+		[0,"setframe","profileoffset"],
+		[0,["set","offset"],["property","quad"]],
+
+		[0,"spawnenemy"],
+		[0,["set","spawnsenemy"],"dialog text message"],
+		[0,"spawnenemy"],
+
+		[0,["set","quadgroup"],["property","qgs"]],
+		[0,"setframe",1],
+		[0,["set","graphiccolor"],[255,255,255,255]],
+
+		[0,["set","xrelativetocamera"],0],
+		[0,["set","yrelativetocamera"],0]
+	],
+	"dontloopcustomtimer":true,
+
+	"transforms":true,
+	"transformsinto":"dialog display hidden",
+	"transformtrigger":"animation",
+	"transformanimation":"dialogend p",
+	"transformpassedparameters":["draw"]
+}

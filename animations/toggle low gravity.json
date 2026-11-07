@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "togglelowgravity" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "toggle low gravity" ] ]
+}

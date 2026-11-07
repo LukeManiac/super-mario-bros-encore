@@ -1,0 +1,327 @@
+{
+	"quadcount":19,
+	"nospritesets":true,
+	"drawback":true,
+	"facesplayer":true,
+	"nocoinblockanimation":true,
+	"offsetable":true,
+	"description":"place anywhere - npc, right-click to set character and dialog ids",
+	
+	"width":2,
+	"height":1.5,
+	
+	"static":false,
+	"active":true,
+	"resistseverything":true,
+	"regiontriggerexclude":true,
+	"dontstopmario":true,
+
+	"gravity":0,
+
+	"category":4,
+	"mask":[true,
+		true,false,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true],
+
+	"spawnonload":true,
+	"autodelete":false,
+
+	"frametimer":0,
+	"frameframe":1,
+
+	"npcoffset":0,
+	"frameoffset":0,
+	"nearframeoffset":0,
+
+	"talked":0,
+
+	"hasnearframes":true,
+	"idleframes":2,
+	"talkframes":0,
+	"talkframeoffset":2,
+
+	"talkingnow":false,
+
+	"frame":1,
+	"frameduration":0.4,
+	"frameframemax":3,
+	"resetframeontalk":false,
+	"resetframes":false,
+
+	"npcid":"1",
+	"npcido":"",
+	"npcido2":"",
+
+	"playerinregion":false,
+	"userect":[],
+
+	"npctalk":"npctalk",
+	"finishtalking":false,
+
+	"v":{
+		"timer":0,
+		"customtimertimer":0,
+		"currentcustomtimerstage":1,
+		"customtimer":[
+			[0,["subtract","y"],0.25],
+			[0,["set","loopline"],["property","currentcustomtimerstage"]],
+			[0,["multiply","customtimertimer"],4],
+			[0,["add","timer"],["property","customtimertimer"]],
+			[0,["sin","speedy"],["property","timer"]],
+			[0,["set","customtimertimer"],0],
+			[0,["set","currentcustomtimerstage"],["property","loopline"]]
+		],
+		"hollow":true,
+		"NOEXTERNALHORCOLLISIONS":true,
+		"NOEXTERNALVERCOLLISIONS":true,
+		"gravity":0,
+		"mask":[true,
+				true,true,true,true,true,
+				true,true,true,true,true,
+				true,true,true,true,true,
+				true,true,true,true,true,
+				true,true,true,true,true,
+				true,true,true,true,true]
+	},
+	"v_talkoff":{"invincible":false,"controlsenabled":true},
+	"v_talkon":{"invincible":true,"controlsenabled":false},
+	"v_talkon_rise":{"speedy":0},
+	"v_talkon_start":{"speedx":0,"propellerjumping":false,"propellerjumped":true,"propellertime":0,"jumping":false,"falling":true},
+
+	"graphiccolor":[0,0,0,0],
+
+	"pnumstring":" p",
+	"justinit":true,
+
+	"outi":1,
+	"customtimer":[
+		[0,["set","qgs"],["property","quadgroup"]],
+		[0,["set","playsound"],["property","spawnenemy"]],
+		[0,["set","spawnenemy"],["property","sarelease"]],
+
+		[0,["add","currentcustomtimerstage"],1],
+		[0,["set","customtimertimer"],0],
+		[0,["if","sarelease","notexists",""],["subtract","currentcustomtimerstage"],2],
+
+		[0,["if","poshelper","exists",""],["add","currentcustomtimerstage"],4],
+			[0,"playsound","nil"],
+
+			[0,["set","quadgroup"],["property","spawnedenemies"]],
+			[0,"setframe",1],
+			[0,["set","poshelper"],["property","quad"]],
+
+		[0,["if","npctype","~=","talking flower"],["add","currentcustomtimerstage"],2],
+			[0,["set","talkframes"],4],
+			[0,["set","framedurationtalk"],0.1],
+
+		[0,["if","npctype","~=","dora"],["add","currentcustomtimerstage"],5],
+			[0,["set","npcoffset"],8],
+			[0,["set","idleframes"],1],
+			[0,["set","talkframeoffset"],0],
+			[0,["set","talkframes"],2],
+			[0,["set","framedurationtalk"],0.1],
+
+		[0,["if","npctype","~=","boo"],["add","currentcustomtimerstage"],7],
+			[0,["set","npcoffset"],12],
+			[0,["set","idleframes"],1],
+			[0,["set","talkframeoffset"],0],
+			[0,["set","talkframes"],2],
+			[0,["set","framedurationtalk"],0.1],
+
+			[0,["set","obj"],["property","poshelper"]],
+			[0,["if","justinit","==",true],"spawnenemy"],
+
+		[0,["if","npctype","~=","britdan"],["add","currentcustomtimerstage"],6],
+			[0,["set","npcoffset"],16],
+			[0,["set","idleframes"],1],
+			[0,["set","hasnearframes"],false],
+			[0,["set","talkframeoffset"],1],
+			[0,["set","talkframes"],2],
+			[0,["set","framedurationtalk"],0.1],
+
+		[0,["if","frameduration","~=","framedurationtalk"],["set","resetframeontalk"],true],
+		[0,["set","v"]],
+
+		[0,["set","spawnpassedparameters"],["npcid","pnum","transformenemyanimationondeath"]],
+		[0,["set","spawnsetparameters"]],
+
+		[0,["if","finishtalking","~=",true],["add","currentcustomtimerstage"],4],
+			[0,["set","obj"],["property","carryparent"]],
+			[0,["set","v"],["property","v_talkoff"]],
+			[0,"spawnenemy"],
+			[0,["set","resetframes"],true],
+
+		[0,["if","playerinregion","==",true],["add","currentcustomtimerstage"],3],
+			[0,["set","carryparent"]],
+			[0,["set","pnum"],0],
+			[0,["set","globalcollide"],["property","addoutput"]],
+
+		[0,["if","pnum","~=",0],["concat","pnumstring"],["property","pnum"]],
+		[0,["concat","transformanimation"],["property","pnumstring"]],
+
+		[0,["if","carryparent","notexists","","or","talkingnow","~=",true],["add","currentcustomtimerstage"],10],
+			[0,["set","quadgroup"],["property","carryparent"]],
+			[0,"setframe","controlsenabled"],
+
+			[0,["if","quad","~=",true],["add","currentcustomtimerstage"],7],
+				[0,["set","obj"],["property","carryparent"]],
+				[0,["set","v"],["property","v_talkon_start"]],
+				[0,"spawnenemy"],
+
+				[0,["set","v"],["property","v_talkon_rise"]],
+
+				[0,"setframe","speedy"],
+				[0,["if","quad","<=",0],"spawnenemy"],
+
+				[0,["set","v"],["property","v_talkon"]],
+
+		[0,["set","quadgroup"],["property","qgs"]],
+		[0,"setframe",["property","frame"]],
+
+		[0,["set","frameframemax"],["property","idleframes"]],
+
+		[0,["set","transformenemyanimationondeath"],["property","npctalk"]],
+		[0,["concat","transformenemyanimationondeath"],["property","pnumstring"]],
+
+		[0,["if","talkingnow","~=",true,"or","v","~=",["property","v_talkon"]],["add","currentcustomtimerstage"],11],
+			[0,["if","talked","==",1],["set","npcid"],["property","npcido"]],
+			[0,["if","talked","==",2],["set","npcid"],["property","npcido2"]],
+			[0,["if","talked","==",1,"and","npcido2","~=",""],["add","talked"],1],
+			[0,["if","talked","==",0,"and","npcido","~=",""],["add","talked"],1],
+			[0,"playsound","dialog spawner"],
+
+			[0,["if","talkframes","<=",0],["add","currentcustomtimerstage"],5],
+				[0,["if","framedurationtalk","exists",""],["set","frameduration"],["property","framedurationtalk"]],
+				[0,["add","frameoffset"],["property","talkframeoffset"]],
+				[0,["set","frameframemax"],["property","talkframes"]],
+				[0,["set","resetframes"],["property","resetframeontalk"]],
+
+		[0,["set","transformenemyanimationondeath"]],
+		[0,["add","frameframemax"],1],
+
+		[0,["if","resetframes","~=",true,"or","resetframeontalk","~=",true],["add","currentcustomtimerstage"],2],
+			[0,["set","frametimer"],["property","frameduration"]],
+			[0,["set","frameframe"],0],
+
+		[0,["if","hasnearframes","==",true],["add","frameoffset"],["property","nearframeoffset"]],
+
+		[0,["if","talkingnow","~=",true],["add","currentcustomtimerstage"],4],
+			[0,["set","playerobj"],["property","carryparent"]],
+			[0,["set","spawnpassedparameters"],["playerobj"]],
+			[0,"playsound","unduck child"],
+			[0,["set","playerobj"]],
+
+		[0,["set","playsound"],["property","triggeranimation"]],
+		[0,["set","justinit"],false],
+		[0,["set","graphiccolor"],[255,255,255]],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+		[0,["if","v","exists",""],"spawnenemy"],
+
+		[0,["if","playerinregion","==",true],["add","currentcustomtimerstage"],14],
+			[0,["set","quadgroup"],["property","outtable"]],
+			[0,"setframe",["property","outi"]],
+
+			[0,["if","quad","notexists",""],["add","currentcustomtimerstage"],11],
+				[0,["add","outi"],1],
+				[0,["set","quadgroup"],["property","quad"]],
+				[0,"setframe",1],
+
+				[0,["if","quad","~=","player"],["add","currentcustomtimerstage"],7],
+					[0,"setframe",2],
+					[0,["set","carryparent"],["property","quad"]],
+					[0,["set","quadgroup"],["property","quad"]],
+
+					[0,"setframe","playernumber"],
+					[0,["set","pnum"],["property","quad"]],
+
+					[0,"setframe","controlsenabled"],
+					[0,["if","quad","==",true],["set","lifetimer"],0],
+
+		[0,["set","quadgroup"],["property","poshelper"]],
+		[0,"setframe","x"],
+		[0,["set","x"],["property","quad"]],
+
+		[0,"setframe","y"],
+		[0,["set","y"],["property","quad"]],
+
+		[0,"setframe","width"],
+		[0,["set","poshelperw"],["property","width"]],
+		[0,["subtract","poshelperw"],["property","quad"]],
+		[0,["divide","poshelperw"],2],
+
+		[0,"setframe","height"],
+		[0,["set","poshelperh"],["property","height"]],
+		[0,["subtract","poshelperh"],["property","quad"]],
+
+		[0,["subtract","x"],["property","poshelperw"]],
+		[0,["subtract","y"],["property","poshelperh"]],
+
+		[0,["add","frametimer"],["property","customtimertimer"]],
+
+		[0,["if","frametimer","<",["property","frameduration"],"and","frameframe",">",0],["add","currentcustomtimerstage"],3],
+			[0,["add","frameframe"],1],
+			[0,["if","frameframe",">=",["property","frameframemax"]],["set","frameframe"],1],
+			[0,["subtract","frametimer"],["property","frameduration"]],
+
+		[0,["set","frame"],["property","frameframe"]],
+		[0,["add","frame"],["property","npcoffset"]],
+		[0,["add","frame"],["property","frameoffset"]],
+
+		[0,["set","quadgroup"],["property","qgs"]],
+		[0,"setframe",["property","frame"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["set","currentcustomtimerstage"],["property","loopline"]]
+	],
+
+	"spawnpassedparametersbeforespawn":true,
+	"spawnsetparameters":[
+		["width",1],
+		["height",1],
+		["active",true],
+		["instantdelete",false],
+		["ignoreplatform",false],
+		["resistseverything",true],
+		["mask",[true,
+			false,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true,
+			true,true,true,true,true]],
+		["autodelete",false]
+	],
+	"spawnsetparametersbeforespawn":true,
+
+	"transforms":true,
+	"transformsinto":"npctouch",
+	"transformtrigger":"lifetime",
+	"transformanimation":"",
+	"transformpassedparameters":["npctype","npcid","npcido","npcido2","npcoffset","frametimer","frameframe","frame","talked","pnum","carryparent","poshelper","justinit","quadi","graphiccolor"],
+	"transformpassedparametersbeforespawn":true,
+	"playerneardist":[0,0,2,1.5],
+
+	"npctype":"talking flower",
+	"rightclick":[
+		["text","character:"],
+		["dropdown","npctype",15,["talking flower","dora","boo","britdan"]],
+		["text","first dialog id:"],
+		["input","npcid",5],
+		["text","alternate dialog id:"],
+		["input","npcido",5],
+		["text","another alternate dialog id:"],
+		["input","npcido2",5]
+	],
+	"rightclickdefaults":["talking flower","1","",""],
+	"rightclicktypes":["string","string","string","string"],
+
+	"offsetX":16,
+	"offsetY":-9,
+	"quadcenterX":8,
+	"quadcenterY":24
+}

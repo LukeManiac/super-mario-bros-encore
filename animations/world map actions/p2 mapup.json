@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "transformenemy", "p2mapup" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "buttonpressed", "up", "player 2" ] ]
+}

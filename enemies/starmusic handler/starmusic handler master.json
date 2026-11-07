@@ -1,0 +1,78 @@
+{
+    "hidden":true,
+	"drawable":false,
+	"active":false,
+	"width":0,
+	"height":0,
+	"instantdelete":false,
+
+	"spawnsenemy":"starmusic handler child",
+	"spawnenemydelays":[99e99],
+	"spawnpassedparameters":["pnum"],
+	"spawnpassedparametersbeforespawn":true,
+
+	"pnum":1,
+	"starred":false,
+	"starred1":false,
+	"starred2":false,
+	"starred3":false,
+	"starred4":false,
+	"canset":true,
+	"rebootjustincase":true,
+	"spawnedioffset":0,
+
+	"customtimer":[
+		[0,["set","drawable"]],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+		[0,"spawnenemy"],
+		[0,["set","customtimertimer"],0],
+
+		[0,["set","quadgroup"],["property","spawnedenemies"]],
+		[0,["set","spawnedi"],["property","pnum"]],
+		[0,["add","spawnedi"],["property","spawnedioffset"]],
+		[0,"setframe",["property","spawnedi"]],
+
+		[0,["if","quad","notexists",""],["add","currentcustomtimerstage"],9],
+			[0,["set","quadgroup"],["property","quad"]],
+			[0,["set","customtimertimer"],0],
+
+			[0,"setframe","setnow"],
+
+			[0,["set","canset"],["property","quad"]],
+			[0,"setframe","starred"],
+
+			[0,["if","pnum","==",1],["set","starred1"],["property","quad"]],
+			[0,["if","pnum","==",2],["set","starred2"],["property","quad"]],
+			[0,["if","pnum","==",3],["set","starred3"],["property","quad"]],
+			[0,["if","pnum","==",4],["set","starred4"],["property","quad"]],
+
+		[0,["if","canset","==",true],["add","pnum"],1],
+
+		[0,["if","pnum","<",4],["set","currentcustomtimerstage"],["property","loopline"]],
+
+		[0,["set","starred"],false],
+		[0,["if","starred1","==",true,"or","starred2","==",true,"or","starred3","==",true,"or","starred4","==",true],["set","starred"],true],
+
+		[0,["if","rebootjustincase","~=",true],["add","currentcustomtimerstage"],10],
+			[0,["set","starred1"],false],
+			[0,["set","starred2"],false],
+			[0,["set","starred3"],false],
+			[0,["set","starred4"],false],
+			[0,["set","canset"],true],
+
+			[0,["set","rebootjustincase"],false],
+			[0,["set","spawnedioffset"],["property","pnum"]],
+
+			[0,["set","pnum"],1],
+
+			[0,["set","customtimertimer"],0],
+			[0,["set","currentcustomtimerstage"],["property","loopline"]],
+
+		[0,["set","spawnsenemy"],"music resetter"],
+		[0,["if","starred","==",true],"spawnenemy"],
+
+		[0,["set","instantdelete"],true]
+	],
+	"dontloopcustomtimer":true
+}

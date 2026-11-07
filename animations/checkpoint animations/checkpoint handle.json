@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "sleep", "0.01" ], [ "animationoutput", "checkpoint", "on" ], [ "transformenemy", "checkpoint active" ], [ "repeat" ] ],
+    "conditions": [ [ "ifnumber", "checkpoint", "=", "1" ] ],
+    "triggers": [ [ "animationtrigger", "handlecp" ] ]
+}

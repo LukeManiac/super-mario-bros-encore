@@ -1,0 +1,95 @@
+{
+	"quadcount":27,
+    "nospritesets":true,
+	"description":"place on empty tile - koopa troopa",
+
+	"animationtype":"frames",
+	"animationframes":2,
+	"animationstart":1,
+	"animationspeed":0.2,
+	
+	"shellanimal":true,
+	"smallmovement":"shell",
+	"smallspeed":12,
+    "smallanimationframes":4,
+    "smallanimationstart":5,
+    "smallanimationspeed":0.05,
+	"smallquad":5,
+	"smalloffsety":4,
+	"wigglequad":9,
+	"chasemarioonwakeup":true,
+
+	"collectscoins":true,
+	"collectscoinsinshell":true,
+
+	"stompable":true,
+	"killsonsides":true,
+	"killsonbottom":true,
+	
+	"wakesup":true,
+	"wiggletime":2,
+	"resettime":8,
+	"wiggledelay":0.2,
+	"wiggleoffsety":3,
+	"upsidedownoffsety":3,
+	"upsidedownwiggleoffsety":5,
+	
+	"movement":"truffleshuffle",
+	"truffleshufflespeed":2,
+	"truffleshuffleacceleration":8,
+	
+	"width":0.75,
+	"height":0.75,
+	"static":false,
+	"active":true,
+	"category":5,
+	
+	"mask":[true,
+			false,false,false,false,true,
+			false,true,false,true,false,
+			false,false,true,false,false,
+			true,true,false,false,true,
+			false,true,true,false,false,
+			true,false,true,true,true,
+			false],
+				
+	"emancipatecheck":true,
+	"autodelete":true,
+	"dontspawnnearcheckpoint":true,
+	
+	"offsetX":6,
+	"offsetY":3,
+	"quadcenterX":12,
+	"quadcenterY":20,
+
+    "spawnchildren":["enemy death helper"],
+    "spawnchildrenparent":true,
+    "deathproperties":{
+        "animationtype":"frames",
+        "animationframes":4,
+        "animationstart":5,
+        "animationspeed":0.1
+	},
+    "offsetable":true,
+	"customtrigger":[
+		[["if","x","==","x"],["set","collectscoins"],false],
+		[["if","x","==","x"],["set","hitsflipblocks"],false],
+		[["if","x","==","x"],["set","hitsentityblocks"],false],
+		[["if","x","==","x"],["set","triggerspowblock"],false],
+
+		[["if","x","==","x"],["set","absspeedx"],["property","speedx"]],
+		[["if","x","==","x"],["abs","absspeedx"]],
+
+		[["if","spiketype","==",true],["set","stompable"],["property","upsidedown"]],
+        [["if","spiketype","==",true],["set","kills"],["property","stompable"]],
+        [["if","spiketype","==",true],["reverse","kills"]],
+
+		[["if","killsenemies","==",true,"and",["property","absspeedx"],">=",["property","smallspeed"]],["set","collectscoins"],true],
+
+		[["if","x","==","x"],["set","collectscoinsinshell"],["property","collectscoins"]],
+		[["if","x","==","x"],["set","hitsflipblocks"],["property","collectscoins"]],
+		[["if","x","==","x"],["set","hitsentityblocks"],["property","collectscoins"]],
+		[["if","x","==","x"],["set","triggerspowblock"],["property","collectscoins"]]
+	],
+	"supersize":true
+}

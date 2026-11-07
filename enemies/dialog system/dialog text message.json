@@ -1,0 +1,220 @@
+{
+	"hidden":true,
+
+	"width":0,
+	"height":0,
+	"resistseverything":true,
+	"regiontriggerexclude":true,
+
+	"active":true,
+	"static":true,
+
+	"category":1,
+	"mask":[true,true,true,true,true,true,true,true,true,true,true],
+
+	"xrelativetocamera":3.5,
+	"yrelativetocamera":10.125,
+
+	"text":"",
+	"outline":true,
+	"centered":false,
+	"showtext":true,
+	"color":[255,255,255,255],
+
+	"t1":"",
+	"t2":"",
+	"t3":"",
+	"t4":"",
+
+	"spawnsenemy":"clonedraw",
+	"spawnenemydelays":[99e99],
+
+	"textindex":0,
+	"lines":1,
+	"frameoffset":1,
+
+	"holdtimer":0,
+	"holdtime":0,
+
+	"waittimer":0,
+	"waittime":3,
+
+	"defaultdelaytime":0.04,
+	"delaytimer":0,
+	"delaytimestore":false,
+
+	"texts":["no text provided, please check the id's."],
+	"soundskip":false,
+	"dialogend":"dialogend p",
+	"forceenddialog":"forceenddialog p",
+	"customtimer":[
+		[0,["set","delaytime"],["property","defaultdelaytime"]],
+		[0,["if",["property","dialog"],"exists",""],["set","texts"],["property","dialog"]],
+
+		[0,"spawnenemy"],
+		[0,["set","quadgroup"],["property","spawnedenemies"]],
+		[0,"setframe",1],
+		[0,["set","playsound"],["property","spawnenemy"]],
+		[0,["set","spawnsenemy"],["property","quad"]],
+		[0,["set","spawnenemy"],["property","addoutput"]],
+		[0,"spawnenemy"],
+		[0,["set","spawnenemy"]],
+
+		[0,["concat","dialogend"],["property","pnum"]],
+		[0,["concat","forceenddialog"],["property","pnum"]],
+
+		[0,["set","transformenemyanimationondeath"],["property","dialogend"]],
+
+		[0,["set","spawnpassedparameters"],["table","varsets"]],
+		[0,["set","table"],["property","transformanimation"]],
+		[0,["set","varsets"],[[1,"dialogend"],[2,"forceenddialog"]]],
+		[0,"playsound","multivarset"],
+
+		[0,["set","customtimertimer"],0],
+		[0,"playsound","multivarset"],
+
+		[0,["set","spawnsenemy"],"dialog display profile"],
+		[0,["set","spawnpassedparameters"],["name","offset","pnum"]],
+		[0,["set","spawnsetparameters"]],
+		[0,"spawnenemy"],
+
+		[0,["set","quadgroup"],["property","texts"]],
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+		[0,["add","textindex"],1],
+		[0,"setframe",["property","textindex"]],
+
+		[0,["if",["property","quad"],"notexists",""],["add","currentcustomtimerstage"],99],
+			[0,["set","proploopline"],["property","currentcustomtimerstage"]],
+
+			[0,["if","quad","~=","<triggeranimation>"],["add","currentcustomtimerstage"],7],
+				[0,["set","playsound"],["property","triggeranimation"]],
+				[0,["add","textindex"],1],
+				[0,"setframe",["property","textindex"]],
+				[0,"playsound",["property","quad"]],
+				[0,["set","playsound"],["property","spawnenemy"]],
+				[0,["add","textindex"],1],
+				[0,"setframe",["property","textindex"]],
+
+			[0,["if","quad","~=","<playsound>"],["add","currentcustomtimerstage"],8],
+				[0,["set","playsound"]],
+				[0,["add","textindex"],1],
+				[0,"setframe",["property","textindex"]],
+				[0,["set","sound"],["property","quad"]],
+				[0,"playsound",["property","sound"]],
+				[0,["set","playsound"],["property","spawnenemy"]],
+				[0,["add","textindex"],1],
+				[0,"setframe",["property","textindex"]],
+
+			[0,["if","quad","~=","<noskip>"],["add","currentcustomtimerstage"],3],
+				[0,["set","transformtrigger"],["animation"]],
+				[0,["add","textindex"],1],
+				[0,"setframe",["property","textindex"]],
+
+			[0,["if","quad","~=","<textspeed>"],["add","currentcustomtimerstage"],6],
+				[0,["add","textindex"],1],
+				[0,"setframe",["property","textindex"]],
+				[0,["set","delaytime"],["property","quad"]],
+				[0,["if","quad","==","default"],["set","delaytime"],["property","defaultdelaytime"]],
+				[0,["add","textindex"],1],
+				[0,"setframe",["property","textindex"]],
+
+			[0,["if","quad","~=","<hold>"],["add","currentcustomtimerstage"],5],
+				[0,["add","textindex"],1],
+				[0,"setframe",["property","textindex"]],
+				[0,["set","holdtime"],["property","quad"]],
+				[0,["add","textindex"],1],
+				[0,"setframe",["property","textindex"]],
+
+			[0,["if","quad","~=","<endtime>"],["add","currentcustomtimerstage"],6],
+				[0,["add","textindex"],1],
+				[0,"setframe",["property","textindex"]],
+				[0,["set","waittime"],["property","quad"]],
+				[0,["if","quad","==","default"],["set","waittime"],3],
+				[0,["add","textindex"],1],
+				[0,"setframe",["property","textindex"]],
+
+			[0,["if","quad","~=","<npcemotion>"],["add","currentcustomtimerstage"],10],
+				[0,["add","textindex"],1],
+				[0,"setframe",["property","textindex"]],
+				[0,["set","emotionoffset"],["property","quad"]],
+				[0,["tonumber","emotionoffset"]],
+				[0,["min","emotionoffset"],6],
+				[0,["max","emotionoffset"],1],
+				[0,["round","emotionoffset"]],
+				[0,["set","frameoffset"],["property","emotionoffset"]],
+				[0,["add","textindex"],1],
+				[0,"setframe",["property","textindex"]],
+
+			[0,["if","quad","==","<triggeranimation>"],["set","currentcustomtimerstage"],["property","proploopline"]],
+			[0,["if","quad","==","<playsound>"],["set","currentcustomtimerstage"],["property","proploopline"]],
+			[0,["if","quad","==","<noskip>"],["set","currentcustomtimerstage"],["property","proploopline"]],
+			[0,["if","quad","==","<textspeed>"],["set","currentcustomtimerstage"],["property","proploopline"]],
+			[0,["if","quad","==","<hold>"],["set","currentcustomtimerstage"],["property","proploopline"]],
+			[0,["if","quad","==","<endtime>"],["set","currentcustomtimerstage"],["property","proploopline"]],
+			[0,["if","quad","==","<npcemotion>"],["set","currentcustomtimerstage"],["property","proploopline"]],
+
+			[0,["if","holdtime","<",0],["add","currentcustomtimerstage"],6],
+				[0,["set","holdstage"],["property","currentcustomtimerstage"]],
+				[0,["set","customtimertimer"],0],
+				[0,["add","holdtimer"],["property","customtimertimer"]],
+				[0,["if","holdtimer","<","holdtime"],["set","currentcustomtimerstage"],["property","holdstage"]],
+				[0,["set","holdtime"],0],
+				[0,["set","holdtimer"],0],
+
+			[0,["if","quad","==",""],["add","currentcustomtimerstage"],8],
+			[0,["set","customtimertimer"],0],
+			[0,["add","delaytimer"],["property","customtimertimer"]],
+			[0,["if","delaytimer","<","delaytime"],["subtract","currentcustomtimerstage"],3],
+			[0,["set","delaytimer"],0],
+
+			[0,["if",["property","delaytimestore"],"==",false],["add","currentcustomtimerstage"],2],
+				[0,["set","delaytime"],["property","delaytimestore"]],
+				[0,["set","delaytimestore"],false],
+
+			[0,["if","lines","==",1],["concat","t1"],["property","quad"]],
+			[0,["if","lines","==",2],["concat","t2"],["property","quad"]],
+			[0,["if","lines","==",3],["concat","t3"],["property","quad"]],
+			[0,["if","lines","==",4],["concat","t4"],["property","quad"]],
+
+			[0,["set","text"],["property","t1"]],
+			[0,["concat","text"],["property","t2"]],
+			[0,["concat","text"],["property","t3"]],
+			[0,["concat","text"],["property","t4"]],
+
+			[0,["if","soundskip","==",true],["add","currentcustomtimerstage"],5],
+				[0,["set","playsound"]],
+				[0,"playsound","collectable10"],
+				[0,["set","playsound"],["property","spawnenemy"]],
+				[0,["set","soundskip"],true],
+				[0,["add","currentcustomtimerstage"],1],
+
+			[0,["set","soundskip"],false],
+
+			[0,["if","quad","~=","\n"],["add","currentcustomtimerstage"],7],
+				[0,["add","lines"],1],
+
+				[0,["if","lines","<",5],["add","currentcustomtimerstage"],5],
+					[0,["subtract","lines"],1],
+					[0,["set","t1"],["property","t2"]],
+					[0,["set","t2"],["property","t3"]],
+					[0,["set","t3"],["property","t4"]],
+					[0,["set","t4"],""],
+
+			[0,["set","currentcustomtimerstage"],["property","loopline"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["add","waittimer"],["property","customtimertimer"]],
+		[0,["if","waittimer","<","waittime"],["subtract","currentcustomtimerstage"],3],
+
+		[0,["set","spawnpassedparameters"],["transformenemyanimationondeath"]],
+		[0,"playsound","closedialog"]
+	],
+	"dontloopcustomtimer":true,
+
+	"transforms":true,
+	"transformsinto":["autoclosedialog","closedialog"],
+	"transformtrigger":["animation","animation"],
+	"transformanimation":["dialogend p","forceenddialog p"],
+	"transformpassedparameters":["afterdialog","animtriggeronfinish","npcid","transformenemyanimationondeath"]
+}

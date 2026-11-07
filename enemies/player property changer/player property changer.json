@@ -1,0 +1,94 @@
+{
+	"quadcount":1,
+
+	"description":"place anywhere - player property changer",
+	"nospritesets":true,
+
+	"active":true,
+	"static":true,
+	"dontstopmario":true,
+	"mask":[true],
+
+	"width":0,
+	"height":0,
+	"category":2,
+
+	"nograbsound":true,
+	"nothrowsound":true,
+	"userect":[],
+
+	"spawnonload":true,
+	"autodelete":false,
+
+	"obj":{},
+	"v":{},
+	"propstochange":{},
+
+	"playernumber":1,
+	"spawnsenemy":"nil",
+	"spawnenemydelays":[99e99],
+
+	"graphiccolor":[0,0,0,0],
+
+	"continuous":false,
+	"justoneplayer":false,
+	"stopjumpsounds":false,
+	"customtimer":[
+		[0,["set","drawable"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",["property","sarelease"],"notexists",""],["subtract","currentcustomtimerstage"],2],
+
+		[0,["set","playernumberstore"],["property","playernumber"]],
+		[0,["set","playsound"],["property","triggeranimation"]],
+		[0,["if","continuous","notexists",""],["set","continuous"],false],
+
+		[0,["set","spawnsenemy"],["property","playernumber"]],
+		[0,["set","modloop"],["property","currentcustomtimerstage"]],
+		[0,["set","sticktoplayer"],["property","spawnsenemy"]],
+
+		[0,["set","customtimertimer"],0],
+
+		[0,["if","x","==",["property","startx"],"and","y","==",["property","starty"]],["add","currentcustomtimerstage"],14],
+
+		[0,["set","sticktoplayer"]],
+		[0,["set","spawnenemy"],["property","used"]],
+		[0,"spawnenemy"],
+
+		[0,["set","obj"],["property","carryparent"]],
+		[0,["set","quadgroup"],["property","carryparent"]],
+		[0,["if","stopjumpsounds","==",true],"playsound","stop jump sounds"],
+
+		[0,["if","targetprop","notexists",""],["add","currentcustomtimerstage"],2],
+			[0,"setframe",["property","targetprop"]],
+			[0,["if","quad","exists",""],["set","obj"],["property","quad"]],
+
+		[0,["set","spawnenemy"],["property","sarelease"]],
+		[0,["set","v"],{"trackable":false}],
+		[0,"spawnenemy"],
+
+		[0,["set","v"],["property","propstochange"]],
+		[0,"spawnenemy"],
+
+		[0,["add","spawnsenemy"],1],
+		[0,["set","x"],["property","startx"]],
+		[0,["set","y"],["property","starty"]],
+		[0,["if","spawnsenemy","<=",4,"and","justoneplayer","==",false],["set","currentcustomtimerstage"],["property","modloop"]],
+
+		[0,["set","loopline"],["property","currentcustomtimerstage"]],
+		[0,["set","customtimertimer"],0],
+
+		[0,["if","continuous","~=",true],["add","currentcustomtimerstage"],3],
+			[0,["set","playernumber"],["property","playernumberstore"]],
+			[0,["set","spawnsenemy"],["property","playernumber"]],
+			[0,["set","currentcustomtimerstage"],["property","modloop"]],
+
+		[0,["set","currentcustomtimerstage"],["property","loopline"]]
+	],
+	"dontloopcustomtimer":true,
+
+	"offsetX":0,
+	"offsetY":16,
+	"quadcenterX":8,
+	"quadcenterY":8
+}

@@ -1,0 +1,127 @@
+{
+	"quadcount":1,
+	"nospritesets":true,
+	"graphiccolor":[0,0,0,0],
+	"description":"place on flag block - custom flagpole, right-click to set castle position, environment, and size",
+
+	"^_comment":"Made by WilliamFrog",
+
+	"width":1,
+	"height":1,
+
+	"active":false,
+	"resistseverything":true,
+
+	"spawnonload":true,
+
+	"spawnsenemy":"castle enemy",
+	"spawnenemydelays":[99e99],
+	"spawnenemyoffsetx":-1,
+	"spawnenemyoffsety":-1,
+	"spawnpassedparameters":["castlequad"],
+	"spawnpassedparametersbeforespawn":true,
+	"spawnsetparameters":[
+		["graphiccolor",[0,0,0,0]],
+		["customtimer",[
+			[0,["if","castlequad","exists",""],["set","quadno"],["property","castlequad"]],
+			[0,["set","graphiccolor"]]
+		]],
+		["dontloopcustomtimer",true]
+	],
+	"spawnsetparametersbeforespawn":true,
+
+	"offsetX":8,
+	"offsetY":0,
+	"quadcenterX":8,
+	"quadcenterY":8,
+
+	"castlequad":1,
+
+	"rightclick":[
+		["text","castle position: (x, y)"],
+		["input","castlex",10],
+		["input","castley",10],
+		["text","minimum time before automatic castle stop"],
+		["input","notatcastleduration",10],
+		["text","castle properties:"],
+		["text","type:"],
+		["dropdown",[[],[["castlequad",2]],[["castlequad",3]],[["castlequad",4]],[["castlequad",5]],[["castlequad",6]],[["castlequad",7]],[["castlequad",8]],[["castlequad",9]],[["castlequad",10]],[["castlequad",11]],[["castlequad",12]],[["castlequad",13]],[["castlequad",14]],[["castlequad",15]],[["castlequad",16]],[["castlequad",17]],[["castlequad",18]]],11,["overworld","underground","castle","underwater","ghost house","desert","jungle","snow","volcano","autumn","beach","mountain","space","garden","pipeland","airship","bonus","sky"]],
+		["checkbox",[[],[["spawnenemyoffsety",5],["customscissor",[-2,-4,5,5]]]],"big?"]
+	],
+	"rightclickdefaults":["0","0","5","overworld","false"],
+	"rightclicktypes":["num","num","num","string","bool"],
+	"casesensitive":true,
+
+	"index":"customscissor",
+	"varsets":[[1,"scissorx"],[2,"scissory"]],
+	"customtimer":[
+		[0,["set","drawable"]],
+
+		[0,["add","currentcustomtimerstage"],1],
+		[0,["set","customtimertimer"],0],
+		[0,["if","sarelease","notexists",""],["subtract","currentcustomtimerstage"],2],
+
+		[0,["set","spawnx"],["property","x"]],
+		[0,["set","spawny"],["property","y"]],
+
+		[0,["add","spawnx"],1],
+		[0,["add","spawny"],1],
+
+		[0,["set","x"],["property","castlex"]],
+		[0,["set","y"],["property","castley"]],
+
+		[0,["add","y"],1],
+
+		[0,"spawnenemy"],
+
+		[0,["set","playsound"],["property","spawnenemy"]],
+		[0,["set","spawnpassedparameters"],["table","varsets"]],
+		[0,["set","spawnsetparameters"]],
+
+		[0,["if","customscissor","notexists",""],["add","currentcustomtimerstage"],11],
+			[0,["set","quadgroup"],["property","customscissor"]],
+			[0,"setframe",1],
+			[0,["set","scissorx"],["property","quad"]],
+			[0,"setframe",2],
+			[0,["set","scissory"],["property","quad"]],
+
+			[0,["add","scissorx"],["property","castlex"]],
+			[0,["subtract","scissorx"],["property","spawnx"]],
+
+			[0,["add","scissory"],["property","castley"]],
+			[0,["subtract","scissory"],["property","spawny"]],
+
+			[0,["set","table"],["property","customscissor"]],
+			[0,"playsound","multivarset"],
+
+		[0,["subtract","spawnx"],1],
+		[0,["subtract","spawny"],1],
+
+		[0,["set","x"],["property","spawnx"]],
+		[0,["set","y"],["property","spawny"]],
+
+		[0,["set","spawnpassedparameters"],["table","index","value"]],
+		[0,["set","quadgroup"],["property","spawnedenemies"]],
+		[0,"setframe",1],
+
+		[0,["set","table"],["property","quad"]],
+		[0,["set","value"],["property","customscissor"]],
+		[0,"playsound","varset"],
+
+		[0,["set","spawnpassedparameters"]],
+
+		[0,["set","spawnenemyoffsetx"]],
+		[0,["set","spawnenemyoffsety"],-1],
+		[0,"playsound","height checker"],
+
+		[0,["set","spawnenemyoffsety"],-10],
+		[0,"playsound","flag topblocker"],
+
+		[0,["set","spawnenemyoffsetx"],-0.5],
+		[0,["set","spawnenemyoffsety"],-9],
+		[0,"playsound","skull flag"],
+
+		[0,["set","instantdelete"],true]
+	],
+	"dontloopcustomtimer":true
+}

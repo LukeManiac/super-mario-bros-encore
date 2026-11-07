@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "autosave", false ] ],
+    "conditions": [ [ "worldequals", "17" ] ],
+    "triggers": [ [ "mapload" ] ]
+}

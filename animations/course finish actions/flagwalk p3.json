@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "playerwalk", "player 3", "right", "4.27" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "flagwalk p3" ] ]
+}

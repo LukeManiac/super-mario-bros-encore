@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "changeforeground", "fade in right" ], [ "sleep", "0.975" ], [ "changeforeground", "black" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "fade in right" ] ]
+}

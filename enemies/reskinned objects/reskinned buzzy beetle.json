@@ -1,0 +1,18 @@
+base=reskinned koopa troopa
+{
+    "description":"place on empty tile - buzzy beetle",
+    "quadcount":7,
+    "resistsfire":true,
+    "smallanimationstart":3,
+    "smallquad":3,
+    "wigglequad":7,
+    "smalloffsety":-6,
+    "quadcenterX":9,
+    "quadcenterY":10,
+    "deathproperties":{
+        "animationtype":"frames",
+        "animationframes":4,
+        "animationstart":3,
+        "animationspeed":0.1
+	}
+}

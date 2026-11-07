@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "loadlevel", "1", "1", "3", "1" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "load w11" ] ]
+}

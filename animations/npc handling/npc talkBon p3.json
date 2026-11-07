@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "transformenemy", "npctalk p3" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "buttonpressed", "use", "player 3" ] ]
+}

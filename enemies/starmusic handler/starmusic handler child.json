@@ -1,0 +1,55 @@
+{
+	"hidden":true,
+	"drawable":false,
+	"nospritesets":true,
+	"mask":[true],
+	"dontstopmario":true,
+	"resistseverything":true,
+	"regiontriggerexclude":true,
+	"nograbsound":true,
+	"userect":[],
+	"width":0,
+	"height":0,
+	"nocollidestops":true,
+	"ignoreplatform":true,
+	"ignorelowgravity":true,
+	"ignorequicksand":true,
+	"blowable":false,
+	"dontenterclearpipes":true,
+	"gravity":0,
+	"pnum":1,
+	"starred":false,
+	"star1check":false,
+	"star2check":false,
+	"setnow":false,
+	"customtimer":[
+		[0,["set","sticktoplayer"],["property","pnum"]],
+        [0,["set","customtimertimer"],0],
+
+		[0,["if","x","~=",["property","startx"],"or","y","~=",["property","starty"]],["add","currentcustomtimerstage"],3],
+			[0,["set","setnow"],true],
+			[0,["set","instantdelete"],true],
+			[0,["set","currentcustomtimerstage"],99e99],
+
+		[0,["set","playsound"],["property","used"]],
+		[0,"playsound",["property","pnum"]],
+
+		[0,["set","playerobj"],["property","carryparent"]],
+		[0,["set","playsound"],["property","output"]],
+		[0,"playsound"],
+
+		[0,["set","outputted"]],
+
+		[0,["set","quadgroup"],["property","playerobj"]],
+		[0,"setframe","startimer"],
+		[0,["if","quad",">=",11],["set","star1check"],true],
+
+		[0,"setframe","starred"],
+		[0,["set","star2check"],["property","quad"]],
+
+		[0,["if","star1check","==",true,"and","star2check","==",true],["set","starred"],true],
+
+		[0,["set","setnow"],true]
+	],
+	"dontloopcustomtimer":true
+}

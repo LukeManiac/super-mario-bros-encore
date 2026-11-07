@@ -1,0 +1,100 @@
+{
+	"quadcount":1,
+	"nospritesets":true,
+	"spawnonload":true,
+	"graphiccolor":[0,0,0,0],
+	"description":"place above energy catcher, with text linked to it - text drawing primer",
+	"spawnoffsety":1,
+
+	"width":1,
+	"height":1,
+
+	"offsetX":8,
+	"offsetY":16,
+	"quadcenterX":8,
+	"quadcenterY":8,
+
+	"static":true,
+	"activestatic":true,
+	"active":true,
+
+	"category":2,
+	"ignoreceilcollide":true,
+	"ignoreleftcollide":true,
+	"ignorerightcollide":true,
+	"ignorefloorcollide":true,
+	"mask":[true,
+		true,true,false,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true,true,true,true,true,
+		true],
+
+	"spawnpassedparameters":["table","varsets"],
+	"varsets":[["textclass","textclass"],["textdraw","draw"]],
+
+	"blowchecktable":["energycatcher"],
+	"blowstrong":true,
+	"blowspeedy":1e10,
+    "blowstaticenemies":true,
+
+	"customtimer":[
+        [0,["set","drawable"]],
+
+		[0,["set","customtimertimer"],0],
+		[0,["if",["property","sarelease"],"notexists",""],["subtract","currentcustomtimerstage"],2],
+
+		[0,["if",["property","textclass"],"notexists",""],["add","currentcustomtimerstage"],5],
+		[0,["if",["property","textdraw"],"notexists",""],["add","currentcustomtimerstage"],4],
+			[0,["set","blowrange"],[0.25,0.5,0,0]],
+			[0,["set","customtimertimer"],0],
+			[0,["set","lifetimer"],0],
+			[0,["set","customtimertimer"],0],
+
+		[0,"---------------------------------------Clone text"],
+        [0,["set","playsound"],["property","spawnenemy"]],
+
+		[0,["set","globalcollide"],["property","addoutput"]],
+        [0,["set","customtimertimer"],0],
+		[0,["set","globalcollide"]],
+
+		[0,["if",["property","textclass"],"exists",""],["add","currentcustomtimerstage"],10],
+			[0,["set","quadgroup"],["property","outtable"]],
+			[0,"setframe",1],
+			[0,["set","quadgroup"],["property","quad"]],
+
+			[0,"setframe",2],
+			[0,["set","quadgroup"],["property","quad"]],
+
+			[0,"setframe","outtable"],
+			[0,["set","quadgroup"],["property","quad"]],
+
+			[0,"setframe",1],
+			[0,["set","quadgroup"],["property","quad"]],
+
+			[0,"setframe",1],
+			[0,["set","textclass"],["property","quad"]],
+
+		[0,["set","quadgroup"],["property","textclass"]],
+
+		[0,"setframe","draw"],
+		[0,["set","draw"],["property","quad"]],
+
+        [0,["set","table"],["property","__baseclass"]],
+        [0,"playsound","multivarset"],
+
+        [0,["set","blowrange"],[0.25,0.5,0,0]],
+		[0,["set","customtimertimer"],0],
+
+        [0,["set","lifetimer"],0]
+	],
+	"dontloopcustomtimer":true,
+
+	"transforms":true,
+	"transformsinto":"nil",
+	"transformtrigger":"lifetimer",
+	"treattransformasdeath":true,
+	"animationtriggerondeath":"textprep complete"
+}

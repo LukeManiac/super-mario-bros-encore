@@ -1,0 +1,11 @@
+base=poof
+{
+	"width":1,
+	"height":1,
+
+	"offsetX":8,
+	"offsetY":0,
+
+	"animationspeed":0.04,
+	"lifetime":0.16
+}

@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "playsound", "blockbreak" ], [ "playsound", "blockhit" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "bridgebreak sound" ] ]
+}

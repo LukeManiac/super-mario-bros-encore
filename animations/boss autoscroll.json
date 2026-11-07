@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "setautoscrolling", "0", "0" ], [ "pancameratox", "23", "0.314" ], [ "repeat" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "boss autoscroll" ] ]
+}

@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "animationoutput", "checkpoint", "on" ], [ "setnumber", "checkpoint", "=", "1" ], [ "triggeranimation", "checkcp" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "setcp" ] ]
+}

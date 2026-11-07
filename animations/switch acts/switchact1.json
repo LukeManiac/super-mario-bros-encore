@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "animationoutput", "switchact1", "on" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "switchact1" ] ]
+}

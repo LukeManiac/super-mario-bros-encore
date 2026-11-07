@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "animationoutput", "worldmapspawn init", "on" ] ],
+    "conditions": [ ],
+    "triggers": [ [ "whennumber", "course number", "=", "0" ] ]
+}

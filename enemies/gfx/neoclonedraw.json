@@ -1,0 +1,27 @@
+{
+	"hidden":true,
+	"nospritesets":true,
+	"^":"by williamfrog, used for iceblock drawing",
+
+	"width":0,
+	"height":0,
+
+	"active":false,
+	"outputted":true,
+	"ignoreplatform":true,
+	"animationscalex":0,
+	
+	"customtimer":[
+		[0,["set","__baseclass"],["property","spawner"]],
+		[0,["set","x"]],
+		[0,["set","y"]],
+		[0,["set","iceblock"],["property","spawner"]],
+		[0,["set","frozen"],true]
+	],
+	"dontloopcustomtimer":true,
+
+	"offsetX":0,
+	"offsetY":0,
+	"quadcenterX":0,
+	"quadcenterY":0
+}
