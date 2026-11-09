@@ -10,6 +10,9 @@
 
     "supersizeproperties":{"jumptoggled":true},
 
+    "autodelete":false,
+    "resistseverything":true,
+
     "pnum":1,
     "jumpheld":true,
     "jumptoggled":true,

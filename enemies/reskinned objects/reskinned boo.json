@@ -1,0 +1,66 @@
+{
+    "quadcount":13,
+    "nospritesets":true,
+    "description":"place anywhere - boo",
+    "offsetable":true,
+
+    "movement":"homing",
+    "homingrotation":0,
+    "homingspeed":2.5,
+    "homingturnspeed":100,
+    "rotationishomingrotation":false,
+
+    "kills":true,
+    "grabframe":13,
+    "deathframe":13,
+    "inhaleframe":13,
+
+    "resistsfire":true,
+    "freezable":false,
+    "resistsyoshitounge":true,
+    "facesplayer":true,
+
+    "nocollidestops":true,
+    "gravity":0,
+    "light":1,
+
+    "width":1,
+    "height":1,
+
+    "static":false,
+    "active":true,
+
+    "category":4,
+    "mask":[true,true,false],
+
+    "emancipatecheck":true,
+    "autodelete":true,
+    "quadno":5,
+
+    "transforms":true,
+    "transformsinto":"reskinned boo",
+    "transformtrigger":"seen",
+    "transformpassedparameters":["animationdirection"],
+    "transformpassedparametersbeforespawn":true,
+    "transformsetparameters":[
+        ["homingspeed",0],
+        ["transformtrigger","notseen"],
+        ["quadno",7],
+        ["transformsetparameters",[
+            ["homingspeed",2.5],
+            ["transformtrigger","seen"],
+            ["quadno",5]
+        ]]
+    ],
+    "transformsetparametersbeforespawn":true,
+
+    "offsetX":8,
+    "offsetY":0,
+    "quadcenterX":8,
+    "quadcenterY":8,
+
+    "spawnchildren":["enemy death helper"],
+    "spawnchildrenparent":true,
+
+    "customtrigger":[[["if","x","==","x"],"setframe",["property","quadno"]]]
+}

@@ -5,5 +5,30 @@ base=reskinned buzzy beetle
     "resistsfire":false,
     "stompable":false,
     "kills":true,
-    "spiketype":true
+    "spiketype":true,
+
+    "customtimer":[
+        [0,["if","unegged","~=",true],["set","currentcustomtimerstage"],99e99],
+        [0,["divide","yspeed"],1.570796327],
+        [0,["set","speedy"],["property","yspeed"]],
+        [0,["set","doesntunrotate"],true],
+        [0,["mod","rotation"],12.56637061],
+        [0,["subtract","rotation"],6.283185307],
+        [0,["abs","rotation"]],
+        [0,["if","speedx",">",0],["reverse","rotation"]],
+        [0,["divide","rotation"],1.0125],
+        [0,["set","customtimertimer"],0],
+        [0,["if","speedy",">",0],["set","isfalling"],true],
+        [0,["if","speedy","~=",0,"or","isfalling","~=",true],["subtract","currentcustomtimerstage"],4],
+
+        [0,["set","gravity"]],
+        [0,["divide","rotation"],1.0125],
+        [0,["set","absrot"],["property","rotation"]],
+        [0,["abs","absrot"]],
+        [0,["set","customtimertimer"],0],
+        [0,["if","absrot",">",0.0125],["subtract","currentcustomtimerstage"],5],
+
+        [0,["set","doesntunrotate"]]
+    ],
+    "dontloopcustomtimer":true
 }

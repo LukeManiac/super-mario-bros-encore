@@ -67,25 +67,17 @@
 		"customtimertimer":0,
 		"currentcustomtimerstage":1,
 		"customtimer":[
-			[0,["subtract","y"],0.25],
 			[0,["set","loopline"],["property","currentcustomtimerstage"]],
 			[0,["multiply","customtimertimer"],4],
 			[0,["add","timer"],["property","customtimertimer"]],
-			[0,["sin","speedy"],["property","timer"]],
+
+			[0,["sin","graphicoffsetspeed"],["property","timer"]],
+			[0,["multiply","graphicoffsetspeed"],["property","customtimertimer"]],
+			[0,["add","graphicoffset"],["property","graphicoffsetspeed"]],
+
 			[0,["set","customtimertimer"],0],
 			[0,["set","currentcustomtimerstage"],["property","loopline"]]
-		],
-		"hollow":true,
-		"NOEXTERNALHORCOLLISIONS":true,
-		"NOEXTERNALVERCOLLISIONS":true,
-		"gravity":0,
-		"mask":[true,
-				true,true,true,true,true,
-				true,true,true,true,true,
-				true,true,true,true,true,
-				true,true,true,true,true,
-				true,true,true,true,true,
-				true,true,true,true,true]
+		]
 	},
 	"v_talkoff":{"invincible":false,"controlsenabled":true},
 	"v_talkon":{"invincible":true,"controlsenabled":false},
@@ -101,11 +93,12 @@
 	"customtimer":[
 		[0,["set","qgs"],["property","quadgroup"]],
 		[0,["set","playsound"],["property","spawnenemy"]],
-		[0,["set","spawnenemy"],["property","sarelease"]],
 
 		[0,["add","currentcustomtimerstage"],1],
 		[0,["set","customtimertimer"],0],
 		[0,["if","sarelease","notexists",""],["subtract","currentcustomtimerstage"],2],
+
+		[0,["set","spawnenemy"],["property","sarelease"]],
 
 		[0,["if","poshelper","exists",""],["add","currentcustomtimerstage"],4],
 			[0,"playsound","nil"],
@@ -125,12 +118,13 @@
 			[0,["set","talkframes"],2],
 			[0,["set","framedurationtalk"],0.1],
 
-		[0,["if","npctype","~=","boo"],["add","currentcustomtimerstage"],7],
+		[0,["if","npctype","~=","boo"],["add","currentcustomtimerstage"],8],
 			[0,["set","npcoffset"],12],
 			[0,["set","idleframes"],1],
 			[0,["set","talkframeoffset"],0],
 			[0,["set","talkframes"],2],
 			[0,["set","framedurationtalk"],0.1],
+			[0,["subtract","offsetY"],1],
 
 			[0,["set","obj"],["property","poshelper"]],
 			[0,["if","justinit","==",true],"spawnenemy"],
@@ -218,6 +212,7 @@
 		[0,["set","playsound"],["property","triggeranimation"]],
 		[0,["set","justinit"],false],
 		[0,["set","graphiccolor"],[255,255,255]],
+		[0,["set","startoffsetY"],["property","offsetY"]],
 
 		[0,["set","loopline"],["property","currentcustomtimerstage"]],
 		[0,["if","v","exists",""],"spawnenemy"],
@@ -243,11 +238,19 @@
 					[0,["if","quad","==",true],["set","lifetimer"],0],
 
 		[0,["set","quadgroup"],["property","poshelper"]],
+
 		[0,"setframe","x"],
 		[0,["set","x"],["property","quad"]],
 
 		[0,"setframe","y"],
 		[0,["set","y"],["property","quad"]],
+
+		[0,"setframe","graphicoffset"],
+		[0,["multiply","quad"],2],
+		[0,["subtract","quad"],1],
+
+		[0,["set","offsetY"],["property","startoffsetY"]],
+		[0,["add","offsetY"],["property","quad"]],
 
 		[0,"setframe","width"],
 		[0,["set","poshelperw"],["property","width"]],
@@ -294,7 +297,8 @@
 			true,true,true,true,true,
 			true,true,true,true,true,
 			true,true,true,true,true]],
-		["autodelete",false]
+		["autodelete",false],
+		["graphicoffset",0]
 	],
 	"spawnsetparametersbeforespawn":true,
 

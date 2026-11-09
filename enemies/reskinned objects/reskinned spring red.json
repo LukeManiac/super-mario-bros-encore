@@ -1,0 +1,9 @@
+base=reskinned spring
+{
+    "vjump":{
+        "speedy":-30,
+        "jumping":true,
+        "falling":true,
+        "animationstate":"jumping"
+    }
+}

@@ -1,0 +1,182 @@
+{
+    "quadcount":1,
+    "nospritesets":true,
+    "description":"place anywhere - boo buddies, right-click to set properties",
+    "graphiccolor":[0,0,0,0],
+    "trackable":true,
+
+    "width":1,
+    "height":1,
+
+    "active":true,
+    "static":true,
+
+    "category":2,
+    "resistseverything":true,
+    "dontstopmario":true,
+
+    "mask":[true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true],
+
+    "spawnsenemy":"reskinned boo",
+    "spawnenemydelays":[99e99],
+    "spawnenemyoffsetx":-0.5,
+    "spawnenemyoffsety":-0.0625,
+    "spawnpassedparameters":["boodir","booradius","boocount","boogap","boospeed","spawnedi","animationstart"],
+    "spawnpassedparametersbeforespawn":true,
+    "spawnsetparameters":[
+        ["transforms",false],
+        ["static",true],
+
+        ["movement",false],
+        ["animationtype","frames"],
+        ["animationframes",2],
+        ["animationspeed",0.1],
+        ["customtrigger",false],
+
+        ["timer",0],
+        ["duration",4],
+        ["customtimer",[
+            [0,["set","quadi"],["property","animationstart"]],
+            [0,"setframe",["property","quadi"]],
+
+            [0,["set","loopline"],["property","currentcustomtimerstage"]],
+            [0,["multiply","customtimertimer"],["property","boospeed"]],
+            [0,["add","timer"],["property","customtimertimer"]],
+            [0,["mod","timer"],["property","duration"]],
+
+            [0,["set","v"],["property","timer"]],
+            [0,["divide","v"],["property","duration"]],
+            [0,["multiply","v"],["property","boodir"]],
+
+            [0,["set","qgs"],["property","quadgroup"]],
+            [0,["set","qs"],["property","quad"]],
+
+            [0,["set","quadgroup"],["property","spawner"]],
+
+            [0,"setframe","x"],
+            [0,["set","x"],["property","quad"]],
+
+            [0,"setframe","y"],
+            [0,["set","y"],["property","quad"]],
+
+            [0,["set","offset"],6.283185307],
+            [0,["divide","offset"],["property","boogap"]],
+            [0,["multiply","offset"],["property","spawnedi"]],
+
+            [0,["set","angle"],["property","v"]],
+            [0,["multiply","angle"],12.56637061],
+            [0,["add","angle"],["property","offset"]],
+
+            [0,["sin","distx"],["property","angle"]],
+            [0,["multiply","distx"],["property","booradius"]],
+
+            [0,["cos","disty"],["property","angle"]],
+            [0,["multiply","disty"],["property","booradius"]],
+
+            [0,["add","x"],["property","distx"]],
+            [0,["add","y"],["property","disty"]],
+
+            [0,["set","quadgroup"],["property","qgs"]],
+            [0,["set","quad"],["property","qs"]],
+
+            [0,["set","customtimertimer"],0],
+            [0,["set","currentcustomtimerstage"],["property","loopline"]]
+        ]]
+    ],
+    "spawnsetparametersbeforespawn":true,
+
+    "rightclick":[
+        ["text","direction:"],
+        ["dropdown","boodir",5,["1","-1"],["right","left"]],
+        ["text","radius: (any number from 2 to 8, rounded to 1dp)"],
+        ["input","booradius",5],
+        ["text","boos: (any number from 2 to 20, rounded to 0dp)"],
+        ["input","boocount",2],
+        ["text","gap: (any number from 0 to 10, rounded to 1dp)"],
+        ["input","boogap",5],
+        ["text","speed: (any number from 0.1 to 1, rounded to 3dp)"],
+        ["input","boospeed",5]
+    ],
+    "rightclickdefaults":["-1","3","8","1.5","0.33"],
+    "rightclicktypes":["num","num","num","num","num"],
+
+    "animationstartstable":[1,3,5,7,9,11],
+    "prevanimationstart":false,
+    "prevanimationstart2":false,
+    "spawnedi":1,
+    "customtimer":[
+        [0,["set","drawable"]],
+
+        [0,["multiply","booradius"],10],
+        [0,["round","booradius"]],
+        [0,["divide","booradius"],10],
+        [0,["max","booradius"],2],
+        [0,["min","booradius"],8],
+
+        [0,["round","boocount"]],
+        [0,["max","boocount"],2],
+        [0,["min","boocount"],20],
+
+        [0,["multiply","boogap"],10],
+        [0,["round","boogap"]],
+        [0,["divide","boogap"],10],
+        [0,["max","boogap"],0],
+        [0,["min","boogap"],10],
+
+        [0,["multiply","boospeed"],1000],
+        [0,["round","boospeed"]],
+        [0,["divide","boospeed"],1000],
+        [0,["max","boospeed"],0.1],
+        [0,["min","boospeed"],1],
+
+        [0,["add","boogap"],["property","boocount"]],
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+
+        [0,["random","animationstart"],["property","animationstartstable"]],
+        [0,["if","prevanimationstart","==",["property","animationstart"],"or","prevanimationstart2","==",["property","animationstart"]],["subtract","currentcustomtimerstage"],2],
+        [0,["set","prevanimationstart2"],["property","prevanimationstart"]],
+        [0,["set","prevanimationstart"],["property","animationstart"]],
+
+        [0,["set","angle"],6.283185307],
+        [0,["divide","angle"],["property","boogap"]],
+
+        [0,["set","offset"],["property","angle"]],
+        [0,["multiply","offset"],["property","spawnedi"]],
+
+        [0,["sin","distx"],["property","offset"]],
+        [0,["multiply","distx"],["property","booradius"]],
+
+        [0,["cos","disty"],["property","offset"]],
+        [0,["multiply","disty"],["property","booradius"]],
+
+        [0,["set","childx"],["property","startx"]],
+        [0,["add","childx"],["property","distx"]],
+
+        [0,["set","childy"],["property","starty"]],
+        [0,["add","childy"],["property","disty"]],
+
+        [0,["set","x"],["property","childx"]],
+        [0,["set","y"],["property","childy"]],
+
+        [0,"spawnenemy"],
+        [0,["add","spawnedi"],1],
+
+        [0,["set","x"],["property","startx"]],
+        [0,["set","y"],["property","starty"]],
+
+        [0,["if","spawnedi","<=",["property","boocount"]],["set","currentcustomtimerstage"],["property","loopline"]]
+    ],
+    "dontloopcustomtimer":true,
+
+    "offsetX":8,
+    "offsetY":0,
+    "quadcenterX":8,
+    "quadcenterY":8
+}

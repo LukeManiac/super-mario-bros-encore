@@ -240,7 +240,6 @@
 			[0,["add","currentcustomtimerstage"],1],
 
 		[0,["if","charcontroller","~=","sth master controller"],["add","x"],0.25],
-
 		[0,["set","customtimertimer"],0],
 
 		[0,["set","teleportplayer"]],
@@ -265,8 +264,6 @@
 		[0,"playsound","multivarset"],
 
 		[0.5,["set","teleportplayer"],["property","playernumber"]],
-		[0,["set","customtimertimer"],0],
-
 		[0,["add","x"],0.5],
 		[0,["set","customtimertimer"],0],
 

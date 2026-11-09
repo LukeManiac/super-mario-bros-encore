@@ -1,0 +1,5 @@
+{
+    "actions": [ [ "animationoutput", "stopmusic", "on" ] ],
+    "conditions": [  ],
+    "triggers": [ [ "animationtrigger", "stopmusicon" ] ]
+}
