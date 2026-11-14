@@ -67,13 +67,18 @@
 		"customtimertimer":0,
 		"currentcustomtimerstage":1,
 		"customtimer":[
+			[0,["set","graphicoffsetplaceholder"],0],
 			[0,["set","loopline"],["property","currentcustomtimerstage"]],
 			[0,["multiply","customtimertimer"],4],
 			[0,["add","timer"],["property","customtimertimer"]],
 
 			[0,["sin","graphicoffsetspeed"],["property","timer"]],
 			[0,["multiply","graphicoffsetspeed"],["property","customtimertimer"]],
-			[0,["add","graphicoffset"],["property","graphicoffsetspeed"]],
+			[0,["add","graphicoffsetplaceholder"],["property","graphicoffsetspeed"]],
+
+			[0,["set","graphicoffset"],["property","graphicoffsetplaceholder"]],
+			[0,["multiply","graphicoffset"],2],
+			[0,["subtract","graphicoffset"],1],
 
 			[0,["set","customtimertimer"],0],
 			[0,["set","currentcustomtimerstage"],["property","loopline"]]
@@ -246,11 +251,8 @@
 		[0,["set","y"],["property","quad"]],
 
 		[0,"setframe","graphicoffset"],
-		[0,["multiply","quad"],2],
-		[0,["subtract","quad"],1],
-
-		[0,["set","offsetY"],["property","startoffsetY"]],
-		[0,["add","offsetY"],["property","quad"]],
+		[0,["set","offsetY"],["property","quad"]],
+		[0,["add","offsetY"],["property","startoffsetY"]],
 
 		[0,"setframe","width"],
 		[0,["set","poshelperw"],["property","width"]],

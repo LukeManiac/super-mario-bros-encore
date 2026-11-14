@@ -3,6 +3,7 @@
     "quadcount":11,
     "nospritesets":true,
     "drawback":true,
+	"updatewhensizechange":true,
 
     "animationspeed":0.2,
 
