@@ -144,19 +144,16 @@
         [0,["set","makesmarioshoot"]],
  
         [0,["set","sticktoplayer"]],
-
-        [0,["set","drawable"],["property","deletenow"]],
-        [0,["reverse","drawable"]],
+        [0,["set","drawable"],true],
 
         [0,["set","qgs"],["property","quadgroup"]],
         [0,["set","qs"],["property","quad"]],
 
-        [0,["if","deletenow","==",true],["add","currentcustomtimerstage"],4],
-            [0,"playsound","fader"],
+        [0,"playsound","fader"],
 
-            [0,["set","quadgroup"],["property","spawnedenemies"]],
-            [0,"setframe",["property","faderidx"]],
-            [0,["set","graphiccolor"],["property","quad"]],
+        [0,["set","quadgroup"],["property","spawnedenemies"]],
+        [0,"setframe",["property","faderidx"]],
+        [0,["set","graphiccolor"],["property","quad"]],
 
         [0,["set","quadgroup"],["property","qgs"]],
         [0,["set","quad"],["property","qs"]],

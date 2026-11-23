@@ -45,6 +45,7 @@
     "spawnenemydelays":[99e99],
 	"spawnenemyoffsety":99e99,
 	"spawnpassedparametersbeforespawn":true,
+	"spawnsetparametersbeforespawn":true,
 
 	"rightclick":[
 		["text","spawn children:"],
@@ -70,16 +71,15 @@
 		[0,["set","quadgroup"],["property","outtable"]],
 		[0,"setframe",["property","outi"]],
 
-		[0,["if","quad","notexists",""],["add","currentcustomtimerstage"],32],
+		[0,["if","quad","notexists",""],["add","currentcustomtimerstage"],33],
 			[0,["add","outi"],1],
 			[0,["set","quadgroup"],["property","quad"]],
             [0,"setframe",1],
 
-            [0,["if","quad","~=","player"],["add","currentcustomtimerstage"],28],
+            [0,["if","quad","~=","player"],["add","currentcustomtimerstage"],29],
 				[0,"setframe",2],
                 [0,["set","playerobj"],["property","quad"]],
-
-				[0,["set","quadgroup"],["property","playerobj"]],
+				[0,["set","quadgroup"],["property","quad"]],
 
 				[0,"setframe","playernumber"],
                 [0,["set","sticktoplayer"],["property","quad"]],
@@ -87,6 +87,7 @@
 				[0,"setframe","size"],
                 [0,["set","playersize"],["property","quad"]],
 
+				[0,["set","updatewhensizechange"],true],
 				[0,["set","customtimertimer"],0],
 				[0,["set","width"],0],
 				[0,["set","height"],0],

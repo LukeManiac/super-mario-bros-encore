@@ -1,0 +1,76 @@
+{
+    "hidden":true,
+    "quadcount":30,
+    "regiontriggerexclude":true,
+    "resistseverything":true,
+    "nospritesets":true,
+    "dontmirror":true,
+    "drawback":true,
+    "doesntunrotate":true,
+    "rotation":1.570796327,
+
+    "width":0,
+    "height":0,
+
+    "static":true,
+    "active":true,
+
+    "mask":[true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true],
+
+    "customtimer":[
+        [0,["set","qgs"],["property","quadgroup"]],
+        [0,["set","qs"],["property","quad"]],
+
+        [0,["set","quadi"],["property","donutwidth"]],
+        [0,["multiply","quadi"],2],
+        [0,["subtract","quadi"],1],
+
+        [0,["set","alREDy"]],
+
+        [0,["set","quadgroup"],["property","donut"]],
+        [0,"setframe","offsetX"],
+        [0,["set","offsetX"],["property","quad"]],
+
+        [0,["set","offsetXplus"],["property","donutwidth"]],
+        [0,["subtract","offsetXplus"],1],
+        [0,["multiply","offsetXplus"],8],
+
+        [0,["add","offsetX"],["property","offsetXplus"]],
+
+        [0,"setframe","x"],
+        [0,["set","x"],["property","quad"]],
+
+        [0,"setframe","y"],
+        [0,["set","y"],["property","quad"]],
+
+        [0,"setframe","shaketimer"],
+
+        [0,["if","quad","<=",0],["add","currentcustomtimerstage"],2],
+            [0,["if","alREDy","~=",true],["add","quadi"],1],
+            [0,["set","alREDy"],true],
+
+        [0,"setframe","last"],
+
+        [0,["if","quad","==",true],["add","currentcustomtimerstage"],2],
+            [0,["if","alREDy","~=",true],["add","quadi"],1],
+            [0,["set","alREDy"],true],
+
+        [0,["set","quadgroup"],["property","qgs"]],
+        [0,["set","quad"],["property","qs"]],
+        [0,"setframe",["property","quadi"]],
+
+        [0,["set","customtimertimer"],0]
+    ],
+
+    "offsetX":8,
+    "offsetY":0,
+    "quadcenterX":8,
+    "quadcenterY":120
+}

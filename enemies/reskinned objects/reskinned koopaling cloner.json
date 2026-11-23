@@ -16,10 +16,6 @@
     "active":true,
 
     "category":2,
-	"ignoreceilcollide":true,
-	"ignoreleftcollide":true,
-	"ignorerightcollide":true,
-	"ignorefloorcollide":true,
 
     "mask":[true,
             true,true,true,true,true,

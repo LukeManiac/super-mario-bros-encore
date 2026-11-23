@@ -1,0 +1,119 @@
+{
+    "quadcount":1,
+    "nospritesets":true,
+    "regiontriggerexclude":true,
+    "description":"place above donut - large donut cloner",
+
+    "graphiccolor":[0,0,0,0],
+
+    "spawnonload":true,
+    "width":0,
+    "height":0,
+
+    "static":false,
+    "active":true,
+    "gravity":0,
+
+    "category":2,
+
+    "mask":[true,
+            false,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true,true,true,true,true,
+            true],
+
+    "emancipatecheck":false,
+    "autodelete":false,
+
+    "spawnpassedparameters":["donut","donutwidth"],
+
+    "rightclick":[
+        ["text","width (any number between 1 to 15, rounded)"],
+        ["input","donutwidth",2]
+    ],
+    "rightclickdefaults":["1"],
+    "rightclicktypes":["num"],
+
+    "v":{"drawable":false},
+    "varsets":[["width","donutwidth"],["x","donutx"]],
+    "outi":1,
+    "customtimer":[
+        [0,["set","drawable"]],
+
+        [0,["set","floorcollide"],["property","addoutput"]],
+        [0,["set","playsound"],["property","spawnenemy"]],
+
+        [0,["set","masterloopline"],["property","currentcustomtimerstage"]],
+        [0,["set","customtimertimer"],0],
+
+        [0,["set","x"],["property","startx"]],
+        [0,["set","y"],["property","starty"]],
+
+        [0,["set","quadgroup"],["property","outtable"]],
+        [0,"setframe",["property","outi"]],
+        [0,["if","quad","notexists",""],["set","currentcustomtimerstage"],["property","masterloopline"]],
+
+        [0,["set","donutloopline"],["property","currentcustomtimerstage"]],
+        [0,["set","quadgroup"],["property","quad"]],
+        [0,"setframe",2],
+        [0,["set","donut"],["property","quad"]],
+        [0,["set","quadgroup"],["property","quad"]],
+		[0,"setframe","shaketimer"],
+
+		[0,["if","quad","exists",""],["add","currentcustomtimerstage"],2],
+            [0,["add","outi"],1],
+            [0,["set","currentcustomtimerstage"],["property","masterloopline"]],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+        [0,["add","outi"],1],
+
+        [0,["set","customtimertimer"],0],
+        [0,["if",["property","sarelease"],"notexists",""],["set","currentcustomtimerstage"],["property","loopline"]],
+
+        [0,["if","prevdonut","==",["property","donut"]],["add","currentcustomtimerstage"],13],
+            [0,["set","spawnps"],["property","spawnpassedparameters"]],
+            [0,["set","spawnpassedparameters"],["table","varsets"]],
+
+            [0,["set","table"],["property","donut"]],
+            [0,"setframe","x"],
+
+            [0,["set","donutx"],["property","donutwidth"]],
+            [0,["round","donutx"]],
+            [0,["subtract","donutx"],1],
+            [0,["divide","donutx"],2],
+            [0,["reverse","donutx"]],
+            [0,["add","donutx"],["property","quad"]],
+
+            [0,"playsound","multivarset"],
+
+            [0,["set","spawnpassedparameters"],["property","spawnps"]],
+            [0,"playsound","large donut"],
+
+        [0,["set","obj"],["property","donut"]],
+        [0,["set","prevdonut"],["property","donut"]],
+        [0,["set","spawnenemy"],["property","sarelease"]],
+        [0,"spawnenemy"],
+
+        [0,["set","loopline"],["property","currentcustomtimerstage"]],
+        [0,["set","x"],["property","startx"]],
+        [0,["set","y"],["property","starty"]],
+
+        [0,["set","quadgroup"],["property","outtable"]],
+        [0,"setframe",["property","outi"]],
+        [0,["if","quad","exists",""],["set","currentcustomtimerstage"],["property","donutloopline"]],
+
+        [0,["set","customtimertimer"],0],
+        [0,["set","currentcustomtimerstage"],["property","loopline"]]
+    ],
+    "dontloopcustomtimer":true,
+
+    "customtrigger":[[["if","x","==","x"],["set","speedy"],20]],
+
+    "offsetX":0,
+    "offsetY":16,
+    "quadcenterX":8,
+    "quadcenterY":8
+}
